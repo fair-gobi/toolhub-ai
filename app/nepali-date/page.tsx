@@ -1,51 +1,48 @@
 'use client'
 import { useState } from 'react'
 import Link from 'next/link'
-
-// Simple BS-AD conversion (using nepali-date-converter logic)
-const bsMonths = ['बैशाख','जेठ','असार','साउन','भदौ','असोज','कार्तिक','मंसिर','पुष','माघ','फाल्गुन','चैत']
+import { ADToBS, BSToAD } from 'bikram-sambat-js'
 
 export default function NepaliDate() {
   const [adDate, setAdDate] = useState('')
-  const [bsResult, setBsResult] = useState('')
+  const [bsDate, setBsDate] = useState('')
+  const [result, setResult] = useState('')
 
-  const convertToBS = () => {
+  const convertADtoBS = () => {
     if (!adDate) return
-    const date = new Date(adDate)
-    // Approximate conversion (2079 BS ≈ 2022 AD, add 56 years 8 months)
-    const bsYear = date.getFullYear() + 57
-    const bsMonth = (date.getMonth() + 9) % 12
-    const bsDay = date.getDate()
-    setBsResult(`${bsYear} ${bsMonths[bsMonth]} ${bsDay}`)
+    const [y, m, d] = adDate.split('-').map(Number)
+    const bs = ADToBS(`${y}-${m}-${d}`)
+    setResult(`वि.सं. ${bs}`)
+  }
+
+  const convertBStoAD = () => {
+    if (!bsDate) return
+    const ad = BSToAD(bsDate)
+    setResult(`AD: ${ad}`)
   }
 
   return (
     <div className="min-h-screen bg-gray-50 p-6">
       <div className="max-w-xl mx-auto">
-        <Link href="/" className="text-blue-600">← Back</Link>
-        <h1 className="text-3xl font-bold mt-4 mb-2">Nepali Date Converter</h1>
-        <p className="text-gray-600 mb-6">AD to BS (वि.सं.) converter</p>
+        <Link href="/" className="text-blue-600">← Back to ToolHub</Link>
+        <h1 className="text-3xl font-bold mt-4 mb-2">Nepali Date Converter 🇳🇵</h1>
+        <p className="text-gray-600 mb-6">Accurate BS ↔ AD converter</p>
         
-        <div className="bg-white p-6 rounded-xl shadow">
-          <label className="block mb-2 font-medium">Select AD Date:</label>
-          <input 
-            type="date" 
-            value={adDate}
-            onChange={(e) => setAdDate(e.target.value)}
-            className="w-full border p-3 rounded mb-4"
-          />
-          <button 
-            onClick={convertToBS}
-            className="w-full bg-red-600 text-white py-3 rounded font-medium"
-          >
-            Convert to BS
-          </button>
-          
-          {bsResult && (
-            <div className="mt-6 p-4 bg-red-50 rounded text-center">
-              <div className="text-sm text-gray-600">विक्रम संवत</div>
-              <div className="text-2xl font-bold text-red-700">{bsResult}</div>
-            </div>
+        <div className="bg-white p-6 rounded-xl shadow space-y-6">
+          <div>
+            <label className="block mb-2 font-medium">AD to BS:</label>
+            <input type="date" value={adDate} onChange={(e) => setAdDate(e.target.value)} className="w-full border p-3 rounded mb-2" />
+            <button onClick={convertADtoBS} className="w-full bg-red-600 text-white py-2 rounded">Convert to BS</button>
+          </div>
+
+          <div>
+            <label className="block mb-2 font-medium">BS to AD (YYYY-MM-DD):</label>
+            <input type="text" placeholder="2081-03-31" value={bsDate} onChange={(e) => setBsDate(e.target.value)} className="w-full border p-3 rounded mb-2" />
+            <button onClick={convertBStoAD} className="w-full bg-blue-600 text-white py-2 rounded">Convert to AD</button>
+          </div>
+
+          {result && (
+            <div className="p-4 bg-gray-100 rounded text-center text-xl font-bold">{result}</div>
           )}
         </div>
       </div>
