@@ -10,6 +10,11 @@ const tools = [
   { name: "PDF Merger", href: "/pdf-merger", desc: "Merge PDFs" },
   { name: "PDF to Word", href: "/pdf-to-word", desc: "PDF to text" },
   { name: "Nepali Date", href: "/nepali-date", desc: "BS ↔ AD" },
+  { name: "PDF Split", href: "/pdf-split", desc: "Split into pages" },
+  { name: "PDF Extract", href: "/pdf-extract", desc: "Extract pages" },
+  { name: "PDF Password", href: "/pdf-password", desc: "Lock/Unlock" },
+  { name: "PDF Metadata", href: "/pdf-meta", desc: "View info" },
+  { name: "PDF Compress", href: "/pdf-compress", desc: "Reduce size" },
 ];
 
 export default function Home() {
