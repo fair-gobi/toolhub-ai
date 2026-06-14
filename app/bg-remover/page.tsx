@@ -11,7 +11,7 @@ export default function BgRemover() {
     setResult('Processing...')
     const form = new FormData()
     form.append('image_file', file)
-    // Free API - remove.bg demo (replace with your key later)
+    // Free API - remove.bg demo (87zQiymRcTExFvHCsA5Rq7Xc)
     const res = await fetch('https://api.remove.bg/v1.0/removebg', {
       method: 'POST',
       headers: { 'X-Api-Key': 'YOUR_KEY' },
