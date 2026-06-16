@@ -1,24 +1,25 @@
 export async function POST(req: Request) {
-  try {
-    const token = process.env.HUGGINGFACE_TOKEN
-    const file = await req.blob()
+  const token = process.env.HUGGINGFACE_TOKEN
+  const file = await req.blob()
 
-    const res = await fetch('https://api-inference.huggingface.co/models/NotAnotherTech/bg-removal', {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-      body: file
+  const res = await fetch('https://api-inference.huggingface.co/models/NotAnotherTech/bg-removal', {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${token}` },
+    body: file
+  })
+
+  const text = await res.text()
+  console.log('HF response:', res.status, text.slice(0,200))
+
+  if (!res.ok) {
+    return new Response(text, { 
+      status: res.status,
+      headers: { 'Content-Type': 'application/json' }
     })
-
-    if (!res.ok) {
-      const text = await res.text()
-      return new Response(JSON.stringify({ error: text }), { status: 500 })
-    }
-
-    const blob = await res.blob()
-    return new Response(blob, { headers: { 'Content-Type': 'image/png' } })
-  } catch (e:any) {
-    return new Response(JSON.stringify({ error: e.message }), { status: 500 })
   }
+
+  // If it's image, return as blob
+  return new Response(await res.blob(), {
+    headers: { 'Content-Type': 'image/png' }
+  })
 }
