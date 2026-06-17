@@ -5,7 +5,7 @@ export async function POST(req: Request) {
     const file = await req.blob()
     const fd = new FormData()
     fd.append('image_file', file, 'image.jpg')
-    fd.append('scale', '2')
+    fd.append('scale', '4')
     
     const res = await fetch('https://api.deepai.org/api/torch-srgan', {
       method: 'POST',
