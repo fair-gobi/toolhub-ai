@@ -4,7 +4,7 @@ const tools = [
   { name: "QR Generator", href: "/qr-generator", desc: "Create QR codes" },
   { name: "Image Compressor", href: "/image-compressor", desc: "Compress images" },
   { name: "BG Remover", href: "/bg-remover", desc: "Remove background 1-click" },
-  { name: "Image Upscaler", href: "/image-upscaler", desc: "AI 2x upscale" },
+  { name: "Image Upscaler", href: "/image-upscaler", desc: "AI 4x upscale" },
   { name: "Photo Restorer", href: "/photo-restorer", desc: "Restore old photos" },
   { name: "YT Thumbnail", href: "/yt-thumbnail", desc: "Download YouTube thumbs" },
   { name: "Payment QR 🇳🇵", href: "/payment-qr", desc: "eSewa/Khalti QR" },
