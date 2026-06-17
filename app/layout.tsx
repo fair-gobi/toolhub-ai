@@ -29,6 +29,12 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+<footer className="text-center p-6 text-sm text-gray-500">
+  <a href="/about" className="mx-2">About</a>
+  <a href="/privacy" className="mx-2">Privacy</a>
+  <a href="/contact" className="mx-2">Contact</a>
+  <p className="mt-2">© 2026 ToolHub Nepal</p>
+</footer>
       </body>
     </html>
   );

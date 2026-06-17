@@ -1,51 +1,20 @@
-'use client'
-import { useState } from 'react'
-import Link from 'next/link'
-import { ADToBS, BSToAD } from 'bikram-sambat-js'
+export const metadata = {
+  title: "Nepali Date Converter - Free Online Tool | ToolHub Nepal",
+  description: "Convert BS to AD and AD to BS. Fast, free, no signup required. Made in Nepal.",
+};
 
-export default function NepaliDate() {
-  const [adDate, setAdDate] = useState('')
-  const [bsDate, setBsDate] = useState('')
-  const [result, setResult] = useState('')
-
-  const convertADtoBS = () => {
-    if (!adDate) return
-    const [y, m, d] = adDate.split('-').map(Number)
-    const bs = ADToBS(`${y}-${m}-${d}`)
-    setResult(`वि.सं. ${bs}`)
-  }
-
-  const convertBStoAD = () => {
-    if (!bsDate) return
-    const ad = BSToAD(bsDate)
-    setResult(`AD: ${ad}`)
-  }
-
+export default function Page() {
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
-      <div className="max-w-xl mx-auto">
-        <Link href="/" className="text-blue-600">← Back to ToolHub</Link>
-        <h1 className="text-3xl font-bold mt-4 mb-2">Nepali Date Converter 🇳🇵</h1>
-        <p className="text-gray-600 mb-6">Accurate BS ↔ AD converter</p>
-        
-        <div className="bg-white p-6 rounded-xl shadow space-y-6">
-          <div>
-            <label className="block mb-2 font-medium">AD to BS:</label>
-            <input type="date" value={adDate} onChange={(e) => setAdDate(e.target.value)} className="w-full border p-3 rounded mb-2" />
-            <button onClick={convertADtoBS} className="w-full bg-red-600 text-white py-2 rounded">Convert to BS</button>
-          </div>
-
-          <div>
-            <label className="block mb-2 font-medium">BS to AD (YYYY-MM-DD):</label>
-            <input type="text" placeholder="2081-03-31" value={bsDate} onChange={(e) => setBsDate(e.target.value)} className="w-full border p-3 rounded mb-2" />
-            <button onClick={convertBStoAD} className="w-full bg-blue-600 text-white py-2 rounded">Convert to AD</button>
-          </div>
-
-          {result && (
-            <div className="p-4 bg-gray-100 rounded text-center text-xl font-bold">{result}</div>
-          )}
+    <main className="min-h-screen bg-gray-50 p-8">
+      <div className="max-w-2xl mx-auto bg-white rounded-xl shadow p-8 text-center">
+        <h1 className="text-3xl font-bold mb-4">Nepali Date Converter</h1>
+        <p className="text-gray-600 mb-6">Convert BS to AD and AD to BS</p>
+        <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6">
+          <p className="text-lg">?? Coming Soon</p>
+          <p className="text-sm text-gray-600 mt-2">We're building this tool. Check back soon!</p>
         </div>
+        <a href="/" className="inline-block mt-6 text-blue-600 hover:underline">? Back to all tools</a>
       </div>
-    </div>
+    </main>
   )
 }

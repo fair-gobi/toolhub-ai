@@ -1,39 +1,20 @@
-'use client'
-import { useState } from 'react'
-import Link from 'next/link'
+export const metadata = {
+  title: "YouTube Thumbnail Downloader - Free Online Tool | ToolHub Nepal",
+  description: "Download HD YouTube thumbnails. Fast, free, no signup required. Made in Nepal.",
+};
 
-export default function YTThumb() {
-  const [url, setUrl] = useState('')
-  const [thumbs, setThumbs] = useState<string[]>([])
-
-  const getThumb = () => {
-    const id = url.match(/(?:v=|\/)([0-9A-Za-z_-]{11})/)?.[1]
-    if (!id) return
-    setThumbs([
-      `https://img.youtube.com/vi/${id}/maxresdefault.jpg`,
-      `https://img.youtube.com/vi/${id}/hqdefault.jpg`,
-      `https://img.youtube.com/vi/${id}/mqdefault.jpg`
-    ])
-  }
-
+export default function Page() {
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
-      <div className="max-w-xl mx-auto">
-        <Link href="/" className="text-blue-600">← Back</Link>
-        <h1 className="text-3xl font-bold mt-4">YouTube Thumbnail Downloader</h1>
-        <div className="bg-white p-6 rounded-xl shadow mt-4">
-          <input value={url} onChange={e => setUrl(e.target.value)} placeholder="Paste YouTube URL" className="w-full border p-3 rounded mb-3" />
-          <button onClick={getThumb} className="w-full bg-red-600 text-white py-3 rounded">Get Thumbnails</button>
-          <div className="grid gap-4 mt-4">
-            {thumbs.map((t,i) => (
-              <a key={i} href={t} download target="_blank" className="block">
-                <img src={t} className="w-full rounded border" />
-                <p className="text-center text-sm mt-1">Download {['HD','HQ','MQ'][i]}</p>
-              </a>
-            ))}
-          </div>
+    <main className="min-h-screen bg-gray-50 p-8">
+      <div className="max-w-2xl mx-auto bg-white rounded-xl shadow p-8 text-center">
+        <h1 className="text-3xl font-bold mb-4">YouTube Thumbnail Downloader</h1>
+        <p className="text-gray-600 mb-6">Download HD YouTube thumbnails</p>
+        <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6">
+          <p className="text-lg">?? Coming Soon</p>
+          <p className="text-sm text-gray-600 mt-2">We're building this tool. Check back soon!</p>
         </div>
+        <a href="/" className="inline-block mt-6 text-blue-600 hover:underline">? Back to all tools</a>
       </div>
-    </div>
+    </main>
   )
 }

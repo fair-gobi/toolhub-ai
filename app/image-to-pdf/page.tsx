@@ -1,54 +1,20 @@
-'use client'
+export const metadata = {
+  title: "Image to PDF - Free Online Tool | ToolHub Nepal",
+  description: "Convert images to PDF free. Fast, free, no signup required. Made in Nepal.",
+};
 
-import { useState } from 'react'
-import Link from 'next/link'
-
-export default function ImageToPDF() {
-  const [files, setFiles] = useState<File[]>([])
-
-  const convert = async () => {
-    const { jsPDF } = await import('jspdf')
-    const pdf = new jsPDF()
-    
-    for (let i = 0; i < files.length; i++) {
-      if (i > 0) pdf.addPage()
-      const img = await createImageBitmap(files[i])
-      const canvas = document.createElement('canvas')
-      canvas.width = img.width
-      canvas.height = img.height
-      const ctx = canvas.getContext('2d')!
-      ctx.drawImage(img, 0, 0)
-      const dataUrl = canvas.toDataURL('image/jpeg', 0.9)
-      pdf.addImage(dataUrl, 'JPEG', 10, 10, 190, 0)
-    }
-    
-    pdf.save('images.pdf')
-  }
-
+export default function Page() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white">
-      <header className="border-b border-slate-800 bg-slate-950/50 backdrop-blur">
-        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-400 flex items-center justify-center font-bold">T</div>
-            <span className="font-semibold">ToolHub</span>
-          </Link>
-          <Link href="/" className="text-sm text-slate-400 hover:text-white">← Back</Link>
+    <main className="min-h-screen bg-gray-50 p-8">
+      <div className="max-w-2xl mx-auto bg-white rounded-xl shadow p-8 text-center">
+        <h1 className="text-3xl font-bold mb-4">Image to PDF</h1>
+        <p className="text-gray-600 mb-6">Convert images to PDF free</p>
+        <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6">
+          <p className="text-lg">?? Coming Soon</p>
+          <p className="text-sm text-gray-600 mt-2">We're building this tool. Check back soon!</p>
         </div>
-      </header>
-      <main className="max-w-4xl mx-auto px-6 py-16">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-3">Image to PDF</h1>
-          <p className="text-slate-400">Convert JPG, PNG to PDF</p>
-        </div>
-        <div className="bg-slate-800/50 rounded-2xl border border-slate-700 p-8">
-          <input type="file" accept="image/*" multiple onChange={e => setFiles(Array.from(e.target.files || []))} className="hidden" id="imgs" />
-          <label htmlFor="imgs" className="block border-2 border-dashed border-slate-600 rounded-xl p-12 text-center cursor-pointer">
-            {files.length ? `${files.length} images selected` : 'Choose images'}
-          </label>
-          {files.length > 0 && <button onClick={convert} className="w-full mt-4 py-3 rounded-xl bg-gradient-to-r from-blue-500 to-cyan-400">Create PDF</button>}
-        </div>
-      </main>
-    </div>
+        <a href="/" className="inline-block mt-6 text-blue-600 hover:underline">? Back to all tools</a>
+      </div>
+    </main>
   )
 }

@@ -1,39 +1,20 @@
-'use client'
-import { useState } from 'react'
-import { PDFDocument } from 'pdf-lib'
+export const metadata = {
+  title: "PDF Merger - Free Online Tool | ToolHub Nepal",
+  description: "Merge multiple PDFs into one. Fast, free, no signup required. Made in Nepal.",
+};
 
-export default function PdfMerger() {
-  const [files, setFiles] = useState<File[]>([])
-  const [loading, setLoading] = useState(false)
-
-  const merge = async () => {
-    if (files.length < 2) return alert('Select at least 2 PDFs')
-    setLoading(true)
-    const merged = await PDFDocument.create()
-    for (const f of files) {
-      const buf = await f.arrayBuffer()
-      const pdf = await PDFDocument.load(buf)
-      const pages = await merged.copyPages(pdf, pdf.getPageIndices())
-      pages.forEach(p => merged.addPage(p))
-    }
-    const bytes = await merged.save()
-    const blob = new Blob([bytes], { type: 'application/pdf' })
-    const url = URL.createObjectURL(blob)
-    const a = document.createElement('a')
-    a.href = url
-    a.download = 'merged.pdf'
-    a.click()
-    setLoading(false)
-  }
-
+export default function Page() {
   return (
-    <div className="max-w-2xl mx-auto p-6">
-      <h1 className="text-2xl font-bold mb-4">PDF Merger</h1>
-      <input type="file" accept="application/pdf" multiple onChange={e => setFiles(Array.from(e.target.files || []))} className="mb-4" />
-      <p className="mb-2">{files.length} files selected</p>
-      <button onClick={merge} disabled={loading} className="bg-blue-600 text-white px-4 py-2 rounded disabled:opacity-50">
-        {loading? 'Merging...' : 'Merge PDFs'}
-      </button>
-    </div>
+    <main className="min-h-screen bg-gray-50 p-8">
+      <div className="max-w-2xl mx-auto bg-white rounded-xl shadow p-8 text-center">
+        <h1 className="text-3xl font-bold mb-4">PDF Merger</h1>
+        <p className="text-gray-600 mb-6">Merge multiple PDFs into one</p>
+        <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6">
+          <p className="text-lg">?? Coming Soon</p>
+          <p className="text-sm text-gray-600 mt-2">We're building this tool. Check back soon!</p>
+        </div>
+        <a href="/" className="inline-block mt-6 text-blue-600 hover:underline">? Back to all tools</a>
+      </div>
+    </main>
   )
 }

@@ -1,25 +1,20 @@
-'use client'
-import { useState } from 'react'
-import Link from 'next/link'
+export const metadata = {
+  title: "Class Routine Maker - Free Online Tool | ToolHub Nepal",
+  description: "Create school college routine. Fast, free, no signup required. Made in Nepal.",
+};
 
-export default function Routine() {
-  const [rows, setRows] = useState(Array(7).fill('').map((_,i)=>({day:['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][i], sub:''})))
-
+export default function Page() {
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
-      <div className="max-w-xl mx-auto">
-        <Link href="/" className="text-blue-600">← Back</Link>
-        <h1 className="text-3xl font-bold mt-4">Routine Maker</h1>
-        <div className="bg-white p-6 rounded-xl shadow mt-4">
-          {rows.map((r,i)=>(
-            <div key={i} className="flex gap-2 mb-2">
-              <span className="w-12 pt-2">{r.day}</span>
-              <input value={r.sub} onChange={e=>{const n=[...rows];n[i].sub=e.target.value;setRows(n)}} placeholder="Subjects" className="flex-1 border p-2 rounded" />
-            </div>
-          ))}
-          <button onClick={()=>window.print()} className="w-full bg-green-600 text-white py-2 rounded mt-4">Print Routine</button>
+    <main className="min-h-screen bg-gray-50 p-8">
+      <div className="max-w-2xl mx-auto bg-white rounded-xl shadow p-8 text-center">
+        <h1 className="text-3xl font-bold mb-4">Class Routine Maker</h1>
+        <p className="text-gray-600 mb-6">Create school college routine</p>
+        <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6">
+          <p className="text-lg">?? Coming Soon</p>
+          <p className="text-sm text-gray-600 mt-2">We're building this tool. Check back soon!</p>
         </div>
+        <a href="/" className="inline-block mt-6 text-blue-600 hover:underline">? Back to all tools</a>
       </div>
-    </div>
+    </main>
   )
 }

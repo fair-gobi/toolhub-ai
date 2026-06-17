@@ -1,39 +1,20 @@
-'use client'
+export const metadata = {
+  title: "QR Generator - Free Online Tool | ToolHub Nepal",
+  description: "Create free QR codes for URLs, text, WiFi. Fast, free, no signup required. Made in Nepal.",
+};
 
-import { useState, useEffect } from 'react'
-import Link from 'next/link'
-
-export default function QRGenerator() {
-  const [text, setText] = useState('https://toolhub.com')
-  const [qr, setQr] = useState('')
-
-  useEffect(() => {
-    import('qrcode').then(QR => {
-      QR.toDataURL(text, { width: 300, margin: 2 }).then(setQr)
-    })
-  }, [text])
-
+export default function Page() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white">
-      <header className="border-b border-slate-800 bg-slate-950/50 backdrop-blur">
-        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-400 flex items-center justify-center font-bold">T</div>
-            <span className="font-semibold">ToolHub</span>
-          </Link>
-          <Link href="/" className="text-sm text-slate-400 hover:text-white">← Back</Link>
+    <main className="min-h-screen bg-gray-50 p-8">
+      <div className="max-w-2xl mx-auto bg-white rounded-xl shadow p-8 text-center">
+        <h1 className="text-3xl font-bold mb-4">QR Generator</h1>
+        <p className="text-gray-600 mb-6">Create free QR codes for URLs, text, WiFi</p>
+        <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6">
+          <p className="text-lg">?? Coming Soon</p>
+          <p className="text-sm text-gray-600 mt-2">We're building this tool. Check back soon!</p>
         </div>
-      </header>
-      <main className="max-w-4xl mx-auto px-6 py-16">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-3">QR Generator</h1>
-          <p className="text-slate-400">Create QR codes instantly</p>
-        </div>
-        <div className="bg-slate-800/50 rounded-2xl border border-slate-700 p-8 max-w-2xl mx-auto">
-          <input value={text} onChange={e => setText(e.target.value)} className="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-xl mb-6" placeholder="Enter URL or text" />
-          {qr && <div className="text-center"><img src={qr} className="mx-auto bg-white p-4 rounded-xl" /><a href={qr} download="qr.png" className="inline-block mt-4 px-6 py-2 bg-blue-500 rounded-lg">Download PNG</a></div>}
-        </div>
-      </main>
-    </div>
+        <a href="/" className="inline-block mt-6 text-blue-600 hover:underline">? Back to all tools</a>
+      </div>
+    </main>
   )
 }

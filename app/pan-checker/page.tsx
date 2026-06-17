@@ -1,24 +1,20 @@
-'use client'
-import { useState } from 'react'
-import Link from 'next/link'
+export const metadata = {
+  title: "PAN VAT Checker - Free Online Tool | ToolHub Nepal",
+  description: "Verify Nepal PAN VAT numbers. Fast, free, no signup required. Made in Nepal.",
+};
 
-export default function PAN() {
-  const [pan, setPan] = useState('')
-  const valid = /^\d{9}$/.test(pan)
-
+export default function Page() {
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
-      <div className="max-w-xl mx-auto">
-        <Link href="/" className="text-blue-600">← Back</Link>
-        <h1 className="text-3xl font-bold mt-4">PAN/VAT Checker 🇳🇵</h1>
-        <div className="bg-white p-6 rounded-xl shadow mt-4">
-          <input value={pan} onChange={e=>setPan(e.target.value)} placeholder="Enter 9-digit PAN" maxLength={9} className="w-full border p-3 rounded mb-3" />
-          <div className={`p-4 rounded text-center font-bold ${pan? (valid? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800') : 'bg-gray-100'}`}>
-            {pan? (valid? '✓ Valid PAN format' : '✗ Invalid (must be 9 digits)') : 'Enter PAN'}
-          </div>
-          <p className="text-sm text-gray-500 mt-3">Note: Format check only. For real verification, connect to IRD API later.</p>
+    <main className="min-h-screen bg-gray-50 p-8">
+      <div className="max-w-2xl mx-auto bg-white rounded-xl shadow p-8 text-center">
+        <h1 className="text-3xl font-bold mb-4">PAN VAT Checker</h1>
+        <p className="text-gray-600 mb-6">Verify Nepal PAN VAT numbers</p>
+        <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6">
+          <p className="text-lg">?? Coming Soon</p>
+          <p className="text-sm text-gray-600 mt-2">We're building this tool. Check back soon!</p>
         </div>
+        <a href="/" className="inline-block mt-6 text-blue-600 hover:underline">? Back to all tools</a>
       </div>
-    </div>
+    </main>
   )
 }

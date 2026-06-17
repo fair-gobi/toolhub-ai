@@ -1,33 +1,20 @@
-'use client'
-import { useState } from 'react'
-import Link from 'next/link'
+export const metadata = {
+  title: "eSewa Statement Parser - Free Online Tool | ToolHub Nepal",
+  description: "Convert eSewa statements to Excel. Fast, free, no signup required. Made in Nepal.",
+};
 
-export default function Esewa() {
-  const [text, setText] = useState('')
-  const parse = () => {
-    const lines = text.split('\n').filter(l=>l.includes('Rs'))
-    return lines.map(l=>({raw:l}))
-  }
-  const data = text? parse() : []
-
+export default function Page() {
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
-      <div className="max-w-2xl mx-auto">
-        <Link href="/" className="text-blue-600">← Back</Link>
-        <h1 className="text-3xl font-bold mt-4">eSewa Statement Parser</h1>
-        <div className="bg-white p-6 rounded-xl shadow mt-4">
-          <textarea value={text} onChange={e=>setText(e.target.value)} className="w-full h-40 border p-3 rounded" placeholder="Paste eSewa statement text..." />
-          {data.length>0 && (
-            <div className="mt-4">
-              <h3 className="font-bold mb-2">Found {data.length} transactions:</h3>
-              <div className="max-h-64 overflow-auto">
-                {data.map((d,i)=><div key={i} className="text-sm p-2 border-b">{d.raw}</div>)}
-              </div>
-              <button onClick={()=>{const csv=data.map(d=>d.raw).join('\n'); const b=new Blob([csv],{type:'text/csv'}); const a=document.createElement('a'); a.href=URL.createObjectURL(b); a.download='esewa.csv'; a.click()}} className="w-full bg-green-600 text-white py-2 rounded mt-3">Download CSV</button>
-            </div>
-          )}
+    <main className="min-h-screen bg-gray-50 p-8">
+      <div className="max-w-2xl mx-auto bg-white rounded-xl shadow p-8 text-center">
+        <h1 className="text-3xl font-bold mb-4">eSewa Statement Parser</h1>
+        <p className="text-gray-600 mb-6">Convert eSewa statements to Excel</p>
+        <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6">
+          <p className="text-lg">?? Coming Soon</p>
+          <p className="text-sm text-gray-600 mt-2">We're building this tool. Check back soon!</p>
         </div>
+        <a href="/" className="inline-block mt-6 text-blue-600 hover:underline">? Back to all tools</a>
       </div>
-    </div>
+    </main>
   )
 }
