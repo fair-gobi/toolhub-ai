@@ -1,41 +1,91 @@
 import Link from "next/link";
 
-const tools = [
-  { name: "QR Generator", href: "/qr-generator", desc: "Create QR codes" },
-  { name: "Image Compressor", href: "/image-compressor", desc: "Compress images" },
-  { name: "BG Remover", href: "/bg-remover", desc: "Remove background 1-click" },
-  { name: "Image Upscaler", href: "/image-upscaler", desc: "AI 4x upscale" },
-  { name: "Photo Restorer", href: "/photo-restorer", desc: "Restore old photos" },
-  { name: "YT Thumbnail", href: "/yt-thumbnail", desc: "Download YouTube thumbs" },
-  { name: "Payment QR 🇳🇵", href: "/payment-qr", desc: "eSewa/Khalti QR" },
-  { name: "Image to PDF", href: "/image-to-pdf", desc: "Convert to PDF" },
-  { name: "PDF Merger", href: "/pdf-merger", desc: "Merge PDFs" },
-  { name: "PDF to Word", href: "/pdf-to-word", desc: "PDF to text" },
-  { name: "Nepali Date", href: "/nepali-date", desc: "BS ↔ AD" },
-  { name: "PDF Split", href: "/pdf-split", desc: "Split into pages" },
-  { name: "PDF Extract", href: "/pdf-extract", desc: "Extract pages" },
-  { name: "PDF Password", href: "/pdf-password", desc: "Lock/Unlock" },
-  { name: "PDF Metadata", href: "/pdf-meta", desc: "View info" },
-  { name: "PDF Compress", href: "/pdf-compress", desc: "Reduce size" },
-  { name: "GPA Calculator", href: "/gpa-calculator", desc: "TU/NEB GPA" },
-  { name: "Routine Maker", href: "/routine-maker", desc: "Class routine" },
-  { name: "Notes Converter", href: "/notes-converter", desc: "TXT/MD/PDF" },
-  { name: "Invoice Generator", href: "/invoice-generator", desc: "Nepali invoice" },
-  { name: "PAN Checker", href: "/pan-checker", desc: "VAT/PAN valid" },
-  { name: "eSewa Parser", href: "/esewa-parser", desc: "Statement to CSV" },
+const categories = [
+  {
+    name: "Prompt Library",
+    href: "/prompts",
+    icon: "💡",
+    count: "500+ prompts",
+    desc: "ChatGPT, Claude, Gemini prompts"
+  },
+  {
+    name: "AI Tools",
+    href: "/ai-tools",
+    icon: "🤖",
+    count: "8 tools",
+    desc: "Generators & AI utilities"
+  },
+  {
+    name: "PDF Tools",
+    href: "/pdf-tools",
+    icon: "📄",
+    count: "10 tools",
+    desc: "Merge, split, compress"
+  },
+  {
+    name: "Image Tools",
+    href: "/image-tools",
+    icon: "🖼️",
+    count: "9 tools",
+    desc: "Edit, convert, enhance"
+  },
+  {
+    name: "Developer Tools",
+    href: "/dev-tools",
+    icon: "💻",
+    count: "15 tools",
+    desc: "JSON, Base64, formatters"
+  },
+  {
+    name: "Text Tools",
+    href: "/text-tools",
+    icon: "📝",
+    count: "10 tools",
+    desc: "Counters, converters"
+  },
+  {
+    name: "Business Tools",
+    href: "/business-tools",
+    icon: "💼",
+    count: "10 tools",
+    desc: "Calculators & generators"
+  },
+  {
+    name: "Finance Tools",
+    href: "/finance-tools",
+    icon: "💰",
+    count: "8 tools",
+    desc: "EMI, tax, ROI"
+  },
+  {
+    name: "Utility Tools",
+    href: "/utility-tools",
+    icon: "🔧",
+    count: "12 tools",
+    desc: "Nepali tools & more"
+  },
 ];
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gray-50 p-8">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-bold mb-2">ToolHub</h1>
-        <p className="text-gray-600 mb-8">Free online tools made in Nepal</p>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {tools.map((tool) => (
-            <Link key={tool.href} href={tool.href} className="p-6 bg-white rounded-xl shadow hover:shadow-md transition">
-              <h2 className="font-semibold text-lg">{tool.name}</h2>
-              <p className="text-sm text-gray-500 mt-1">{tool.desc}</p>
+    <main className="min-h-screen bg-gray-50">
+      <div className="max-w-6xl mx-auto px-4 py-12">
+        <div className="text-center mb-12">
+          <h1 className="text-5xl font-bold mb-3">ToolHub Nepal</h1>
+          <p className="text-xl text-gray-600">70+ free online tools — no signup required</p>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {categories.map((cat) => (
+            <Link
+              key={cat.href}
+              href={cat.href}
+              className="group p-8 bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all border border-gray-100"
+            >
+              <div className="text-4xl mb-3">{cat.icon}</div>
+              <h2 className="text-xl font-bold group-hover:text-blue-600">{cat.name}</h2>
+              <p className="text-sm text-blue-600 font-medium mt-1">{cat.count}</p>
+              <p className="text-gray-500 mt-2">{cat.desc}</p>
             </Link>
           ))}
         </div>
