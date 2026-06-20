@@ -8,8 +8,8 @@ const imageTools = [
   { name: "Image Resizer", href: "/image-resizer", desc: "Resize to any dimension", status: "soon" },
   { name: "JPG to PNG", href: "/jpg-to-png", desc: "Convert JPG to PNG", status: "soon" },
   { name: "PNG to JPG", href: "/png-to-jpg", desc: "Convert PNG to JPG", status: "soon" },
-  { name: "WEBP Converter", href: "/webp-converter", desc: "Convert to WEBP", status: "soon" },
-  { name: "Image to PDF", href: "/image-to-pdf", desc: "Convert to PDF", status: "soon" },
+  { name: "WEBP Converter", href: "/webp-converter", desc: "Convert to/from WEBP", status: "soon" },
+  { name: "Image to PDF", href: "/image-to-pdf", desc: "Convert images to PDF", status: "soon" },
 ];
 
 export default function ImageToolsPage() {
@@ -22,7 +22,7 @@ export default function ImageToolsPage() {
           <p className="text-gray-600">9 free tools to edit, convert and enhance images</p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-4">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {imageTools.map((tool) => (
             <Link
               key={tool.href}

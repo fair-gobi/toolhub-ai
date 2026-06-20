@@ -46,5 +46,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/invoice-generator`, lastModified: new Date() },
     { url: `${baseUrl}/pan-checker`, lastModified: new Date() },
     { url: `${baseUrl}/esewa-parser`, lastModified: new Date() },
+        { url: `${baseUrl}/image-resizer`, lastModified: new Date() },
+    { url: `${baseUrl}/jpg-to-png`, lastModified: new Date() },
+    { url: `${baseUrl}/png-to-jpg`, lastModified: new Date() },
+    { url: `${baseUrl}/webp-converter`, lastModified: new Date() },
   ]
 }
