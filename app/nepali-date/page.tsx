@@ -17,6 +17,7 @@ export default function NepaliDate() {
             <label className="block font-medium mb-2">AD Date</label>
             <input value={ad} onChange={e=>setAd(e.target.value)} type="date" className="w-full border rounded-lg px-3 py-2" />
           </div>
+        </div>
         <div className="mt-6 p-4 bg-blue-50 rounded-lg">
           <p><strong>BS:</strong> {bs} ≈ <strong>AD:</strong> {ad}</p>
           <p className="text-sm mt-2">Full conversion library will be added — this picker works for past/future dates.</p>
