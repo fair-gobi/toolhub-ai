@@ -2,84 +2,39 @@
 import { useState } from 'react'
 import Link from 'next/link'
 
-const C = ['NPR','INR','USD','EUR','GBP']
-
 export default function SavingsGoal() {
-  const [t, setT] = useState(2000000)
-  const [y, setY] = useState(5)
-  const [r, setR] = useState(10)
-  const [c, setC] = useState('NPR')
-  
-  const mr = r / 100 / 12
-  const n = y * 12
-  const pmt = t * mr / ((Math.pow(1 + mr, n) - 1) * (1 + mr))
-  
-  const fmt = (v: number) => new Intl.NumberFormat('en', { 
-    style: 'currency', 
-    currency: c, 
-    maximumFractionDigits: 0 
-  }).format(v)
+  const [target, setTarget] = useState(2000000)
+  const [years, setYears] = useState(5)
+  const [rate, setRate] = useState(10)
+
+  const monthly = target * (rate/1200) / ((Math.pow(1 + rate/1200, years*12) - 1) * (1 + rate/1200))
+  const fmt = (n: number) => new Intl.NumberFormat('en-IN', { maximumFractionDigits: 0 }).format(n)
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-teal-50 to-white">
-      <div className="max-w-4xl mx-auto px-4 py-8">
-        <Link href="/finance" className="text-sm text-teal-600 hover:underline mb-4 inline-block">
-          ← Back to Finance Tools
-        </Link>
+    <main className="min-h-screen bg-teal-50 p-6">
+      <div className="max-w-2xl mx-auto">
+        <Link href="/finance" className="text-teal-600 text-sm">← Back</Link>
+        <h1 className="text-2xl font-bold mt-4 mb-2">🎯 Savings Goal</h1>
         
-        <div className="bg-white rounded-2xl shadow-sm border border-teal-100 overflow-hidden">
-          <div className="bg-gradient-to-r from-teal-600 to-cyan-600 p-6 text-white">
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center text-2xl">🎯</div>
-              <div>
-                <h1 className="text-2xl font-bold">Savings Goal Calculator</h1>
-                <p className="text-teal-100 text-sm">How much to save monthly to reach target</p>
-              </div>
-            </div>
+        <div className="bg-white p-6 rounded-xl shadow-sm space-y-4">
+          <div>
+            <label className="text-sm">Target: ₹{fmt(target)}</label>
+            <input type="range" min="100000" max="10000000" step="50000" value={target} onChange={e=>setTarget(+e.target.value)} className="w-full" />
           </div>
-          
-          <div className="p-6 grid md:grid-cols-2 gap-6">
-            <div className="space-y-4">
-              <div>
-                <label className="text-sm font-medium text-gray-700 mb-1 block">Currency</label>
-                <select value={c} onChange={e=>setC(e.target.value)} className="w-full p-3 border border-gray-200 rounded-xl">
-                  {C.map(x => <option key={x}>{x}</option>)}
-                </select>
-              </div>
-              <div>
-                <label className="text-sm font-medium text-gray-700 mb-1 block">Target Amount</label>
-                <input type="number" value={t} onChange={e=>setT(+e.target.value)} className="w-full p-3 border border-gray-200 rounded-xl" />
-              </div>
-              <div>
-                <label className="text-sm font-medium text-gray-700 mb-1 block">Time Period: {y} years</label>
-                <input type="range" min="1" max="30" value={y} onChange={e=>setY(+e.target.value)} className="w-full accent-teal-600" />
-              </div>
-              <div>
-                <label className="text-sm font-medium text-gray-700 mb-1 block">Expected Return: {r}%</label>
-                <input type="range" min="1" max="20" value={r} onChange={e=>setR(+e.target.value)} className="w-full accent-teal-600" />
-              </div>
-            </div>
-            
-            <div className="bg-gradient-to-br from-teal-50 to-cyan-50 rounded-2xl p-6 border border-teal-100 flex items-center justify-center">
-              <div className="text-center w-full">
-                <div className="text-sm text-gray-600 mb-2">Monthly SIP Required</div>
-                <div className="text-4xl font-bold text-teal-600 mb-2">{fmt(pmt)}</div>
-                <div className="text-xs text-gray-500">for {y} years at {r}% return</div>
-                <div className="mt-4 pt-4 border-t border-teal-200">
-                  <div className="text-sm text-gray-600">Total you will invest</div>
-                  <div className="font-semibold">{fmt(pmt * n)}</div>
-                </div>
-              </div>
-            </div>
+          <div>
+            <label className="text-sm">Years: {years}</label>
+            <input type="range" min="1" max="30" value={years} onChange={e=>setYears(+e.target.value)} className="w-full" />
           </div>
-          
-          <div className="px-6 pb-6">
-            <div className="bg-teal-50 rounded-xl p-4 border border-teal-100">
-              <p className="text-sm text-gray-700">
-                <strong>Example:</strong> To reach {fmt(t)} in {y} years, you need to invest {fmt(pmt)} every month. Start early to benefit from compounding.
-              </p>
-            </div>
+          <div>
+            <label className="text-sm">Return: {rate}%</label>
+            <input type="range" min="5" max="18" value={rate} onChange={e=>setRate(+e.target.value)} className="w-full" />
           </div>
+        </div>
+
+        <div className="bg-teal-600 text-white p-8 rounded-xl mt-6 text-center">
+          <div className="text-sm opacity-90">Save monthly</div>
+          <div className="text-4xl font-bold my-2">₹{fmt(monthly)}</div>
+          <div className="text-sm opacity-75">for {years} years</div>
         </div>
       </div>
     </main>

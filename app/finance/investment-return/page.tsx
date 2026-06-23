@@ -2,55 +2,40 @@
 import { useState } from 'react'
 import Link from 'next/link'
 
-const C = ['NPR','INR','USD','EUR','GBP']
-
 export default function InvestmentReturn() {
-  const [i, setI] = useState(100000)
-  const [f, setF] = useState(250000)
-  const [y, setY] = useState(5)
-  const [c, setC] = useState('NPR')
-  
-  const cagr = (Math.pow(f / i, 1 / y) - 1) * 100
-  const abs = ((f - i) / i) * 100
-  
-  const fmt = (v: number) => new Intl.NumberFormat('en', { style: 'currency', currency: c, maximumFractionDigits: 0 }).format(v)
+  const [initial, setInitial] = useState(100000)
+  const [final, setFinal] = useState(250000)
+  const [years, setYears] = useState(5)
+
+  const cagr = (Math.pow(final / initial, 1 / years) - 1) * 100
+  const profit = final - initial
+
+  const fmt = (n: number) => new Intl.NumberFormat('en-IN').format(n)
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-orange-50 to-white">
-      <div className="max-w-4xl mx-auto px-4 py-8">
-        <Link href="/finance" className="text-sm text-orange-600 hover:underline mb-4 inline-block">← Back</Link>
-        <div className="bg-white rounded-2xl border border-orange-100 overflow-hidden">
-          <div className="bg-gradient-to-r from-orange-600 to-red-600 p-6 text-white">
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center text-2xl">📊</div>
-              <div>
-                <h1 className="text-2xl font-bold">Investment Return Calculator</h1>
-                <p className="text-orange-100 text-sm">Calculate CAGR and absolute returns</p>
-              </div>
-            </div>
-          <div className="p-6 grid md:grid-cols-2 gap-6">
-            <div className="space-y-4">
-              <select value={c} onChange={e=>setC(e.target.value)} className="w-full p-3 border rounded-xl">{C.map(x=><option key={x}>{x}</option>)}</select>
-              <input type="number" value={i} onChange={e=>setI(+e.target.value)} placeholder="Initial Investment" className="w-full p-3 border rounded-xl" />
-              <input type="number" value={f} onChange={e=>setF(+e.target.value)} placeholder="Final Value" className="w-full p-3 border rounded-xl" />
-              <input type="number" value={y} onChange={e=>setY(+e.target.value)} placeholder="Years" className="w-full p-3 border rounded-xl" />
-            </div>
-            <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl p-6 border border-orange-100">
-              <div className="grid grid-cols-2 gap-3 mb-4">
-                <div className="bg-white rounded-xl p-4 text-center">
-                  <div className="text-xs text-gray-500">CAGR</div>
-                  <div className="text-2xl font-bold text-orange-600">{cagr.toFixed(2)}%</div>
-                </div>
-                <div className="bg-white rounded-xl p-4 text-center">
-                  <div className="text-xs text-gray-500">Absolute</div>
-                  <div className="text-2xl font-bold text-green-600">{abs.toFixed(1)}%</div>
-                </div>
-              </div>
-              <div className="bg-gradient-to-r from-orange-600 to-red-600 rounded-xl p-4 text-white text-center">
-                <div className="text-sm opacity-90">Total Profit</div>
-                <div className="text-2xl font-bold">{fmt(f - i)}</div>
-              </div>
-            </div>
+    <main className="min-h-screen bg-orange-50 p-6">
+      <div className="max-w-2xl mx-auto">
+        <Link href="/finance" className="text-orange-600 text-sm">← Back</Link>
+        <h1 className="text-2xl font-bold mt-4 mb-2">📊 Investment Return</h1>
+        
+        <div className="bg-white p-6 rounded-xl shadow-sm space-y-4">
+          <input type="number" value={initial} onChange={e=>setInitial(+e.target.value)} placeholder="Initial" className="w-full p-3 border rounded" />
+          <input type="number" value={final} onChange={e=>setFinal(+e.target.value)} placeholder="Final Value" className="w-full p-3 border rounded" />
+          <input type="number" value={years} onChange={e=>setYears(+e.target.value)} placeholder="Years" className="w-full p-3 border rounded" />
+        </div>
+
+        <div className="grid grid-cols-3 gap-4 mt-6">
+          <div className="bg-white p-4 rounded-xl text-center">
+            <div className="text-xs text-gray-500">CAGR</div>
+            <div className="text-2xl font-bold text-orange-600">{cagr.toFixed(2)}%</div>
+          </div>
+          <div className="bg-white p-4 rounded-xl text-center">
+            <div className="text-xs text-gray-500">Profit</div>
+            <div className="text-xl font-bold">₹{fmt(profit)}</div>
+          </div>
+          <div className="bg-white p-4 rounded-xl text-center">
+            <div className="text-xs text-gray-500">Multiple</div>
+            <div className="text-2xl font-bold">{(final/initial).toFixed(1)}x</div>
           </div>
         </div>
       </div>
