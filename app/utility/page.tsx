@@ -4,13 +4,13 @@ const tools = [
   { name: 'Nepali Date Converter', desc: 'BS ↔ AD calendar', href: '/date-converter', icon: '📅' },
   { name: 'GPA Calculator', desc: 'TU/PU CGPA calculator', href: '/gpa-calculator', icon: '📊' },
   { name: 'QR Generator', desc: 'Custom QR codes', href: '/qr-generator', icon: '🔲' },
+  { name: 'Payment QR', desc: 'eSewa/Khalti QR', href: '/payment-qr', icon: '💳' },
   { name: 'Age Calculator', desc: 'Exact age in years/months', href: '/age-calculator', icon: '🎂' },
   { name: 'Percentage Calculator', desc: 'X% of Y, % change', href: '/percentage-calculator', icon: '📈' },
   { name: 'BMI Calculator', desc: 'Body mass index', href: '/bmi-calculator', icon: '⚖️' },
   { name: 'Currency Converter', desc: 'Live exchange rates', href: '/currency-converter', icon: '💱' },
   { name: 'Unit Converter', desc: 'Length, weight, temp', href: '/unit-converter', icon: '📏' },
-  { name: 'Background Remover', desc: 'AI background removal', href: '/background-remover', icon: '🖼' },
-  { name: 'Image Upscaler', desc: '4x AI photo enhance', href: '/image-upscaler', icon: '✨' },
+  { name: 'YouTube Thumbnail', desc: 'Download HD thumbnails', href: '/youtube-thumbnail', icon: '🖼️' },
 ]
 
 export default function Utility() {
