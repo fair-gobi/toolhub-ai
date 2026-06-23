@@ -1,18 +1,16 @@
 ﻿'use client'
 import { useState, useRef, useEffect } from 'react'
 import jsQR from 'jsqr'
-
-function generateTOTP(secret: string) {
-  // Simple TOTP - for demo, use otplib in production
-  const epoch = Math.floor(Date.now() / 1000 / 30)
-  return String(epoch % 1000000).padStart(6, '0') // placeholder - real TOTP needs base32 decode
-}
+import { authenticator } from 'otplib'
 
 export default function QRScanner() {
   const [result, setResult] = useState('')
   const [is2FA, setIs2FA] = useState(false)
   const [secret, setSecret] = useState('')
+  const [issuer, setIssuer] = useState('')
+  const [account, setAccount] = useState('')
   const [otp, setOtp] = useState('')
+  const [timeLeft, setTimeLeft] = useState(30)
   const [scanning, setScanning] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -20,7 +18,14 @@ export default function QRScanner() {
 
   useEffect(() => {
     if (is2FA && secret) {
-      const interval = setInterval(() => setOtp(generateTOTP(secret)), 1000)
+      const update = () => {
+        try {
+          setOtp(authenticator.generate(secret))
+          setTimeLeft(30 - Math.floor(Date.now() / 1000) % 30)
+        } catch {}
+      }
+      update()
+      const interval = setInterval(update, 1000)
       return () => clearInterval(interval)
     }
   }, [is2FA, secret])
@@ -28,11 +33,11 @@ export default function QRScanner() {
   const handleScan = (data: string) => {
     setResult(data)
     if (data.startsWith('otpauth://')) {
-      setIs2FA(true)
       const url = new URL(data)
-      const sec = url.searchParams.get('secret') || ''
-      setSecret(sec)
-      setOtp(generateTOTP(sec))
+      setIs2FA(true)
+      setSecret(url.searchParams.get('secret') || '')
+      setIssuer(url.searchParams.get('issuer') || '')
+      setAccount(decodeURIComponent(url.pathname.slice(1)))
     } else {
       setIs2FA(false)
     }
@@ -49,7 +54,7 @@ export default function QRScanner() {
         setScanning(true)
         scanLoop()
       }
-    } catch { alert('Camera denied') }
+    } catch { alert('Camera access denied') }
   }
 
   const stopCamera = () => {
@@ -88,21 +93,21 @@ export default function QRScanner() {
     <main className="min-h-screen bg-gray-50 p-6">
       <div className="max-w-2xl mx-auto">
         <h1 className="text-3xl font-bold mb-2">QR & 2FA Scanner</h1>
-        <p className="text-gray-600 mb-6">Scan QR codes and authenticator codes</p>
+        <p className="text-gray-600 mb-6">Scan QR codes and authenticator setup</p>
 
         <div className="bg-white p-6 rounded-2xl border">
           {!scanning? (
             <div className="space-y-3">
-              <button onClick={startCamera} className="w-full bg-purple-600 text-white py-4 rounded-xl">📷 Scan with Camera</button>
+              <button onClick={startCamera} className="w-full bg-purple-600 text-white py-4 rounded-xl font-medium">📷 Start Camera Scan</button>
               <label className="block w-full bg-gray-900 text-white py-4 rounded-xl text-center cursor-pointer">
-                📁 Upload Image
+                📁 Upload QR Image
                 <input type="file" accept="image/*" onChange={scanFile} className="hidden" />
               </label>
             </div>
           ) : (
             <div>
-              <video ref={videoRef} autoPlay playsInline className="w-full rounded-xl mb-3" />
-              <button onClick={stopCamera} className="w-full bg-red-600 text-white py-2 rounded-lg">Stop</button>
+              <video ref={videoRef} autoPlay playsInline className="w-full rounded-xl mb-3 bg-black" />
+              <button onClick={stopCamera} className="w-full bg-red-600 text-white py-2 rounded-lg">Stop Scanning</button>
             </div>
           )}
           <canvas ref={canvasRef} className="hidden" />
@@ -110,26 +115,41 @@ export default function QRScanner() {
           {result && (
             <div className="mt-6">
               {is2FA? (
-                <div className="p-4 bg-blue-50 rounded-xl border border-blue-200">
-                  <div className="text-sm font-semibold text-blue-800 mb-2">🔐 2FA Authenticator Detected</div>
-                  <div className="bg-white p-3 rounded mb-3">
+                <div className="p-5 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl border border-blue-200">
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="text-2xl">🔐</div>
+                    <div>
+                      <div className="font-semibold text-blue-900">2FA Authenticator</div>
+                      <div className="text-xs text-blue-700">{issuer} {account && `• ${account}`}</div>
+                    </div>
+                  </div>
+
+                  <div className="bg-white p-4 rounded-lg mb-3 text-center">
+                    <div className="text-xs text-gray-500 mb-1">Current Code</div>
+                    <div className="text-4xl font-bold tracking-widest text-blue-600 font-mono">{otp}</div>
+                    <div className="w-full bg-gray-200 rounded-full h-1 mt-2">
+                      <div className="bg-blue-600 h-1 rounded-full transition-all" style={{width: `${(timeLeft/30)*100}%`}}></div>
+                    </div>
+                    <div className="text-xs text-gray-500 mt-1">{timeLeft}s remaining</div>
+                  </div>
+
+                  <div className="bg-white p-3 rounded-lg mb-3">
                     <div className="text-xs text-gray-500">Secret Key</div>
-                    <div className="font-mono text-sm break-all">{secret}</div>
+                    <div className="font-mono text-xs break-all">{secret}</div>
                   </div>
-                  <div className="bg-white p-4 rounded text-center">
-                    <div className="text-xs text-gray-500">Current Code</div>
-                    <div className="text-3xl font-bold tracking-widest text-blue-600">{otp}</div>
-                    <div className="text-xs mt-1">Refreshes every 30s</div>
+
+                  <div className="grid grid-cols-2 gap-2">
+                    <button onClick={()=>navigator.clipboard.writeText(otp)} className="bg-blue-600 text-white py-2 rounded-lg text-sm">Copy Code</button>
+                    <button onClick={()=>navigator.clipboard.writeText(secret)} className="bg-gray-800 text-white py-2 rounded-lg text-sm">Copy Secret</button>
                   </div>
-                  <button onClick={()=>navigator.clipboard.writeText(secret)} className="w-full mt-3 bg-blue-600 text-white py-2 rounded-lg text-sm">Copy Secret</button>
                 </div>
               ) : (
                 <div className="p-4 bg-green-50 rounded-xl">
-                  <div className="text-sm text-gray-600 mb-1">Scanned:</div>
+                  <div className="text-sm text-gray-600 mb-2">Scanned Content:</div>
                   <div className="font-mono break-all bg-white p-3 rounded border text-sm">{result}</div>
                   <div className="mt-3 flex gap-2">
                     <button onClick={()=>navigator.clipboard.writeText(result)} className="flex-1 bg-blue-600 text-white py-2 rounded-lg text-sm">Copy</button>
-                    {result.startsWith('http') && <a href={result} target="_blank" className="flex-1 bg-green-600 text-white py-2 rounded-lg text-sm text-center">Open</a>}
+                    {result.startsWith('http') && <a href={result} target="_blank" className="flex-1 bg-green-600 text-white py-2 rounded-lg text-sm text-center">Open Link</a>}
                   </div>
                 </div>
               )}
@@ -137,8 +157,8 @@ export default function QRScanner() {
           )}
         </div>
 
-        <div className="mt-6 bg-yellow-50 p-4 rounded-xl text-sm">
-          <strong>Privacy:</strong> All scanning happens in your browser. 2FA secrets are never uploaded.
+        <div className="mt-6 bg-amber-50 border border-amber-200 p-4 rounded-xl text-sm">
+          <strong>⚠️ Privacy First:</strong> All scanning and code generation happens in your browser. Secrets are never sent to any server. Perfect for backing up your 2FA.
         </div>
       </div>
     </main>
