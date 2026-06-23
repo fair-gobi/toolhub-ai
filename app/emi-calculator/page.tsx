@@ -1,37 +1,33 @@
-﻿export default function EMICalculator() {
+﻿'use client'
+import { useState } from 'react'
+
+export default function EMICalculator() {
+  const [p, setP] = useState('1000000')
+  const [r, setR] = useState('12')
+  const [n, setN] = useState('60')
+  const [emi, setEmi] = useState<number|null>(null)
+
+  const calc = () => {
+    const principal = parseFloat(p), rate = parseFloat(r)/12/100, months = parseFloat(n)
+    const e = principal * rate * Math.pow(1+rate, months) / (Math.pow(1+rate, months)-1)
+    setEmi(Math.round(e))
+  }
+
   return (
-    <main className="min-h-screen bg-gray-50 p-8">
-      <div className="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow">
-        <h1 className="text-3xl font-bold mb-6">EMI Calculator</h1>
-        <p className="text-gray-600 mb-4">Calculate your monthly loan payment</p>
-        <div className="space-y-4">
-          <div>
-            <label className="block text-sm font-medium mb-1">Loan Amount (NPR)</label>
-            <input type="number" id="amount" defaultValue="1000000" className="w-full border rounded-lg px-3 py-2" />
+    <main className="min-h-screen bg-gray-50 p-6">
+      <div className="max-w-2xl mx-auto">
+        <h1 className="text-3xl font-bold mb-2">Loan EMI Calculator</h1>
+        <p className="text-gray-600 mb-6">Monthly installment calculator</p>
+        <div className="bg-white p-6 rounded-2xl border">
+          <div className="space-y-4">
+            <div><label className="text-sm">Loan Amount</label><input type="number" value={p} onChange={e=>setP(e.target.value)} className="w-full p-3 border rounded-xl mt-1" /></div>
+            <div><label className="text-sm">Interest % per year</label><input type="number" value={r} onChange={e=>setR(e.target.value)} className="w-full p-3 border rounded-xl mt-1" /></div>
+            <div><label className="text-sm">Tenure (months)</label><input type="number" value={n} onChange={e=>setN(e.target.value)} className="w-full p-3 border rounded-xl mt-1" /></div>
           </div>
-          <div>
-            <label className="block text-sm font-medium mb-1">Interest Rate (%)</label>
-            <input type="number" id="rate" defaultValue="12" className="w-full border rounded-lg px-3 py-2" />
-          </div>
-          <div>
-            <label className="block text-sm font-medium mb-1">Tenure (years)</label>
-            <input type="number" id="years" defaultValue="5" className="w-full border rounded-lg px-3 py-2" />
-          </div>
-          <button onclick="calc()" className="bg-blue-600 text-white px-6 py-2 rounded-lg">Calculate</button>
-          <div id="result" className="mt-4 p-4 bg-gray-50 rounded-lg font-semibold"></div>
+          <button onClick={calc} className="w-full mt-4 bg-green-600 text-white py-3 rounded-xl">Calculate EMI</button>
+          {emi && <div className="mt-6 p-4 bg-green-50 rounded-xl text-center"><div className="text-3xl font-bold">Rs. {emi.toLocaleString()}</div><div className="text-sm text-gray-600">per month</div></div>}
         </div>
-        <script dangerouslySetInnerHTML={{__html: `
-          function calc() {
-            const p = parseFloat(document.getElementById('amount').value);
-            const r = parseFloat(document.getElementById('rate').value)/12/100;
-            const n = parseFloat(document.getElementById('years').value)*12;
-            const emi = p * r * Math.pow(1+r,n) / (Math.pow(1+r,n)-1);
-            document.getElementById('result').innerHTML = 'Monthly EMI: NPR ' + emi.toFixed(2);
-          }
-          calc();
-        `}} />
-        <a href="/" className="inline-block mt-6 text-blue-600 hover:underline">← Back to Home</a>
       </div>
     </main>
-  );
+  )
 }
