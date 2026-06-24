@@ -2,12 +2,13 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
+const CURRENCIES = ['NPR','INR','USD','EUR','GBP','JPY','AUD','CAD','CHF','CNY','SGD','AED']
 export default function DCA() {
   useEffect(() => {
     document.title = 'DCA Calculator - Dollar Cost Averaging Calculator'
     document.querySelector('meta[name="description"]')?.setAttribute('content', 'Dollar cost averaging calculator for crypto and stocks. See returns from regular investing.')
   }, [])
-const CURRENCIES = ['NPR','INR','USD','EUR','GBP','JPY','AUD','CAD','CHF','CNY','SGD','AED']
+
   const [amount, setAmount] = useState(100)
   const [freq, setFreq] = useState(12)
   const [years, setYears] = useState(3)

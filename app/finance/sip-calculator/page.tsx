@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
+const CURRENCIES = ['NPR','INR','USD','EUR','GBP']
 export default function SIPCalculator() {
   useEffect(() => {
     document.title = 'SIP Calculator Nepal India - Monthly SIP Returns Calculator'

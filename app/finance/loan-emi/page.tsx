@@ -1,12 +1,13 @@
-export const metadata = {
-  title: 'Loan EMI Calculator Nepal India - EMI Calculator for Home Car Loan',
-  description: 'Free EMI calculator for home loan, car loan, personal loan. Calculate monthly EMI, total interest, and payment schedule in NPR, INR, USD.',
-}
 'use client'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
 const CURRENCIES = ['NPR','INR','USD','EUR']
+export default function EMI() {
+  useEffect(() => {
+    document.title = 'Loan EMI Calculator Nepal India - EMI Calculator'
+    document.querySelector('meta[name="description"]')?.setAttribute('content', 'Free EMI calculator for home, car, personal loan. Calculate monthly EMI in NPR, INR, USD.')
+  }, [])
 
 export default function EMI() {
   const [principal, setPrincipal] = useState(1000000)

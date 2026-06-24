@@ -1,14 +1,14 @@
 'use client'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-
+const CURRENCIES = ['NPR','INR','USD','EUR','GBP']
 export default function FIRE() {
   useEffect(() => {
     document.title = 'FIRE Calculator - Financial Independence Retire Early'
     document.querySelector('meta[name="description"]')?.setAttribute('content', 'Calculate your FIRE number and years to financial freedom for Nepal and India.')
   }, [])
 
-const CURRENCIES = ['NPR','INR','USD','EUR','GBP']
+
 
 export default function FIRE() {
   const [expenses, setExpenses] = useState(600000)

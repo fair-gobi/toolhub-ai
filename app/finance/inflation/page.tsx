@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
+const CURRENCIES = ['NPR','INR','USD','EUR']
 export default function Inflation() {
   useEffect(() => {
     document.title = 'Inflation Calculator Nepal India - Future Value of Money'

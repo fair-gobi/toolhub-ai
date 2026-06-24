@@ -1,13 +1,13 @@
 'use client'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-
+const C=['NPR','INR','USD','EUR','GBP']
 export default function Retirement() {
   useEffect(() => {
     document.title = 'Retirement Calculator - Plan Retirement Corpus Nepal India'
     document.querySelector('meta[name="description"]')?.setAttribute('content', 'Calculate monthly savings needed for retirement with inflation adjustment for NPR and INR.')
   }, [])
-const C=['NPR','INR','USD','EUR','GBP']
+
 export default function R(){
   const[a,setA]=useState(30),[ra,setRa]=useState(60),[m,setM]=useState(15000),[r,setR]=useState(12),[c,setC]=useState('NPR')
   const y=ra-a,n=y*12,mr=r/100/12,fv=m*((Math.pow(1+mr,n)-1)/mr)*(1+mr)

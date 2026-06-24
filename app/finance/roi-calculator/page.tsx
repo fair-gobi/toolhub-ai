@@ -2,13 +2,12 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
+const CURRENCIES = ['NPR','INR','USD','EUR','GBP']
 export default function ROI() {
   useEffect(() => {
     document.title = 'ROI Calculator - Return on Investment Calculator'
     document.querySelector('meta[name="description"]')?.setAttribute('content', 'Calculate ROI percentage for any investment. Measure profitability of business or stocks.')
   }, [])
-
-const CURRENCIES = ['NPR','INR','USD','EUR','GBP']
 
 export default function ROI() {
   const [invest, setInvest] = useState(100000)

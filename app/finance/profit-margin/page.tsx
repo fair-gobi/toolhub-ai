@@ -2,12 +2,12 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
+const CURRENCIES = ['NPR','INR','USD','EUR','GBP','JPY','AUD','CAD']
 export default function ProfitMargin() {
   useEffect(() => {
     document.title = 'Profit Margin Calculator - Calculate Markup & Margin'
     document.querySelector('meta[name="description"]')?.setAttribute('content', 'Free profit margin calculator for business. Calculate gross margin and markup percentage.')
   }, [])
-const CURRENCIES = ['NPR','INR','USD','EUR','GBP','JPY','AUD','CAD']
 
 export default function ProfitMargin() {
   const [cost, setCost] = useState(100)

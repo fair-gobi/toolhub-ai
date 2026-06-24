@@ -2,13 +2,12 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
+const CURRENCIES = ['NPR','INR','USD','EUR','GBP']
 export default function CashFlow() {
   useEffect(() => {
     document.title = 'Cash Flow Calculator - Monthly Cash Flow Analysis'
     document.querySelector('meta[name="description"]')?.setAttribute('content', 'Track business cash inflow vs outflow. Calculate net cash flow monthly.')
   }, [])
-
-const CURRENCIES = ['NPR','INR','USD','EUR','GBP']
 
 export default function CashFlow() {
   const [inflow, setInflow] = useState(200000)

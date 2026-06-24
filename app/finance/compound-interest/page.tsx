@@ -2,13 +2,14 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
+const CURRENCIES = ['NPR','INR','USD','EUR','GBP','JPY','AUD','CAD','CHF','CNY','SGD','AED']
+
 export default function CompoundInterest() {
   useEffect(() => {
     document.title = 'Compound Interest Calculator - Daily Monthly Yearly'
     document.querySelector('meta[name="description"]')?.setAttribute('content', 'Calculate compound interest with different compounding frequencies for savings and FD.')
   }, [])
 
-const CURRENCIES = ['NPR','INR','USD','EUR','GBP','JPY','AUD','CAD','CHF','CNY','SGD','AED']
 
 export default function CompoundInterest() {
   const [principal, setPrincipal] = useState(100000)

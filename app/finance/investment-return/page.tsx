@@ -1,13 +1,12 @@
 'use client'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-
+const CURRENCIES = ['NPR','INR','USD','EUR','GBP','JPY','AUD','CAD']
 export default function InvestmentReturn() {
   useEffect(() => {
     document.title = 'CAGR Calculator - Calculate Investment Returns'
     document.querySelector('meta[name="description"]')?.setAttribute('content', 'Free CAGR calculator to find annualized returns on stocks, mutual funds, property.')
   }, [])
-const CURRENCIES = ['NPR','INR','USD','EUR','GBP','JPY','AUD','CAD']
 
 export default function InvestmentReturn() {
   const [initial, setInitial] = useState(100000)

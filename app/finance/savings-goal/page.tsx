@@ -1,14 +1,12 @@
 'use client'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-
+const CURRENCIES = ['NPR','INR','USD','EUR','GBP','JPY','AUD','CAD']
 export default function SavingsGoal() {
   useEffect(() => {
     document.title = 'Savings Goal Calculator - How Much to Save Monthly'
     document.querySelector('meta[name="description"]')?.setAttribute('content', 'Reverse SIP calculator. Enter target amount to find exact monthly savings needed.')
   }, [])
-
-const CURRENCIES = ['NPR','INR','USD','EUR','GBP','JPY','AUD','CAD']
 
 export default function SavingsGoal() {
   const [target, setTarget] = useState(2000000)
