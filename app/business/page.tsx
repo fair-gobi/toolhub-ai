@@ -17,6 +17,8 @@ export default function BusinessPage() {
     { icon: "💎", name: "LTV Calculator", desc: "Lifetime value", href: "/business/ltv-calculator", live: true },
     { icon: "🎯", name: "Lead Value", desc: "Value per lead", href: "/business/lead-value-calculator", live: true },
     { icon: "📈", name: "Sales Forecast", desc: "Predict revenue growth", href: "/business/sales-forecast", live: true },
+    { icon: "📄", name: "Resignation Letter", desc: "Professional resignation", href: "/business/resignation-letter", live: true },
+    {icon: "🤝", name: "Offer Letter", desc: "Create job offers", href: "/business/offer-letter", live: true },
 
 ]
 
@@ -37,6 +39,8 @@ export default function BusinessPage() {
     "LTV Calculator": "from-amber-600 to-orange-600",
     "Lead Value": "from-emerald-600 to-teal-600",
     "Sales Forecast": "from-indigo-600 to-violet-600",
+    "Resignation Latter":"from-gray-700 to-slate-800",    
+    "Offer Latter":"from-indigo-600 to-purple-600",
 
  }
 
