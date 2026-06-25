@@ -12,6 +12,10 @@ export default function BusinessPage() {
     { icon: "📝", name: "Quotation Generator", desc: "Create client quotes", href: "/business/quotation-generator", live: true },
     { icon: "💰", name: "Profit Calculator", desc: "Margins & profit instantly", href: "/business/profit-calculator", live: true },
     { icon: "🏷️", name: "Pricing Calculator", desc: "Set prices with margin", href: "/business/pricing-calculator", live: true },
+    { icon: "💼", name: "Salary Calculator", desc: "Net take-home pay", href: "/business/salary-calculator", live: true },
+    { icon: "👥", name: "CAC Calculator", desc: "Customer acquisition cost", href: "/business/cac-calculator", live: true },
+    { icon: "💎", name: "LTV Calculator", desc: "Lifetime value", href: "/business/ltv-calculator", live: true },
+    { icon: "🎯", name: "Lead Value", desc: "Value per lead", href: "/business/lead-value-calculator", live: true },
 
 ]
 
@@ -27,6 +31,10 @@ export default function BusinessPage() {
     "Quotation Generator": "from-pink-600 to-rose-500",
     "Profit Calculator": "from-cyan-600 to-blue-500",
     "Pricing Calculator": "from-slate-700 to-gray-800",
+    "Salary Calculator": "from-slate-600 to-zinc-700",
+    "CAC Calculator": "from-violet-600 to-purple-600",
+    "LTV Calculator": "from-amber-600 to-orange-600",
+    "Lead Value": "from-emerald-600 to-teal-600",
 
  }
 
