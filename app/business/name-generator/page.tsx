@@ -1,11 +1,5 @@
-import type { Metadata } from 'next'
-import ToolComponent from './ToolComponent'
-
 export const metadata: Metadata = {
-  title: 'Name Generator - Free Business Tool',
-  description: 'Free name generator tool for startups and businesses.',
+  title: 'Business Name Generator - Free AI Startup Name Ideas 2025',
+  description: 'Generate 100+ catchy business names instantly. Free startup name generator for tech, fashion, food brands. Check domain ideas.',
 }
 
-export default function Page() {
-  return <ToolComponent />
-}

@@ -1,12 +1,85 @@
 'use client'
 
-export default function ToolComponent() {
+import { useState } from 'react'
+
+const prefixes = ['Nex', 'Vita', 'Zen', 'Astra', 'Nova', 'Flux', 'Peak', 'Bright', 'Core', 'Swift']
+const suffixes = ['ly', 'ify', 'hub', 'labs', 'works', 'io', 'nest', 'craft', 'wise', 'flow']
+const industries = ['Tech', 'Finance', 'Health', 'Food', 'Fashion', 'Education', 'Travel']
+
+export default function NameGenerator() {
+  const [keyword, setKeyword] = useState('')
+  const [industry, setIndustry] = useState('Tech')
+  const [names, setNames] = useState<string[]>([])
+
+  const generate = () => {
+    const base = keyword || industry
+    const results = []
+    
+    for (let i = 0; i < 12; i++) {
+      const pre = prefixes[Math.floor(Math.random() * prefixes.length)]
+      const suf = suffixes[Math.floor(Math.random() * suffixes.length)]
+      const variants = [
+        `${pre}${base}${suf}`,
+        `${base}${suf}`,
+        `${pre}${base}`,
+        `${base} ${industry}`,
+      ]
+      results.push(variants[i % 4])
+    }
+    setNames([...new Set(results)])
+  }
+
   return (
     <main className="container mx-auto p-6 max-w-4xl">
-      <h1 className="text-3xl font-bold mb-6">Name Generator</h1>
-      <div className="bg-white border rounded-xl p-6">
-        <p>Tool coming soon...</p>
+      <h1 className="text-3xl font-bold mb-2">Business Name Generator</h1>
+      <p className="text-gray-600 mb-6">Generate catchy, brandable business names instantly</p>
+      
+      <div className="bg-white border rounded-xl p-6 mb-6">
+        <div className="grid md:grid-cols-2 gap-4 mb-4">
+          <div>
+            <label className="block text-sm font-medium mb-1">Keyword (optional)</label>
+            <input
+              type="text"
+              value={keyword}
+              onChange={(e) => setKeyword(e.target.value)}
+              placeholder="e.g., cloud, fresh"
+              className="w-full border rounded-lg px-3 py-2"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium mb-1">Industry</label>
+            <select
+              value={industry}
+              onChange={(e) => setIndustry(e.target.value)}
+              className="w-full border rounded-lg px-3 py-2"
+            >
+              {industries.map(ind => <option key={ind}>{ind}</option>)}
+            </select>
+          </div>
+        </div>
+        <button
+          onClick={generate}
+          className="w-full bg-blue-600 text-white rounded-lg py-3 font-medium hover:bg-blue-700"
+        >
+          Generate Names
+        </button>
       </div>
+
+      {names.length > 0 && (
+        <div className="grid md:grid-cols-2 gap-3">
+          {names.map((name, i) => (
+            <div key={i} className="bg-gray-50 border rounded-lg p-4 flex justify-between items-center">
+              <span className="font-medium">{name}</span>
+              <button
+                onClick={() => navigator.clipboard.writeText(name)}
+                className="text-sm text-blue-600 hover:underline"
+              >
+                Copy
+              </button>
+            </div>
+          ))}
+        </div>
+      )}
     </main>
   )
 }
