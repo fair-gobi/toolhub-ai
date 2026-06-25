@@ -2,7 +2,34 @@
 
 import { useState } from 'react'
 
-type Item = { desc: string; qty: number; price: number }
+type Item = { desc: string; qty: number; price: number } 
+const currencies = [
+  {code:'USD',symbol:'$',name:'US Dollar'},
+  {code:'EUR',symbol:'€',name:'Euro'},
+  {code:'GBP',symbol:'£',name:'British Pound'},
+  {code:'INR',symbol:'₹',name:'Indian Rupee'},
+  {code:'PKR',symbol:'₨',name:'Pakistani Rupee'},
+  {code:'BDT',symbol:'৳',name:'Bangladeshi Taka'},
+  {code:'NPR',symbol:'रू',name:'Nepalese Rupee'},
+  {code:'LKR',symbol:'Rs',name:'Sri Lankan Rupee'},
+  {code:'BTN',symbol:'Nu.',name:'Bhutanese Ngultrum'},
+  {code:'MVR',symbol:'Rf',name:'Maldivian Rufiyaa'},
+  {code:'AUD',symbol:'A$',name:'Australian Dollar'},
+  {code:'CAD',symbol:'C$',name:'Canadian Dollar'},
+  {code:'SGD',symbol:'S$',name:'Singapore Dollar'},
+  {code:'AED',symbol:'د.إ',name:'UAE Dirham'},
+  {code:'SAR',symbol:'﷼',name:'Saudi Riyal'},
+  {code:'JPY',symbol:'¥',name:'Japanese Yen'},
+  {code:'CNY',symbol:'¥',name:'Chinese Yuan'},
+  {code:'KRW',symbol:'₩',name:'Korean Won'},
+  {code:'THB',symbol:'฿',name:'Thai Baht'},
+  {code:'MYR',symbol:'RM',name:'Malaysian Ringgit'},
+  {code:'IDR',symbol:'Rp',name:'Indonesian Rupiah'},
+  {code:'PHP',symbol:'₱',name:'Philippine Peso'},
+  {code:'NZD',symbol:'NZ$',name:'NZ Dollar'},
+  {code:'CHF',symbol:'CHF',name:'Swiss Franc'},
+  {code:'ZAR',symbol:'R',name:'South African Rand'},
+]
 
 export default function QuotationGenerator() {
   const [company, setCompany] = useState('Your Company')
@@ -12,6 +39,8 @@ export default function QuotationGenerator() {
   const [validDays, setValidDays] = useState(15)
   const [items, setItems] = useState<Item[]>([{ desc: 'Website Development', qty: 1, price: 1200 }])
 
+  const [currency, setCurrency] = useState('NPR') // default Nepal
+  const curr = currencies.find(c=>c.code===currency)?.symbol || 'रू'
   const addItem = () => setItems([...items, { desc: '', qty: 1, price: 0 }])
   const updateItem = (i: number, field: keyof Item, val: string) => {
     const copy = [...items]
@@ -44,6 +73,10 @@ export default function QuotationGenerator() {
             <input type="number" value={validDays} onChange={e=>setValidDays(Number(e.target.value))} className="border rounded px-2 py-2" placeholder="Valid days" />
           </div>
         </div>
+         <select value={currency} onChange={e=>setCurrency(e.target.value)} className="w-full border rounded px-3 py-2 mt-3">
+          {currencies.map(c=> <option key={c.code} value={c.code}>{c.name} ({c.symbol})</option>)}
+          </select>
+
 
         <div className="bg-white border rounded-xl p-6">
           {items.map((it,i)=>(
