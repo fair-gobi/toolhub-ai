@@ -16,6 +16,7 @@ export default function BusinessPage() {
     { icon: "👥", name: "CAC Calculator", desc: "Customer acquisition cost", href: "/business/cac-calculator", live: true },
     { icon: "💎", name: "LTV Calculator", desc: "Lifetime value", href: "/business/ltv-calculator", live: true },
     { icon: "🎯", name: "Lead Value", desc: "Value per lead", href: "/business/lead-value-calculator", live: true },
+    { icon: "📈", name: "Sales Forecast", desc: "Predict revenue growth", href: "/business/sales-forecast", live: true },
 
 ]
 
@@ -35,6 +36,7 @@ export default function BusinessPage() {
     "CAC Calculator": "from-violet-600 to-purple-600",
     "LTV Calculator": "from-amber-600 to-orange-600",
     "Lead Value": "from-emerald-600 to-teal-600",
+    "Sales Forecast": "from-indigo-600 to-violet-600",
 
  }
 
