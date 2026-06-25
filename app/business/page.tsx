@@ -9,7 +9,7 @@ export default function BusinessPage() {
     { icon: "🚀", name: "USP Generator", desc: "Unique selling propositions", href: "/business/usp-generator", live: true },
     { icon: "💵", name: "Invoice Generator", desc: "Create PDF invoices", href: "/business/invoice-generator", live: true },
     { icon: "📋", name: "Business Plan Generator", desc: "1-page plans instantly", href: "/business/business-plan-generator", live: true },
-    { icon: "📄", name: "Quotation Generator", desc: "Quick quotes", soon: true },
+    { icon: "📝", name: "Quotation Generator", desc: "Create client quotes", href: "/business/quotation-generator", live: true },
     { icon: "💰", name: "Profit Calculator", desc: "Margins & profit", soon: true },
   ]
 
@@ -21,6 +21,7 @@ export default function BusinessPage() {
     "USP Generator": "from-orange-600 to-red-500",
     "Invoice Generator": "from-emerald-600 to-green-500",
     "Business Plan Generator": "from-indigo-600 to-blue-500",
+    "Quotation Generator": "from-pink-600 to-rose-500",
  }
 
   return (
