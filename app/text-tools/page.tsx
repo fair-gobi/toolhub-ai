@@ -15,6 +15,10 @@ const tools = [
   { name: 'Character Counter', href: '/text-tools/character-counter', icon: '🔤', color: 'from-violet-500 to-purple-500', desc: 'Tweet & meta limits' },
   { name: 'Reading Time', href: '/text-tools/reading-time-calculator', icon: '⏱️', color: 'from-teal-500 to-emerald-500', desc: 'Calculate read time' },
   { name: 'Case Converter', href: '/text-tools/case-converter', icon: '🔄', color: 'from-rose-500 to-pink-500', desc: 'UPPER lower Title' },
+  { name: 'Blog Generator', href: '/text-tools/blog-generator', icon: '✍️', color: 'from-indigo-600 to-blue-600', desc: 'AI blog drafts' },
+  { name: 'Email Writer', href: '/text-tools/email-writer', icon: '📧', color: 'from-sky-600 to-cyan-600', desc: 'Cold & follow-ups' },
+  { name: 'Ad Copy', href: '/text-tools/ad-copy-generator', icon: '📢', color: 'from-pink-600 to-rose-600', desc: 'FB, Google, LinkedIn' },
+  { name: 'LinkedIn Post', href: '/text-tools/linkedin-post-generator', icon: '💼', color: 'from-blue-700 to-indigo-700', desc: 'Viral post templates' },
 ]
 export default function Page() {
   return (
