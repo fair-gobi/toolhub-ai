@@ -1,31 +1,24 @@
-import type { Metadata } from 'next'
 import Link from 'next/link'
 
-export const metadata: Metadata = {
-  title: 'Free Text Tools - Grammar, Paraphrase, Summarize',
-  description: '4 free AI-powered text tools for writers and students.',
-}
+export const metadata = { title: 'Text Tools - Promptoolhub' }
 
 const tools = [
-  { icon: "✍️", name: "Grammar Checker", desc: "Fix grammar instantly", href: "/text-tools/grammar-checker", color: "from-blue-600 to-indigo-600" },
-  { icon: "🔄", name: "Paraphrasing Tool", desc: "Rewrite in new words", href: "/text-tools/paraphrasing-tool", color: "from-purple-600 to-pink-600" },
-  { icon: "📝", name: "Text Summarizer", desc: "Shorten long text", href: "/text-tools/text-summarizer", color: "from-green-600 to-teal-600" },
-  { icon: "✂️", name: "Sentence Rewriter", desc: "Improve sentences", href: "/text-tools/sentence-rewriter", color: "from-orange-600 to-red-600" },
+  { name: 'Grammar Checker', href: '/text-tools/grammar-checker', icon: '✍️', color: 'from-blue-600 to-indigo-600', desc: 'Fix grammar mistakes' },
+  { name: 'Paraphrasing Tool', href: '/text-tools/paraphrasing-tool', icon: '🔄', color: 'from-purple-600 to-pink-600', desc: 'Rewrite in new words' },
+  { name: 'Text Summarizer', href: '/text-tools/text-summarizer', icon: '📝', color: 'from-green-600 to-teal-600', desc: 'Shorten long articles' },
+  { name: 'Sentence Rewriter', href: '/text-tools/sentence-rewriter', icon: '✂️', color: 'from-orange-600 to-red-600', desc: 'Improve sentences' },
 ]
 
-export default function TextToolsPage() {
+export default function Page() {
   return (
-    <main className="container mx-auto p-6">
-      <div className="text-center mb-10">
-        <h1 className="text-4xl font-bold mb-2">Text Tools</h1>
-        <p className="text-gray-600">AI-powered writing helpers</p>
-      </div>
+    <main className="max-w-6xl mx-auto p-6">
+      <h1 className="text-4xl font-bold mb-8">📝 Text Tools</h1>
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-        {tools.map(tool => (
-          <Link key={tool.name} href={tool.href} className={`bg-gradient-to-r ${tool.color} text-white p-6 rounded-xl hover:scale-105 transition`}>
-            <div className="text-3xl mb-2">{tool.icon}</div>
-            <h3 className="font-bold">{tool.name}</h3>
-            <p className="text-sm opacity-90">{tool.desc}</p>
+        {tools.map(t => (
+          <Link key={t.name} href={t.href} className={`bg-gradient-to-r ${t.color} text-white p-6 rounded-xl hover:scale-105 transition`}>
+            <div className="text-3xl mb-2">{t.icon}</div>
+            <h3 className="font-bold">{t.name}</h3>
+            <p className="text-sm opacity-90">{t.desc}</p>
           </Link>
         ))}
       </div>

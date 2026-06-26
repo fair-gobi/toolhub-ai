@@ -1,12 +1,19 @@
 'use client'
 import { useState } from 'react'
-export default function Summarizer(){
-  const [text, setText] = useState('')
-  const summary = text.split('.').slice(0,2).join('.') + (text.split('.').length>2?'.':'')
 
-  return (<main className="container mx-auto p-6 max-w-4xl">
-    <div className="bg-gradient-to-r from-green-600 to-teal-600 text-white rounded-xl p-6 mb-6"><h1 className="text-3xl font-bold">📝 Text Summarizer</h1></div>
-    <textarea value={text} onChange={e=>setText(e.target.value)} className="w-full h-48 border rounded-lg p-3" placeholder="Paste long article..." />
-    <div className="mt-4 bg-green-50 border rounded-lg p-4"><strong>Summary:</strong><p className="mt-2">{summary || 'Summary appears here'}</p></div>
-  </main>)
+export default function Page() {
+  const [text, setText] = useState('')
+  const sentences = text.split('.').filter(s => s.trim())
+  const summary = sentences.slice(0, 3).join('. ') + (sentences.length > 3 ? '.' : '')
+
+  return (
+    <main className="max-w-4xl mx-auto p-6">
+      <h1 className="text-3xl font-bold mb-6">📝 Text Summarizer</h1>
+      <textarea value={text} onChange={e=>setText(e.target.value)} placeholder="Paste long article..." className="w-full h-48 border rounded p-3" />
+      <div className="mt-4 bg-green-50 border rounded p-4">
+        <strong>Summary ({sentences.length} → {summary.split('.').filter(s=>s.trim()).length} sentences):</strong>
+        <p className="mt-2">{summary || 'Paste text above'}</p>
+      </div>
+    </main>
+  )
 }
