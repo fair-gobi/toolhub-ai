@@ -7,8 +7,8 @@ export default function Home() {
     { icon: "📄", name: "PDF Tools", count: "8 tools", desc: "Merge, split, compress", soon: true },
     { icon: "🖼", name: "Image Tools", count: "9 tools", desc: "Edit, convert, enhance", soon: true },
     { icon: "💻", name: "Developer Tools", count: "15 tools", desc: "JSON, Base64, formatters", soon: true },
-    { icon: "📝", name: "Text Tools", count: "10 tools", desc: "Counters, converters", soon: true },
-    { icon: "💼", name: "Business Tools", count: "16 tool", desc: "Name generator live", href: "/business" },
+    { icon: "📝", name: "Text Tools", count: "14 tools", desc: "Grammar, paraphrase, summarize", href: "/text-tools" },
+    { icon: "💼", name: "Business Tools", count: "17 tool", desc: "Name generator live", href: "/business" },
     { icon: "💰", name: "Finance Tools", count: "16 tools", desc: "SIP, crypto, loans, EMI, ROI", href: "/finance" },
     { icon: "🔧", name: "Utility Tools", count: "15 tools", desc: "Nepali tools & more", href: "/utility" },
   ]
