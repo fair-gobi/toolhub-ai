@@ -1,25 +1,25 @@
-export default function DevToolsPage() {
-  const tools = [
-    {name:'JSON Formatter', href:'/dev-tools/json-formatter', desc:'Pretty print JSON'},
-    {name:'JSON Validator', href:'/dev-tools/json-validator', desc:'Check syntax'},
-    {name:'XML Formatter', href:'/dev-tools/xml-formatter', desc:'Indent XML'},
-    {name:'XML Validator', href:'/dev-tools/xml-validator', desc:'Well-formed check'},
-    {name:'HTML Formatter', href:'/dev-tools/html-formatter', desc:'Clean HTML'},
-    {name:'CSS Minifier', href:'/dev-tools/css-minifier', desc:'Shrink CSS'},
-    {name:'JS Minifier', href:'/dev-tools/js-minifier', desc:'Remove whitespace'},
-    {name:'SQL Formatter', href:'/dev-tools/sql-formatter', desc:'Format queries'},
-  ]
-  return (
-    <main className="max-w-5xl mx-auto p-6">
-      <h1 className="text-3xl font-bold mb-6">💻 Developer Tools</h1>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {tools.map(t => (
-          <a key={t.name} href={t.href} className="border rounded-xl p-5 hover:border-blue-500 hover:shadow-sm transition">
-            <div className="font-semibold">{t.name}</div>
-            <div className="text-sm text-gray-600 mt-1">{t.desc}</div>
-          </a>
-        ))}
-      </div>
-    </main>
-  )
-}
+import Link from "next/link";
+const tools = [
+  {name:'JSON Formatter', href:'/dev-tools/json-formatter'},
+  {name:'JSON Validator', href:'/dev-tools/json-validator'},
+  {name:'XML Formatter', href:'/dev-tools/xml-formatter'},
+  {name:'XML Validator', href:'/dev-tools/xml-validator'},
+  {name:'HTML Formatter', href:'/dev-tools/html-formatter'},
+  {name:'CSS Minifier', href:'/dev-tools/css-minifier'},
+  {name:'JS Minifier', href:'/dev-tools/js-minifier'},
+  {name:'SQL Formatter', href:'/dev-tools/sql-formatter'},
+  {name:'Base64', href:'/dev-tools/base64', desc:'Encode/decode'},
+  {name:'URL Encoder', href:'/dev-tools/url-encoder', desc:'Encode URLs'},
+  {name:'JWT Decoder', href:'/dev-tools/jwt-decoder', desc:'Decode tokens'},
+  {name:'Hash Generator', href:'/dev-tools/hash-generator', desc:'SHA hashes'},
+  {name:'UUID Generator', href:'/dev-tools/uuid-generator', desc:'Generate UUIDs'},
+].map(name => ({ name, href: `/${name.toLowerCase().replace(/\s+/g,'-')}`, desc: "Developer utility" }));
+export default function DevTools() { return (
+  <main className="max-w-4xl mx-auto p-8">
+    <h1 className="text-3xl font-bold mb-2">Developer Tools</h1>
+    <p className="text-gray-600 mb-8">15 essential dev utilities</p>
+    <div className="grid md:grid-cols-3 gap-3">{tools.map(t=>(
+      <Link key={t.href} href={t.href} className="p-4 bg-white rounded-lg border hover:shadow">
+        <h3 className="font-medium text-sm">{t.name}</h3>
+      </Link>))}</div>
+  </main>);}
