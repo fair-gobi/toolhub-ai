@@ -8,6 +8,12 @@ export default function DevToolsPage() {
     { name: 'CSS Minifier', href: '/dev-tools/css-minifier', desc: 'Shrink CSS' },
     { name: 'JS Minifier', href: '/dev-tools/js-minifier', desc: 'Remove whitespace' },
     { name: 'SQL Formatter', href: '/dev-tools/sql-formatter', desc: 'Format queries' },
+    {name:'Base64', href:'/dev-tools/base64', desc:'Encode/decode'},
+    {name:'URL Encoder', href:'/dev-tools/url-encoder', desc:'Encode URLs'},
+    {name:'JWT Decoder', href:'/dev-tools/jwt-decoder', desc:'Decode tokens'},
+    {name:'Hash Generator', href:'/dev-tools/hash-generator', desc:'SHA hashes'},
+    {name:'UUID Generator', href:'/dev-tools/uuid-generator', desc:'Generate UUIDs'},
+
   ]
 
   return (
