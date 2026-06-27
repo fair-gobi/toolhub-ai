@@ -1,8 +1,14 @@
 import Link from "next/link";
 const tools = [
-  "JSON Formatter","JSON Validator","Base64 Encoder","Base64 Decoder","UUID Generator",
-  "JWT Decoder","Regex Tester","Password Generator","SQL Formatter","XML Formatter",
-  "HTML Formatter","CSS Minifier","JS Minifier","Hash Generator","Lorem Ipsum"
+  {name:'JSON Formatter', href:'/dev-tools/json-formatter'},
+  {name:'JSON Validator', href:'/dev-tools/json-validator'},
+  {name:'XML Formatter', href:'/dev-tools/xml-formatter'},
+  {name:'XML Validator', href:'/dev-tools/xml-validator'},
+  {name:'HTML Formatter', href:'/dev-tools/html-formatter'},
+  {name:'CSS Minifier', href:'/dev-tools/css-minifier'},
+  {name:'JS Minifier', href:'/dev-tools/js-minifier'},
+  {name:'SQL Formatter', href:'/dev-tools/sql-formatter'},
+
 ].map(name => ({ name, href: `/${name.toLowerCase().replace(/\s+/g,'-')}`, desc: "Developer utility" }));
 export default function DevTools() { return (
   <main className="max-w-4xl mx-auto p-8">
