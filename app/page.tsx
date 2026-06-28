@@ -1,53 +1,51 @@
-﻿import Link from 'next/link'
-
-export default function Home() {
-  const categories = [
-    { icon: "💡", name: "Prompt Library", count: "500+ prompts", desc: "ChatGPT, Claude, Gemini prompts", soon: true },
-    { icon: "🤖", name: "AI Tools", count: "8 tools", desc: "Generators & AI utilities", soon: true },
-    { icon: "📄", name: "PDF Tools", count: "8 tools", desc: "Merge, split, compress", soon: true },
-    { icon: "🖼", name: "Image Tools", count: "9 tools", desc: "Edit, convert, enhance", soon: true },
-    { icon: "💻", name: "Developer Tools", count: "23 tools", desc: "JSON, XML, HTML, SQL formatters", href: "/dev-tools" },
-    { icon: "📝", name: "Text Tools", count: "14 tools", desc: "Grammar, paraphrase, summarize", href: "/text-tools" },
-    { icon: "💼", name: "Business Tools", count: "17 tool", desc: "Name generator live", href: "/business" },
-    { icon: "💰", name: "Finance Tools", count: "16 tools", desc: "SIP, crypto, loans, EMI, ROI", href: "/finance" },
-    { icon: "🔧", name: "Utility Tools", count: "15 tools", desc: "Nepali tools & more", href: "/utility" },
+﻿
+export default function DevToolsPage() {
+  const tools = [
+    { name: 'JSON Formatter', href: '/dev-tools/json-formatter', desc: 'Pretty print & validate JSON' },
+    { name: 'JSON Validator', href: '/dev-tools/json-validator', desc: 'Check JSON syntax' },
+    { name: 'XML Formatter', href: '/dev-tools/xml-formatter', desc: 'Indent XML beautifully' },
+    { name: 'XML Validator', href: '/dev-tools/xml-validator', desc: 'Validate XML structure' },
+    { name: 'HTML Formatter', href: '/dev-tools/html-formatter', desc: 'Clean up HTML' },
+    { name: 'CSS Minifier', href: '/dev-tools/css-minifier', desc: 'Shrink CSS files' },
+    { name: 'JS Minifier', href: '/dev-tools/js-minifier', desc: 'Minify JavaScript' },
+    { name: 'SQL Formatter', href: '/dev-tools/sql-formatter', desc: 'Format SQL queries' },
+    { name: 'Base64 Encoder', href: '/dev-tools/base64', desc: 'Encode & decode Base64' },
+    { name: 'URL Encoder', href: '/dev-tools/url-encoder', desc: 'Encode URLs safely' },
+    { name: 'JWT Decoder', href: '/dev-tools/jwt-decoder', desc: 'Decode JWT tokens' },
+    { name: 'Hash Generator', href: '/dev-tools/hash-generator', desc: 'SHA hashes' },
+    { name: 'UUID Generator', href: '/dev-tools/uuid-generator', desc: 'Generate UUID v4' },
+    { name: 'Regex Tester', href: '/dev-tools/regex-tester', desc: 'Test regular expressions' },
+    { name: 'Cron Generator', href: '/dev-tools/cron-generator', desc: 'Build cron expressions' },
+    { name: 'API Tester', href: '/dev-tools/api-tester', desc: 'Test REST APIs' },
+    { name: 'Header Checker', href: '/dev-tools/header-checker', desc: 'Check HTTP headers' },
+    { name: 'Markdown Editor', href: '/dev-tools/markdown-editor', desc: 'Live markdown preview' },
+    { name: 'Code Explainer', href: '/dev-tools/code-explainer', desc: 'Analyze code' },
+    { name: 'Code Optimizer', href: '/dev-tools/code-optimizer', desc: 'Minify code' },
+    { name: 'SQL Generator', href: '/dev-tools/sql-generator', desc: 'Generate SQL' },
+    { name: 'Regex Generator', href: '/dev-tools/regex-generator', desc: 'Create patterns' },
   ]
 
   return (
-    <main className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50">
       <div className="max-w-6xl mx-auto px-4 py-12">
-        <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold mb-4">Promptoolhub</h1>
-          <p className="text-xl text-gray-600">Prompt Library & Free Online Tools — no signup required</p>
+        <div className="text-center mb-10">
+          <h1 className="text-4xl font-bold text-gray-900 mb-3">Developer Tools</h1>
+          <p className="text-gray-600">22 free tools that run in your browser</p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          {categories.map((cat) =>
-            cat.soon ? (
-              <div key={cat.name} className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 opacity-75">
-                <div className="text-3xl mb-3">{cat.icon}</div>
-                <h2 className="font-semibold text-lg mb-1">{cat.name}</h2>
-                <p className="text-sm text-blue-600 mb-2">{cat.count}</p>
-                <p className="text-sm text-gray-600 mb-3">{cat.desc}</p>
-                <span className="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded">Coming Soon</span>
-              </div>
-            ) : (
-              <Link key={cat.name} href={cat.href!}>
-                <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition border border-gray-100 h-full cursor-pointer">
-                  <div className="text-3xl mb-3">{cat.icon}</div>
-                  <h2 className="font-semibold text-lg mb-1">{cat.name}</h2>
-                  <p className="text-sm text-blue-600 mb-2">{cat.count}</p>
-                  <p className="text-sm text-gray-600">{cat.desc}</p>
-                </div>
-              </Link>
-            )
-          )}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {tools.map((tool) => (
+            <a
+              key={tool.href}
+              href={tool.href}
+              className="block bg-white rounded-xl p-5 border border-gray-200 hover:border-blue-500 hover:shadow-md transition-all"
+            >
+              <h3 className="font-semibold text-gray-900 mb-1">{tool.name}</h3>
+              <p className="text-sm text-gray-600">{tool.desc}</p>
+            </a>
+          ))}
         </div>
-
-        <footer className="text-center mt-16 text-sm text-gray-500">
-          <p>© 2026 Promptoolhub.com</p>
-        </footer>
       </div>
-    </main>
+    </div>
   )
 }
