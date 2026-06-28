@@ -6,8 +6,8 @@ const categories = [
   { icon: "📄", name: "PDF Tools", count: "8 tools", desc: "Merge, split, compress", soon: true },
   { icon: "🖼️", name: "Image Tools", count: "9 tools", desc: "Edit, convert, enhance", soon: true },
   { icon: "💻", name: "Developer Tools", count: "22 tools", desc: "JSON, Base64, formatters", href: "/dev-tools" },
-  { icon: "📝", name: "Text Tools", count: "18 tools", desc: "Grammar, paraphrase, summarize", href: "/text-tools" },
-  { icon: "💼", name: "Business Tools", count: "16 tools", desc: "Name generator, invoices & more", href: "/business" },
+  { icon: "📝", name: "Text Tools", count: "16 tools", desc: "Grammar, paraphrase, summarize", href: "/text-tools" },
+  { icon: "💼", name: "Business Tools", count: "17 tools", desc: "Name generator, invoices & more", href: "/business" },
   { icon: "💰", name: "Finance Tools", count: "16 tools", desc: "SIP, crypto, loans, EMI, ROI", href: "/finance" },
   { icon: "🔧", name: "Utility Tools", count: "15 tools", desc: "Nepali tools & more", href: "/utility" },
 ]

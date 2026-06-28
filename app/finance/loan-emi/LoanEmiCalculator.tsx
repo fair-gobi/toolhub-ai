@@ -2,6 +2,17 @@
 
 import { useEffect, useState } from 'react'
 
+const currencies = {
+  NPR: 'Rs',
+  INR: '₹',
+  USD: '$',
+  EUR: '€',
+  GBP: '£',
+  AED: 'د.إ',
+} as const
+
+type Currency = keyof typeof currencies
+
 export default function LoanEmiCalculator() {
   const [principal, setPrincipal] = useState(500000)
   const [rate, setRate] = useState(8.5)
@@ -9,122 +20,99 @@ export default function LoanEmiCalculator() {
   const [emi, setEmi] = useState(0)
   const [totalInterest, setTotalInterest] = useState(0)
   const [totalAmount, setTotalAmount] = useState(0)
+  const [currency, setCurrency] = useState<Currency>('NPR')
+
+  const symbol = currencies[currency]
 
   useEffect(() => {
-    const p = Number(principal)
-    const r = Number(rate) / 12 / 100
-    const n = Number(tenure) * 12
+    const monthlyRate = rate / 12 / 100
+    const months = tenure * 12
+    const emiCalc = principal * monthlyRate * Math.pow(1 + monthlyRate, months) / (Math.pow(1 + monthlyRate, months) - 1)
+    const total = emiCalc * months
+    const interest = total - principal
 
-    if (p > 0 && r > 0 && n > 0) {
-      const emiCalc = (p * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1)
-      const total = emiCalc * n
-      const interest = total - p
-
-      setEmi(Math.round(emiCalc))
-      setTotalAmount(Math.round(total))
-      setTotalInterest(Math.round(interest))
-    }
+    setEmi(emiCalc)
+    setTotalAmount(total)
+    setTotalInterest(interest)
   }, [principal, rate, tenure])
 
-  const formatINR = (num: number) => {
-    return new Intl.NumberFormat('en-IN', {
-      style: 'currency',
-      currency: 'INR',
-      maximumFractionDigits: 0
-    }).format(num)
-  }
+  const format = (num: number) => `${symbol} ${Math.round(num).toLocaleString()}`
 
   return (
-    <main className="container mx-auto p-6 max-w-5xl">
-      <h1 className="text-3xl font-bold mb-2">Loan EMI Calculator</h1>
-      <p className="text-gray-600 mb-8">Calculate your Equated Monthly Installment for home, car, or personal loans</p>
+    <div className="max-w-2xl mx-auto p-6">
+      <h1 className="text-3xl font-bold mb-6">💰 Loan EMI Calculator</h1>
+      
+      <div className="bg-white p-6 rounded-xl border space-y-4">
+        {/* Currency Selector - NEW */}
+        <div>
+          <label className="text-sm font-medium text-gray-700">Currency</label>
+          <select
+            value={currency}
+            onChange={e => setCurrency(e.target.value as Currency)}
+            className="w-full mt-1 px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+          >
+            <option value="NPR">{currencies.NPR} - Nepalese Rupee</option>
+            <option value="INR">{currencies.INR} - Indian Rupee</option>
+            <option value="USD">{currencies.USD} - US Dollar</option>
+            <option value="EUR">{currencies.EUR} - Euro</option>
+            <option value="GBP">{currencies.GBP} - British Pound</option>
+            <option value="AED">{currencies.AED} - UAE Dirham</option>
+          </select>
+        </div>
 
-      <div className="grid md:grid-cols-2 gap-8">
-        <section aria-labelledby="loan-details-heading">
-          <div className="bg-white border rounded-xl p-6 shadow-sm">
-            <h2 id="loan-details-heading" className="text-xl font-semibold mb-6">Loan Details</h2>
-            
-            <div className="space-y-6">
-              <div>
-                <label htmlFor="principal-slider" className="block text-sm font-medium mb-2">
-                  Loan Amount: {formatINR(principal)}
-                </label>
-                <input
-                  id="principal-slider"
-                  type="range"
-                  min="10000"
-                  max="10000000"
-                  step="10000"
-                  value={principal}
-                  onChange={(e) => setPrincipal(Number(e.target.value))}
-                  className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
-                />
-              </div>
+        <div>
+          <label className="text-sm font-medium text-gray-700">Loan Amount</label>
+          <div className="relative mt-1">
+            <span className="absolute left-3 top-2.5 text-gray-500 text-sm">{symbol}</span>
+            <input
+              type="number"
+              value={principal}
+              onChange={e => setPrincipal(Number(e.target.value))}
+              className="w-full pl-10 pr-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+        </div>
 
-              <div>
-                <label htmlFor="rate-slider" className="block text-sm font-medium mb-2">
-                  Interest Rate: {rate}% p.a.
-                </label>
-                <input
-                  id="rate-slider"
-                  type="range"
-                  min="1"
-                  max="20"
-                  step="0.1"
-                  value={rate}
-                  onChange={(e) => setRate(Number(e.target.value))}
-                  className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
-                />
-              </div>
+        <div className="grid grid-cols-2 gap-4">
+          <div>
+            <label className="text-sm font-medium text-gray-700">Interest Rate (% p.a.)</label>
+            <input
+              type="number"
+              step="0.1"
+              value={rate}
+              onChange={e => setRate(Number(e.target.value))}
+              className="w-full mt-1 px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+          <div>
+            <label className="text-sm font-medium text-gray-700">Tenure (years)</label>
+            <input
+              type="number"
+              value={tenure}
+              onChange={e => setTenure(Number(e.target.value))}
+              className="w-full mt-1 px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+        </div>
 
-              <div>
-                <label htmlFor="tenure-slider" className="block text-sm font-medium mb-2">
-                  Loan Tenure: {tenure} Years
-                </label>
-                <input
-                  id="tenure-slider"
-                  type="range"
-                  min="1"
-                  max="30"
-                  step="1"
-                  value={tenure}
-                  onChange={(e) => setTenure(Number(e.target.value))}
-                  className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
-                />
-              </div>
+        {/* Results */}
+        <div className="pt-6 mt-6 border-t">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="bg-blue-50 p-4 rounded-lg text-center">
+              <div className="text-2xl font-bold text-blue-700">{format(emi)}</div>
+              <div className="text-xs text-gray-600 mt-1">Monthly EMI</div>
+            </div>
+            <div className="bg-green-50 p-4 rounded-lg text-center">
+              <div className="text-xl font-bold text-green-700">{format(totalAmount)}</div>
+              <div className="text-xs text-gray-600 mt-1">Total Payment</div>
+            </div>
+            <div className="bg-orange-50 p-4 rounded-lg text-center">
+              <div className="text-xl font-bold text-orange-700">{format(totalInterest)}</div>
+              <div className="text-xs text-gray-600 mt-1">Total Interest</div>
             </div>
           </div>
-        </section>
-
-        <section aria-labelledby="payment-summary-heading">
-          <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-100 rounded-xl p-6 shadow-sm">
-            <h2 id="payment-summary-heading" className="text-xl font-semibold mb-6">Payment Summary</h2>
-            
-            <div className="space-y-5">
-              <div className="bg-white rounded-lg p-4 shadow-sm">
-                <p className="text-sm text-gray-600 mb-1">Monthly EMI</p>
-                <p className="text-3xl font-bold text-blue-600">{formatINR(emi)}</p>
-              </div>
-
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-white rounded-lg p-4 shadow-sm">
-                  <p className="text-sm text-gray-600 mb-1">Principal Amount</p>
-                  <p className="text-lg font-semibold">{formatINR(principal)}</p>
-                </div>
-                <div className="bg-white rounded-lg p-4 shadow-sm">
-                  <p className="text-sm text-gray-600 mb-1">Total Interest</p>
-                  <p className="text-lg font-semibold text-orange-600">{formatINR(totalInterest)}</p>
-                </div>
-              </div>
-
-              <div className="bg-white rounded-lg p-4 shadow-sm">
-                <p className="text-sm text-gray-600 mb-1">Total Amount Payable</p>
-                <p className="text-xl font-bold">{formatINR(totalAmount)}</p>
-              </div>
-            </div>
-          </div>
-        </section>
+        </div>
       </div>
-    </main>
+    </div>
   )
 }
