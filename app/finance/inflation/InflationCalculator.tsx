@@ -1,190 +1,125 @@
 'use client'
+import { useState, useEffect } from 'react'
 
-import { useEffect, useState } from 'react'
+const currencies = {
+  NPR: 'Rs',
+  INR: '₹',
+  USD: '$',
+  EUR: '€',
+  GBP: '£',
+  AED: 'د.إ',
+} as const
+
+type Currency = keyof typeof currencies
 
 export default function InflationCalculator() {
-  const [currentAmount, setCurrentAmount] = useState(100000)
-  const [inflationRate, setInflationRate] = useState(6)
+  const [amount, setAmount] = useState(100000)
+  const [inflation, setInflation] = useState(6)
   const [years, setYears] = useState(10)
-  const [mode, setMode] = useState<'future' | 'past'>('future')
-  
   const [futureValue, setFutureValue] = useState(0)
-  const [purchasingPower, setPurchasingPower] = useState(0)
-  const [inflationLoss, setInflationLoss] = useState(0)
+  const [currency, setCurrency] = useState<Currency>('NPR')
+
+  const symbol = currencies[currency]
 
   useEffect(() => {
-    const amount = Number(currentAmount)
-    const rate = Number(inflationRate) / 100
-    const y = Number(years)
+    const fv = amount * Math.pow(1 + inflation / 100, years)
+    setFutureValue(fv)
+  }, [amount, inflation, years])
 
-    if (amount > 0 && y > 0) {
-      if (mode === 'future') {
-        // Future cost: how much will something cost
-        const fv = amount * Math.pow(1 + rate, y)
-        const loss = fv - amount
-        setFutureValue(Math.round(fv))
-        setPurchasingPower(Math.round(amount / Math.pow(1 + rate, y)))
-        setInflationLoss(Math.round(loss))
-      } else {
-        // Past value: what was it worth
-        const pv = amount / Math.pow(1 + rate, y)
-        const loss = amount - pv
-        setFutureValue(Math.round(pv))
-        setPurchasingPower(Math.round(pv))
-        setInflationLoss(Math.round(loss))
-      }
-    }
-  }, [currentAmount, inflationRate, years, mode])
-
-  const formatINR = (num: number) => {
-    return new Intl.NumberFormat('en-IN', {
-      style: 'currency',
-      currency: 'INR',
-      maximumFractionDigits: 0
-    }).format(num)
-  }
+  const format = (num: number) => `${symbol} ${Math.round(num).toLocaleString()}`
+  const purchasingPower = amount - (amount * 100 / (100 + inflation * years / 2))
 
   return (
-    <main className="container mx-auto p-6 max-w-5xl">
-      <h1 className="text-3xl font-bold mb-2">Inflation Calculator</h1>
-      <p className="text-gray-600 mb-8">Calculate how inflation affects purchasing power and future costs</p>
+    <main className="min-h-screen bg-gray-50 py-12">
+      <div className="max-w-2xl mx-auto px-4">
+        <div className="text-center mb-8">
+          <h1 className="text-3xl font-bold mb-2">📈 Inflation Calculator</h1>
+          <p className="text-gray-600">See how inflation erodes your money's value</p>
+        </div>
 
-      <div className="grid md:grid-cols-2 gap-8">
-        <section aria-labelledby="inflation-inputs-heading">
-          <div className="bg-white border rounded-xl p-6 shadow-sm">
-            <h2 id="inflation-inputs-heading" className="text-xl font-semibold mb-6">Calculation Details</h2>
-            
-            <div className="space-y-6">
-              <div className="flex gap-2 p-1 bg-gray-100 rounded-lg">
-                <button
-                  onClick={() => setMode('future')}
-                  className={`flex-1 py-2 px-4 rounded-md text-sm font-medium transition ${
-                    mode === 'future' ? 'bg-white shadow-sm' : 'text-gray-600'
-                  }`}
-                >
-                  Future Cost
-                </button>
-                <button
-                  onClick={() => setMode('past')}
-                  className={`flex-1 py-2 px-4 rounded-md text-sm font-medium transition ${
-                    mode === 'past' ? 'bg-white shadow-sm' : 'text-gray-600'
-                  }`}
-                >
-                  Past Value
-                </button>
-              </div>
+        <div className="bg-white rounded-2xl p-6 shadow-sm border">
+          {/* Currency */}
+          <div className="mb-5">
+            <label className="text-sm font-medium text-gray-700">Currency</label>
+            <select
+              value={currency}
+              onChange={e => setCurrency(e.target.value as Currency)}
+              className="w-full mt-1 px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-blue-500"
+            >
+              {Object.entries(currencies).map(([code, sym]) => (
+                <option key={code} value={code}>{sym} {code}</option>
+              ))}
+            </select>
+          </div>
 
-              <div>
-                <label htmlFor="current-amount" className="block text-sm font-medium mb-2">
-                  {mode === 'future' ? 'Current Cost' : 'Current Amount'}: {formatINR(currentAmount)}
-                </label>
+          <div className="space-y-5">
+            <div>
+              <label className="text-sm font-medium text-gray-700">Today's Amount</label>
+              <div className="relative mt-1">
+                <span className="absolute left-3 top-2.5 text-gray-500">{symbol}</span>
                 <input
-                  id="current-amount"
-                  type="range"
-                  min="1000"
-                  max="10000000"
-                  step="1000"
-                  value={currentAmount}
-                  onChange={(e) => setCurrentAmount(Number(e.target.value))}
-                  className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+                  type="number"
+                  value={amount}
+                  onChange={e => setAmount(Number(e.target.value))}
+                  className="w-full pl-8 pr-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-blue-500"
                 />
               </div>
+            </div>
 
+            <div className="grid grid-cols-2 gap-4">
               <div>
-                <label htmlFor="inflation-rate" className="block text-sm font-medium mb-2">
-                  Inflation Rate: {inflationRate}%
-                </label>
+                <label className="text-sm font-medium text-gray-700">Inflation Rate (% per year)</label>
                 <input
-                  id="inflation-rate"
-                  type="range"
-                  min="1"
-                  max="15"
-                  step="0.5"
-                  value={inflationRate}
-                  onChange={(e) => setInflationRate(Number(e.target.value))}
-                  className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+                  type="number"
+                  step="0.1"
+                  value={inflation}
+                  onChange={e => setInflation(Number(e.target.value))}
+                  className="w-full mt-1 px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-blue-500"
                 />
-                <p className="text-xs text-gray-500 mt-1">India average: 5-6%</p>
               </div>
-
               <div>
-                <label htmlFor="years" className="block text-sm font-medium mb-2">
-                  Time Period: {years} Years
-                </label>
+                <label className="text-sm font-medium text-gray-700">Time Period (years)</label>
                 <input
-                  id="years"
-                  type="range"
-                  min="1"
-                  max="50"
-                  step="1"
+                  type="number"
                   value={years}
-                  onChange={(e) => setYears(Number(e.target.value))}
-                  className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+                  onChange={e => setYears(Number(e.target.value))}
+                  className="w-full mt-1 px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-blue-500"
                 />
               </div>
             </div>
           </div>
-        </section>
 
-        <section aria-labelledby="inflation-results-heading">
-          <div className="bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-100 rounded-xl p-6 shadow-sm">
-            <h2 id="inflation-results-heading" className="text-xl font-semibold mb-6">
-              {mode === 'future' ? 'Future Impact' : 'Historical Value'}
-            </h2>
-            
-            <div className="space-y-5">
-              <div className="bg-white rounded-lg p-4 shadow-sm">
-                <p className="text-sm text-gray-600 mb-1">
-                  {mode === 'future' ? 'Future Cost' : 'Equivalent Past Value'}
-                </p>
-                <p className="text-3xl font-bold text-amber-600">{formatINR(futureValue)}</p>
-                <p className="text-xs text-gray-500 mt-1">
-                  {mode === 'future' ? `in ${years} years` : `${years} years ago`}
-                </p>
+          {/* Results */}
+          <div className="mt-8 pt-6 border-t">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="bg-red-50 rounded-xl p-5 text-center">
+                <div className="text-2xl font-bold text-red-700">{format(futureValue)}</div>
+                <div className="text-xs text-gray-600 mt-1">You'll need in {years} years</div>
+                <div className="text-xs text-gray-500 mt-1">to buy what {format(amount)} buys today</div>
               </div>
-
-              <div className="grid grid-cols-1 gap-4">
-                <div className="bg-white rounded-lg p-4 shadow-sm">
-                  <p className="text-sm text-gray-600 mb-1">Purchasing Power</p>
-                  <p className="text-lg font-semibold">{formatINR(purchasingPower)}</p>
-                  <p className="text-xs text-gray-500 mt-1">
-                    {mode === 'future' 
-                      ? `Today's ${formatINR(currentAmount)} will buy what ${formatINR(purchasingPower)} buys now`
-                      : `Was worth ${formatINR(currentAmount)} today`
-                    }
-                  </p>
-                </div>
-                
-                <div className="bg-white rounded-lg p-4 shadow-sm">
-                  <p className="text-sm text-gray-600 mb-1">
-                    {mode === 'future' ? 'Price Increase' : 'Value Lost'}
-                  </p>
-                  <p className="text-lg font-semibold text-orange-600">{formatINR(inflationLoss)}</p>
-                  <p className="text-xs text-gray-500 mt-1">
-                    {((inflationLoss / currentAmount) * 100).toFixed(0)}% {mode === 'future' ? 'increase' : 'erosion'}
-                  </p>
-                </div>
+              <div className="bg-orange-50 rounded-xl p-5 text-center">
+                <div className="text-2xl font-bold text-orange-700">{format(futureValue - amount)}</div>
+                <div className="text-xs text-gray-600 mt-1">Extra money needed</div>
+                <div className="text-xs text-gray-500 mt-1">due to inflation</div>
               </div>
+            </div>
 
-              <div className="pt-4 border-t border-amber-200">
-                <p className="text-sm text-gray-600 mb-2">Year-by-year impact:</p>
-                <div className="space-y-1 text-xs max-h-24 overflow-y-auto">
-                  {[1, 5, 10, 15, 20, 25, 30].filter(y => y <= years).map((y) => {
-                    const val = mode === 'future' 
-                      ? currentAmount * Math.pow(1 + inflationRate/100, y)
-                      : currentAmount / Math.pow(1 + inflationRate/100, y)
-                    return (
-                      <div key={y} className="flex justify-between">
-                        <span className="text-gray-500">Year {y}:</span>
-                        <span className="font-medium">{formatINR(Math.round(val))}</span>
-                      </div>
-                    )
-                  })}
-                </div>
+            <div className="mt-5 p-4 bg-gray-50 rounded-lg">
+              <div className="flex justify-between text-sm">
+                <span className="text-gray-600">Purchasing power loss</span>
+                <span className="font-medium text-red-600">
+                  {((futureValue - amount) / futureValue * 100).toFixed(1)}%
+                </span>
               </div>
             </div>
           </div>
-        </section>
+        </div>
+
+        <div className="mt-6 text-center">
+          <p className="text-xs text-gray-500">
+            Nepal average inflation: 6-8% • India: 5-6% • US: 2-3%
+          </p>
+        </div>
       </div>
     </main>
   )
