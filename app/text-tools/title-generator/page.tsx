@@ -87,9 +87,10 @@ export default function TitleGenerator() {
   return (
     <main className="min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <Link href="/text-tools" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 mb-6 inline-block">
-          ← Back to Text Tools
-        </Link>
+        <Link href="/" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 mb-6 inline-block">
+  ← Back to Home
+</Link>
+
 
         <div className="text-center mb-8">
           <h1 className="text-3xl sm:text-4xl font-bold mb-2">✨ AI Title Generator</h1>
