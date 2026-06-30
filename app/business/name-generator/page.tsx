@@ -1,9 +1,8 @@
-import type { Metadata } from 'next'
 import NameGenerator from './NameGenerator'
 
-export const metadata: Metadata = {
-  title: 'Business Name Generator - Free AI Startup Name Ideas 2025',
-  description: 'Generate 100+ catchy business names instantly. Free startup name generator.',
+export const metadata = {
+  title: 'Business Name Generator - ToolHub',
+  description: 'Generate creative business names with AI'
 }
 
 export default function Page() {
