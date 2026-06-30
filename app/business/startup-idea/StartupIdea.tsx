@@ -1,58 +1,53 @@
-'use client'
+"use client";
+import { useState } from "react";
 
-import { useState } from 'react'
+export default function StartupIdeas() {
+  const [skill, setSkill] = useState("");
+  const [ideas, setIdeas] = useState<string[]>([]);
+  const [loading, setLoading] = useState(false);
 
-const industries = ['SaaS', 'AI Tools', 'E-commerce', 'HealthTech', 'FinTech', 'EdTech', 'Creator Economy', 'Climate']
-const problems = ['saves time', 'reduces cost', 'automates workflow', 'connects people', 'tracks data', 'simplifies finance']
-const audiences = ['freelancers', 'small businesses', 'students', 'parents', 'developers', 'marketers']
-
-export default function StartupIdea() {
-  const [industry, setIndustry] = useState('SaaS')
-  const [ideas, setIdeas] = useState<string[]>([])
-
-  const generate = () => {
-    const results = []
-    for (let i = 0; i < 8; i++) {
-      const problem = problems[Math.floor(Math.random() * problems.length)]
-      const audience = audiences[Math.floor(Math.random() * audiences.length)]
-      const idea = `${industry} tool that ${problem} for ${audience}`
-      results.push(idea.charAt(0).toUpperCase() + idea.slice(1))
-    }
-    setIdeas(results)
+  async function generate() {
+    setLoading(true);
+    const res = await fetch("/api/generate", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        prompt: `Generate 7 startup ideas for someone skilled in "${skill}". For each: 1) Name, 2) One-sentence problem, 3) Target customer in Nepal/India, 4) How to make first $100. Keep it practical, low-cost. Return as numbered list.`,
+      }),
+    });
+    const data = await res.json();
+    setIdeas(data.text.split("\n").filter((l:string)=>l.trim()));
+    setLoading(false);
   }
 
   return (
-    <main className="container mx-auto p-6 max-w-4xl">
-      <div className="bg-gradient-to-r from-yellow-500 to-amber-500 text-white rounded-xl p-6 mb-6">
-        <div className="flex items-center gap-3">
-          <span className="text-4xl">💡</span>
-          <div>
-            <h1 className="text-3xl font-bold">Startup Idea Generator</h1>
-            <p className="opacity-90">Get unique, actionable startup ideas instantly</p>
-          </div>
-        </div>
-      </div>
-
-      <div className="bg-white border rounded-xl p-6 mb-6">
-        <label className="block text-sm font-medium mb-1">Industry</label>
-        <select value={industry} onChange={(e) => setIndustry(e.target.value)} className="w-full border rounded-lg px-3 py-2 mb-4">
-          {industries.map(ind => <option key={ind}>{ind}</option>)}
-        </select>
-        <button onClick={generate} className="w-full bg-yellow-500 text-white rounded-lg py-3 font-medium hover:bg-yellow-600">
-          Generate Ideas
+    <main className="max-w-2xl mx-auto p-8">
+      <h1 className="text-3xl font-bold mb-2">🚀 Startup Idea Generator</h1>
+      <p className="text-gray-600 mb-6">Turn your skill into a business today</p>
+      
+      <div className="flex gap-2 mb-6">
+        <input 
+          value={skill} 
+          onChange={e=>setSkill(e.target.value)} 
+          placeholder="e.g., video editing, cooking, coding, teaching"
+          className="flex-1 border rounded-lg px-4 py-3"
+        />
+        <button 
+          onClick={generate} 
+          disabled={loading || !skill}
+          className="bg-green-600 text-white px-6 py-3 rounded-lg font-medium disabled:opacity-50"
+        >
+          {loading ? "..." : "Generate"}
         </button>
       </div>
 
-      {ideas.length > 0 && (
-        <div className="space-y-3">
-          {ideas.map((idea, i) => (
-            <div key={i} className="bg-white border rounded-lg p-4 flex justify-between">
-              <span>{i+1}. {idea}</span>
-              <button onClick={() => navigator.clipboard.writeText(idea)} className="text-yellow-600 text-sm hover:underline">Copy</button>
-            </div>
-          ))}
-        </div>
-      )}
+      <div className="space-y-3">
+        {ideas.map((idea,i)=>(
+          <div key={i} className="p-4 border rounded-lg bg-white">
+            {idea}
+          </div>
+        ))}
+      </div>
     </main>
-  )
+  );
 }
