@@ -23,8 +23,8 @@ export default function BrandName() {
       ]
       results.push(variants[i % 4].toLowerCase())
     }
-    setNames([...new Set(results)])
-  }
+    setNames(Array.from(new Set(results)))}
+
 
   return (
     <main className="container mx-auto p-6 max-w-4xl">
