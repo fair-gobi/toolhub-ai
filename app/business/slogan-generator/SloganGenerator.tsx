@@ -1,6 +1,6 @@
 'use client'
-
 import { useState } from 'react'
+import Link from 'next/link'
 
 const templates = [
   '{brand} — {verb} your {noun}',
@@ -35,6 +35,11 @@ export default function SloganGenerator() {
 
   return (
     <main className="container mx-auto p-6 max-w-4xl">
+      {/* Back button like startup-ideas */}
+      <Link href="/business" className="inline-flex items-center text-sm text-gray-600 hover:text-black mb-4">
+        ← Back to Business Tools
+      </Link>
+
       <div className="bg-gradient-to-r from-purple-600 to-violet-500 text-white rounded-xl p-6 mb-6">
         <div className="flex items-center gap-3">
           <span className="text-4xl">✨</span>
@@ -45,6 +50,7 @@ export default function SloganGenerator() {
         </div>
       </div>
 
+      {/* rest of your code unchanged */}
       <div className="bg-white border rounded-xl p-6 mb-6">
         <label className="block text-sm font-medium mb-1">Brand Name</label>
         <input 
@@ -72,4 +78,3 @@ export default function SloganGenerator() {
     </main>
   )
 }
-
