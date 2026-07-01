@@ -5,7 +5,6 @@ export default function BusinessPage() {
     { icon: "🏷️", name: "Business Name Generator", desc: "Generate catchy brand names", href: "/business/name-generator", live: true },
     { icon: "💡", name: "Startup Idea Generator", desc: "AI startup ideas from your skills", href: "/business/startup-ideas", live: true },
     { icon: "✨", name: "Slogan Generator", desc: "Memorable taglines", href: "/business/slogan-generator", live: true },
-    { icon: "🎯", name: "Brand Name Generator", desc: "Brandable names", href: "/business/brand-name", live: true },
     { icon: "🚀", name: "USP Generator", desc: "Unique selling propositions", href: "/business/usp-generator", live: true },
     { icon: "💵", name: "Invoice Generator", desc: "Create PDF invoices", href: "/business/invoice-generator", live: true },
     { icon: "📋", name: "Business Plan Generator", desc: "1-page plans instantly", href: "/business/business-plan-generator", live: true },
