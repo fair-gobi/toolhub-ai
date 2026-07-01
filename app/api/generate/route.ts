@@ -1,30 +1,55 @@
+import { NextRequest, NextResponse } from 'next/server'
 import Groq from 'groq-sdk'
 
-export async function POST(req: Request) {
+const groq = new Groq({ apiKey: process.env.GROQ_API_KEY! })
+
+// Simple in-memory rate limiter (30 requests per 60 seconds)
+let requests: number[] = []
+
+function isRateLimited(): boolean {
+  const now = Date.now()
+  // keep only requests from last 60 seconds
+  requests = requests.filter(t => now - t < 60000)
+
+  if (requests.length >= 28) { // leave 2 buffer
+    return true
+  }
+  requests.push(now)
+  return false
+}
+
+export async function POST(req: NextRequest) {
   try {
-    const groq = new Groq({ apiKey: process.env.GROQ_API_KEY! })
-    const body = await req.json()
+    // Check rate limit
+    if (isRateLimited()) {
+      // wait 2 seconds and retry once
+      await new Promise(r => setTimeout(r, 2000))
+      if (isRateLimited()) {
+        return NextResponse.json(
+          { error: 'Too many requests, please wait 3 seconds' },
+          { status: 429 }
+        )
+      }
+    }
 
-    // support both old Name Generator and new prompt-based tools
-    const { keyword, industry, prompt } = body
-
-    const content = prompt ||
-      `Generate 12 creative business names for a ${industry || 'general'} business about "${keyword}". Return only names, one per line, no numbers.`
+    const { prompt } = await req.json()
 
     const completion = await groq.chat.completions.create({
-      messages: [{ role: 'user', content }],
+      messages: [{ role: 'user', content: prompt }],
       model: 'llama-3.1-8b-instant',
-      temperature: 0.9,
-      max_tokens: 800,
+      temperature: 0.7,
+      max_tokens: 1000,
     })
 
     const text = completion.choices[0]?.message?.content || ''
 
-    // return both formats for compatibility
-    const results = text.split('\n').map(l => l.replace(/^\d+\.\s*/, '').trim()).filter(Boolean)
+    return NextResponse.json({ text })
 
-    return Response.json({ text, results })
-  } catch (err: any) {
-    return Response.json({ text: err.message, results: [err.message] }, { status: 500 })
+  } catch (error: any) {
+    console.error('Groq error:', error)
+    return NextResponse.json(
+      { error: 'Generation failed, try again' },
+      { status: 500 }
+    )
   }
 }
