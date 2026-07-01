@@ -3,7 +3,7 @@ import Link from 'next/link'
 export default function BusinessPage() {
   const tools = [
     { icon: "🏷️", name: "Business Name Generator", desc: "Generate catchy brand names", href: "/business/name-generator", live: true },
-    { icon: "💡", name: "Startup Idea Generator", desc: "AI startup ideas", href: "/business/startup-idea", live: true },
+    { icon: "💡", name: "Startup Idea Generator", desc: "AI startup ideas from your skills", href: "/business/startup-ideas", live: true },
     { icon: "✨", name: "Slogan Generator", desc: "Memorable taglines", href: "/business/slogan-generator", live: true },
     { icon: "🎯", name: "Brand Name Generator", desc: "Brandable names", href: "/business/brand-name", live: true },
     { icon: "🚀", name: "USP Generator", desc: "Unique selling propositions", href: "/business/usp-generator", live: true },
