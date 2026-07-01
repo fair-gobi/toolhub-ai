@@ -1,11 +1,5 @@
-import type { Metadata } from 'next'
+'use client'
 import BusinessPlanGenerator from './BusinessPlanGenerator'
-
-export const metadata: Metadata = {
-  title: 'Business Plan Generator - AI Business Plans',
-  description: 'Generate a complete 1-page business plan instantly.',
-}
-
 export default function Page() {
-  return <BusinessPlanGenerator />
+  return <div className="min-h-screen bg-gray-50"><BusinessPlanGenerator /></div>
 }
