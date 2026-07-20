@@ -15,18 +15,23 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Promptoolhub Nepal - Free AI Background Remover, Image Upscaler & Photo Restorer",
-  description: "Free online AI tools to remove image backgrounds, upscale photos 4x with AI, and restore old pictures. Fast, no signup, 100% free.",
+  title: "Promptoolhub - 1500+ Best AI Prompts for ChatGPT, Midjourney & Business",
+  description: "1500+ viral copy-paste AI prompts for ChatGPT, Midjourney, Runway, SEO, Marketing, Business, Coding. Free 250+ Image & Video prompts.",
   verification: {
-    google: "psNzC77faKxonVJOS7yTunAboLEBZjJLioEiddRfEfE",
+    google: "e97fe87e90c581c8", 
+  },
+  openGraph: {
+    title: "Promptoolhub - 1500+ AI Prompts",
+    description: "Copy-paste 1500+ best prompts for ChatGPT, Midjourney, Claude.",
+    url: "https://www.promptoolhub.com",
+    siteName: "Promptoolhub",
+    type: "website",
   },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
@@ -35,11 +40,11 @@ export default function RootLayout({
           <a href="/about" className="mx-3 hover:underline">About</a>
           <a href="/privacy" className="mx-3 hover:underline">Privacy</a>
           <a href="/contact" className="mx-3 hover:underline">Contact</a>
-          <p className="mt-2">© 2026 Promptoolhub Nepal</p>
+          <a href="/prompts" className="mx-3 hover:underline">1500 Prompts</a>
+          <p className="mt-2">© 2026 Promptoolhub Nepal 🇳🇵</p>
         </footer>
         <Analytics />
       </body>
     </html>
   );
 }
-
