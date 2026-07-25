@@ -122,16 +122,21 @@ export function ToolPageSEO({ name, cat, path }: Props) {
             <li>Enter your input - {getInputHint(name)}</li>
             <li>Click Generate</li>
             <li>Copy or Download instantly</li>
-          </ol>
-          <h2>Key Features</h2>
-          <ul><li>100% Free & Unlimited</li><li>Privacy First - auto-deleted</li><li>Works on mobile & low-end devices</li><li>Fast & Accurate</li><li>No Signup</li></ul>
-          <h2>FAQs - {name}</h2>
-          {faqs.map((f,i) => <div key={i} className="mb-3"><h3 className="font-semibold">{f.q}</h3><p>{f.a}</p></div>)}
-        </article>
+           </ol>
+           <h2>Key Features</h2>
+           <ul><li>100% Free & Unlimited</li><li>Privacy First - auto-deleted</li><li>Works on mobile & low-end devices</li><li>Fast & Accurate</li><li>No Signup</li></ul>
+           <h2>FAQs - {name}</h2>
+           {faqs.map((f,i) => <div key={i} className="mb-3"><h3 className="font-semibold">{f.q}</h3><p>{f.a}</p></div>)}
+           </article>
+           <div className="mt-8 p-5 bg-gradient-to-r from-violet-600 to-indigo-600 rounded-xl text-white">
+           <h3 className="font-bold text-lg">🚀 Need AI Prompts for {name}?</h3>
+           <p className="text-sm mt-1 text-violet-100">Get 1500+ ready-to-use ChatGPT, Claude & Midjourney prompts for {cat.toLowerCase()}, business, marketing, social media, image, video prompts & more.</p>
+            <a href="https://www.promptoolhub.com/prompts" className="inline-block mt-3 bg-white text-violet-700 px-5 py-2 rounded-full font-semibold text-sm">Explore Prompt Library →</a>
+           </div>
 
-        <div className="mt-10 pt-8 border-t">
-          <h3 className="text-xl font-bold mb-4">Related {cat} Tools</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+           <div className="mt-10 pt-8 border-t">
+           <h3 className="text-xl font-bold mb-4">Related {cat} Tools</h3>
+           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {related.map(t => (
               <Link key={t.path} href={t.path} className="p-4 border rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800 transition">
                 <span className="font-medium">{t.name}</span>
