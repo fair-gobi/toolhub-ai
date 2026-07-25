@@ -4,21 +4,21 @@ import Link from 'next/link'
 import { useState } from 'react'
 
 const tools = [
-  { name: 'Nepali Date Converter', desc: 'BS ? AD calendar', href: '/utility/nepali-date-converter', icon: '??' },
-  { name: 'GPA Calculator', desc: 'TU/PU CGPA calculator', href: '/gpa-calculator', icon: '??' },
-  { name: 'QR Generator', desc: 'Custom QR codes', href: '/qr-generator', icon: '??' },
-  { name: 'Payment QR', desc: 'eSewa/Khalti QR', href: '/payment-qr', icon: '??' },
-  { name: 'QR Scanner', desc: 'Scan QR from image', href: '/qr-scanner', icon: '??' },
-  { name: 'Age Calculator', desc: 'Exact age in years/months', href: '/age-calculator', icon: '??' },
-  { name: 'Percentage Calculator', desc: 'X% of Y, % change', href: '/percentage-calculator', icon: '??' },
-  { name: 'BMI Calculator', desc: 'Body mass index', href: '/bmi-calculator', icon: '?' },
-  { name: 'Currency Converter', desc: 'Live exchange rates', href: '/currency-converter', icon: '??' },
-  { name: 'Unit Converter', desc: 'Length, weight, temp', href: '/unit-converter', icon: '??' },
-  { name: 'Time Zone Converter', desc: 'World time zones', href: '/time-zone-converter', icon: '??' },
-  { name: 'Date Difference', desc: 'Days between dates', href: '/date-difference', icon: '??' },
-  { name: 'EMI Calculator', desc: 'Loan monthly payment', href: '/utility/emi-calculator', icon: '??' },
-  { name: 'GST/VAT Calculator', desc: 'Nepal 13% VAT', href: '/gst-calculator', icon: '??' },
-  { name: 'YouTube Thumbnail', desc: 'Download HD thumbnails', href: '/youtube-thumbnail', icon: '??' },
+  { name: 'Nepali Date Converter', desc: 'BS ↔ AD calendar', href: '/utility/nepali-date-converter', icon: '📅' },
+  { name: 'GPA Calculator', desc: 'TU/PU CGPA calculator', href: '/utility/gpa-calculator', icon: '🎓' },
+  { name: 'QR Generator', desc: 'Custom QR codes', href: '/utility/qr-generator', icon: '🔳' },
+  { name: 'Payment QR', desc: 'eSewa/Khalti QR', href: '/utility/payment-qr', icon: '💳' },
+  { name: 'QR Scanner', desc: 'Scan QR from image', href: '/utility/qr-scanner', icon: '📷' },
+  { name: 'Age Calculator', desc: 'Exact age in years/months', href: '/utility/age-calculator', icon: '🎂' },
+  { name: 'Percentage Calculator', desc: 'X% of Y, % change', href: '/utility/percentage-calculator', icon: '📊' },
+  { name: 'BMI Calculator', desc: 'Body mass index', href: '/utility/bmi-calculator', icon: '⚖️' },
+  { name: 'Currency Converter', desc: 'Live exchange rates', href: '/utility/currency-converter', icon: '💱' },
+  { name: 'Unit Converter', desc: 'Length, weight, temp', href: '/utility/unit-converter', icon: '🔄' },
+  { name: 'Time Zone Converter', desc: 'World time zones', href: '/utility/time-zone-converter', icon: '🌍' },
+  { name: 'Date Difference', desc: 'Days between dates', href: '/utility/date-difference', icon: '📆' },
+  { name: 'EMI Calculator', desc: 'Loan monthly payment', href: '/utility/emi-calculator', icon: '🏦' },
+  { name: 'GST/VAT Calculator', desc: 'Nepal 13% VAT', href: '/utility/gst-calculator', icon: '🧾' },
+  { name: 'YouTube Thumbnail', desc: 'Download HD thumbnails', href: '/utility/youtube-thumbnail', icon: '🖼️' },
 ]
 
 export default function Utility() {
@@ -33,26 +33,23 @@ export default function Utility() {
     <main className="min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         
-        {/* Breadcrumb */}
         <div className="mb-6">
           <Link href="/" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">
-            ? Back to Home
+            ← Back to Home
           </Link>
         </div>
 
-        {/* Header */}
         <div className="text-center mb-10">
-          <div className="text-5xl mb-4">??</div>
+          <div className="text-5xl mb-4">🛠️</div>
           <h1 className="text-4xl font-bold mb-3">Utility Tools</h1>
           <p className="text-lg text-gray-600 dark:text-gray-400">
-            15 free tools No signup  Works offline
+            15 free tools • No signup • Works offline
           </p>
         </div>
 
-        {/* Search */}
         <div className="max-w-xl mx-auto mb-8">
           <div className="relative">
-            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">??</span>
+            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">🔍</span>
             <input 
               type="search" 
               placeholder="Search utility tools..." 
@@ -63,7 +60,6 @@ export default function Utility() {
           </div>
         </div>
 
-        {/* Tools Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredTools.map(tool => (
             <Link 
@@ -89,6 +85,12 @@ export default function Utility() {
             No tools found for "{searchQuery}"
           </div>
         )}
+
+        {/* SEO CONTENT - to avoid thin content */}
+        <div className="max-w-3xl mx-auto mt-16 prose dark:prose-invert">
+          <h2>About Utility Tools</h2>
+          <p>Our Utility Tools collection is built for daily life in Nepal and globally. From Nepali Date Converter (BS to AD) for official documents to GPA Calculator for TU/PU students, each tool runs 100% in your browser with no data sent to server. These 15 tools cover finance, date/time, health and QR needs that you use every week. All tools are free, mobile-friendly and work offline after first load.</p>
+        </div>
       </div>
     </main>
   )
