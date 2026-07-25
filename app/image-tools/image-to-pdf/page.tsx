@@ -1,9 +1,10 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 
 'use client';
 import { useState } from 'react';
 import { PDFDocument } from 'pdf-lib';
 
-export default function ImageToPdf(){
+function OriginalPage(){
   const [files,setFiles]=useState<File[]>([]); const [url,setUrl]=useState<string|null>(null); const [loading,setLoading]=useState(false);
   const convert = async()=>{
     setLoading(true); const pdf=await PDFDocument.create();
@@ -21,4 +22,13 @@ export default function ImageToPdf(){
   <input type="file" accept="image/*" multiple onChange={e=>setFiles(Array.from(e.target.files||[]))} className="w-full"/>
   <button onClick={convert} disabled={files.length===0||loading} className="w-full bg-red-600 text-white py-3 rounded-lg disabled:opacity-50">{loading?'Creating PDF...':`Create PDF from ${files.length} images`}</button>
   {url && <a href={url} download="images.pdf" className="block text-center bg-green-600 text-white py-2 rounded">Download PDF</a>}</div></main>);
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="Image to PDF" cat="Image Tools" path="/image-tools/image-to-pdf" />
+    </>
+  )
 }

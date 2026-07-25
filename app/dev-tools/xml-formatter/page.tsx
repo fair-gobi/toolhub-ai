@@ -1,7 +1,8 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client'
 import { useState } from 'react'
 
-export default function XMLFormatter(){
+function OriginalPage(){
   const [input,setInput]=useState('<root><item>test</item></root>')
   const [out,setOut]=useState('')
 
@@ -59,5 +60,14 @@ export default function XMLFormatter(){
         Format XML
       </button>
     </main>
+  )
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="XML Formatter" cat="Dev Tools" path="/dev-tools/xml-formatter" />
+    </>
   )
 }

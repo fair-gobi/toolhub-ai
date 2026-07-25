@@ -1,7 +1,8 @@
-"use client";
+"use client"
+import { ToolPageSEO } from "@/components/ToolPageSEO";
 import { useState } from "react";
 
-export default function ResumeBuilder() {
+function OriginalPage() {
   const [loading, setLoading] = useState(false);
   const [resume, setResume] = useState("");
   const [form, setForm] = useState({
@@ -57,5 +58,13 @@ export default function ResumeBuilder() {
         </div>
       )}
     </main>
+  )
+}
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="Resume Builder" cat="AI Tools" path="/ai-tools/resume-builder" />
+    </>
   )
 }

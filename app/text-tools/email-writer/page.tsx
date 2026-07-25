@@ -1,7 +1,8 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client';
 import { useState } from 'react';
 
-export default function EmailWriter() {
+function OriginalPage() {
   const [sender, setSender] = useState('Gobinda Subedi');
   const [receiver, setReceiver] = useState('');
   const [company, setCompany] = useState('Promptoolhub');
@@ -114,4 +115,13 @@ Requirements:
       )}
     </main>
   );
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="Email Writer" cat="Text Tools" path="/text-tools/email-writer" />
+    </>
+  )
 }

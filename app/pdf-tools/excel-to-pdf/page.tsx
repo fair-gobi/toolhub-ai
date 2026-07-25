@@ -1,10 +1,11 @@
-"use client";
+"use client"
+import { ToolPageSEO } from "@/components/ToolPageSEO";
 import { useState } from 'react';
 import * as XLSX from 'xlsx';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
 
-export default function ExcelToPdf() {
+function OriginalPage() {
   const [loading, setLoading] = useState(false);
 
   const smartSplit = (rows: any[][]) => {
@@ -73,4 +74,12 @@ export default function ExcelToPdf() {
       {loading && <p className="mt-4 text-blue-600">Generating PDF with table...</p>}
     </div>
   );
+}
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="Excel to PDF" cat="PDF Tools" path="/pdf-tools/excel-to-pdf" />
+    </>
+  )
 }

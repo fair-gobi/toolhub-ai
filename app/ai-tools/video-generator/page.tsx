@@ -1,9 +1,10 @@
-"use client";
+"use client"
+import { ToolPageSEO } from "@/components/ToolPageSEO";
 import { useState, useRef } from "react";
 
 const styles = ["Realistic", "Anime", "3D Cartoon", "Cinematic", "Cyberpunk"];
 
-export default function VideoGen(){
+function OriginalPage(){
   const [prompt,setPrompt]=useState("");
   const [style,setStyle]=useState("Realistic");
   const [loading,setLoading]=useState(false);
@@ -105,5 +106,13 @@ export default function VideoGen(){
         </div>
       )}
     </main>
+  )
+}
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="Video Generator" cat="AI Tools" path="/ai-tools/video-generator" />
+    </>
   )
 }

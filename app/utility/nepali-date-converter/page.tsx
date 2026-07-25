@@ -1,7 +1,8 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client';
 import { useState, useEffect } from 'react';
 import { ADToBS, BSToAD } from 'bikram-sambat-js';
-export default function NepaliDate() {
+function OriginalPage() {
   const [bs, setBs] = useState('2082-03-08'); const [ad, setAd] = useState('2025-06-22'); const [mode, setMode] = useState('bs2ad'); const [err, setErr] = useState('');
   useEffect(()=>{ if(mode!=='bs2ad')return; try{ setAd(BSToAD(bs)); setErr(''); }catch{ setErr('Invalid BS date'); } },[bs,mode]);
   useEffect(()=>{ if(mode!=='ad2bs')return; try{ setBs(ADToBS(ad)); setErr(''); }catch{ setErr('Invalid AD date'); } },[ad,mode]);
@@ -21,4 +22,13 @@ export default function NepaliDate() {
       </div>
     </main>
   );
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="Nepali Date Converter" cat="Utility" path="/utility/nepali-date-converter" />
+    </>
+  )
 }

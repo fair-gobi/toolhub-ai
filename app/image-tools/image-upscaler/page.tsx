@@ -1,8 +1,9 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client'
 import { useState } from 'react'
 import Link from 'next/link'
 
-export default function Upscaler(){
+function OriginalPage(){
   const [img,setImg]=useState<string|null>(null)
   const [out,setOut]=useState<string|null>(null)
   const [loading,setLoading]=useState(false)
@@ -36,3 +37,12 @@ export default function Upscaler(){
   )
 }
 
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="Image Upscaler" cat="Image Tools" path="/image-tools/image-upscaler" />
+    </>
+  )
+}

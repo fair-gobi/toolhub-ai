@@ -1,7 +1,8 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client';
 import { useState, useEffect } from 'react';
 
-export default function ImageResizer() {
+function OriginalPage() {
   const [file, setFile] = useState<File | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
   const [origW, setOrigW] = useState(0);
@@ -107,4 +108,13 @@ export default function ImageResizer() {
       </div>
     </main>
   );
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="Image Resizer" cat="Image Tools" path="/image-tools/image-resizer" />
+    </>
+  )
 }

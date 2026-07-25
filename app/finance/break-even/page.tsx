@@ -1,3 +1,4 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 import type { Metadata } from 'next'
 import BreakEvenCalculator from './BreakEvenCalculator'
 
@@ -12,6 +13,15 @@ export const metadata: Metadata = {
   }
 }
 
-export default function Page() {
+function OriginalPage() {
   return <BreakEvenCalculator />
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="Break Even Calculator" cat="Finance" path="/finance/break-even" />
+    </>
+  )
 }

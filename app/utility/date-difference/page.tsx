@@ -1,7 +1,8 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client'
 import { useState } from 'react'
 
-export default function DateDifference() {
+function OriginalPage() {
   const [d1, setD1] = useState('')
   const [d2, setD2] = useState('')
   const [diff, setDiff] = useState<any>(null)
@@ -37,5 +38,14 @@ export default function DateDifference() {
         </div>
       </div>
     </main>
+  )
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="Date Difference Calculator" cat="Utility" path="/utility/date-difference" />
+    </>
   )
 }

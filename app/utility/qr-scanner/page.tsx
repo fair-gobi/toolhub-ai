@@ -1,9 +1,10 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client'
 import { useState, useRef, useEffect } from 'react'
 import jsQR from 'jsqr'
 import * as OTPAuth from 'otpauth'
 
-export default function QRScanner() {
+function OriginalPage() {
   const [result, setResult] = useState('')
   const [is2FA, setIs2FA] = useState(false)
   const [secret, setSecret] = useState('')
@@ -191,5 +192,14 @@ export default function QRScanner() {
         <p className="text-center text-xs text-gray-500 mt-6">All processing happens in your browser. No data is sent to servers.</p>
       </div>
     </main>
+  )
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="QR Scanner" cat="Utility" path="/utility/qr-scanner" />
+    </>
   )
 }

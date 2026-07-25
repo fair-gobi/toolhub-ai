@@ -1,9 +1,10 @@
-﻿"use client";
+﻿"use client"
+import { ToolPageSEO } from "@/components/ToolPageSEO";
 import { useState } from "react";
 import * as pdfjsLib from "pdfjs-dist/legacy/build/pdf.mjs";
 pdfjsLib.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@4.10.38/build/pdf.worker.min.mjs`;
 
-export default function PdfSummarizerPage() {
+function OriginalPage() {
   const [summary, setSummary] = useState("");
   const [loading, setLoading] = useState(false);
   const [fileName, setFileName] = useState("");
@@ -48,4 +49,13 @@ export default function PdfSummarizerPage() {
       {summary && <div className="mt-4 border p-4 rounded bg-gray-50 whitespace-pre-wrap leading-7">{summary}</div>}
     </main>
   );
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="PDF Summarizer" cat="PDF Tools" path="/pdf-tools/pdf-summarizer" />
+    </>
+  )
 }

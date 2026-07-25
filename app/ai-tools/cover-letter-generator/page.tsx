@@ -1,7 +1,8 @@
-"use client";
+"use client"
+import { ToolPageSEO } from "@/components/ToolPageSEO";
 import { useState } from "react";
 
-export default function CoverLetterGen() {
+function OriginalPage() {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState("");
   const [form, setForm] = useState({ name:"", role:"", company:"", skills:"", exp:"" });
@@ -31,5 +32,13 @@ export default function CoverLetterGen() {
       </div>
       {result && <pre className="whitespace-pre-wrap border p-5 mt-6 rounded bg-gray-50">{result}</pre>}
     </main>
+  )
+}
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="Cover Letter Generator" cat="AI Tools" path="/ai-tools/cover-letter-generator" />
+    </>
   )
 }

@@ -1,3 +1,4 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client';
 import { useState } from 'react';
 import * as pdfjsLib from 'pdfjs-dist';
@@ -8,7 +9,7 @@ import mammoth from 'mammoth';
 // FIXED: hardcoded version, not ${pdfjsLib.version}
 pdfjsLib.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@4.10.38/build/pdf.worker.min.mjs`;
 
-export default function PdfWordConverter(){
+function OriginalPage(){
   const [tab,setTab]=useState<'pdf2word'|'word2pdf'>('pdf2word');
   const [loading,setLoading]=useState(false);
   const [msg,setMsg]=useState('');
@@ -70,4 +71,13 @@ export default function PdfWordConverter(){
       </div>
     </main>
   );
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="PDF to Word" cat="PDF Tools" path="/pdf-tools/pdf-to-word" />
+    </>
+  )
 }

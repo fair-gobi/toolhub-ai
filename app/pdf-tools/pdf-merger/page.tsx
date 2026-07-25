@@ -1,8 +1,9 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client';
 import { useState } from 'react';
 import { PDFDocument } from 'pdf-lib';
 
-export default function Merger() {
+function OriginalPage() {
   const [files, setFiles] = useState<File[]>([]);
   const [url, setUrl] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -36,3 +37,12 @@ export default function Merger() {
   );
 }
 
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="PDF Merger" cat="PDF Tools" path="/pdf-tools/pdf-merger" />
+    </>
+  )
+}

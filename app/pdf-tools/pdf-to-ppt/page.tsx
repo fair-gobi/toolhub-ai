@@ -1,3 +1,4 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 // @ts-nocheck
 'use client';
 import { useState } from 'react';
@@ -7,7 +8,7 @@ pdfjsLib.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjsLi
 
 export const dynamic = 'force-dynamic';
 
-export default function PdfToPpt(){
+function OriginalPage(){
   const [msg,setMsg]=useState('');
   const [loading,setLoading]=useState(false);
 
@@ -67,4 +68,13 @@ export default function PdfToPpt(){
       </div>
     </main>
   );
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="PDF to PPT" cat="PDF Tools" path="/pdf-tools/pdf-to-ppt" />
+    </>
+  )
 }

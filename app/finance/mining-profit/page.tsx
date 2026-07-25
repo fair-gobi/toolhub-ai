@@ -1,3 +1,4 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 import type { Metadata } from 'next'
 import MiningProfitCalculator from './MiningProfitCalculator'
 
@@ -12,7 +13,16 @@ export const metadata: Metadata = {
   }
 }
 
-export default function Page() {
+function OriginalPage() {
   return <MiningProfitCalculator />
 }
 
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="Mining Profit Calculator" cat="Finance" path="/finance/mining-profit" />
+    </>
+  )
+}

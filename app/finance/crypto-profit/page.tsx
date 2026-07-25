@@ -1,3 +1,4 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 
 import type { Metadata } from 'next'
 import CryptoProfitCalculator from './CryptoProfitCalculator'
@@ -13,7 +14,16 @@ export const metadata: Metadata = {
   }
 }
 
-export default function Page() {
+function OriginalPage() {
   return <CryptoProfitCalculator />
 }
 
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="Crypto Profit Calculator" cat="Finance" path="/finance/crypto-profit" />
+    </>
+  )
+}

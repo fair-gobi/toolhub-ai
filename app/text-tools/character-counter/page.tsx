@@ -1,7 +1,8 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client'
 import { useState } from 'react'
 
-export default function CharCounter() {
+function OriginalPage() {
   const [text, setText] = useState('')
 
   const limits = [
@@ -39,5 +40,14 @@ export default function CharCounter() {
         })}
       </div>
     </main>
+  )
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="Character Counter" cat="Text Tools" path="/text-tools/character-counter" />
+    </>
   )
 }

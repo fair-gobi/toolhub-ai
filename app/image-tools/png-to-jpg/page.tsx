@@ -1,6 +1,7 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client';
 import { useState } from 'react';
-export default function PngToJpg(){
+function OriginalPage(){
   const [file,setFile]=useState<File|null>(null); const [url,setUrl]=useState<string|null>(null);
   const convert = async()=>{
     if(!file) return; const img=new Image(); const src=URL.createObjectURL(file); img.src=src;
@@ -14,4 +15,13 @@ export default function PngToJpg(){
   <p className="text-xs text-gray-500">Transparent background will become white</p>
   <button onClick={convert} disabled={!file} className="w-full bg-purple-600 text-white py-3 rounded-lg disabled:opacity-50">Convert to JPG</button>
   {url && <><img src={url} className="max-w-full rounded border"/><a href={url} download="converted.jpg" className="block text-center bg-green-600 text-white py-2 rounded mt-3">Download JPG</a></>}</div></main>);
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="PNG to JPG" cat="Image Tools" path="/image-tools/png-to-jpg" />
+    </>
+  )
 }

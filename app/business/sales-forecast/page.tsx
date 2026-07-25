@@ -1,3 +1,4 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 import type { Metadata } from 'next'
 import SalesForecast from './SalesForecast'
 
@@ -6,6 +7,15 @@ export const metadata: Metadata = {
   description: 'Forecast monthly sales with growth rate. 25 currencies.',
 }
 
-export default function Page() {
+function OriginalPage() {
   return <SalesForecast />
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="Sales Forecast" cat="Business" path="/business/sales-forecast" />
+    </>
+  )
 }

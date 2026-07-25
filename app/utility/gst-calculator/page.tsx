@@ -1,7 +1,8 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client'
 import { useState } from 'react'
 
-export default function GSTCalculator() {
+function OriginalPage() {
   const [amt, setAmt] = useState('1000')
   const [rate, setRate] = useState('13')
   const [type, setType] = useState('add')
@@ -43,5 +44,14 @@ export default function GSTCalculator() {
         </div>
       </div>
     </main>
+  )
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="GST VAT Calculator" cat="Utility" path="/utility/gst-calculator" />
+    </>
   )
 }

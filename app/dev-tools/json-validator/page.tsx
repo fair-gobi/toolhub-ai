@@ -1,7 +1,8 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client'
 import { useState } from 'react'
 
-export default function JSONValidator() {
+function OriginalPage() {
   const [input, setInput] = useState('{"valid": true}')
   const [result, setResult] = useState<{valid:boolean, error?:string, line?:number}>({valid:true})
 
@@ -36,5 +37,14 @@ export default function JSONValidator() {
         </div>
       )}
     </main>
+  )
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="JSON Validator" cat="Dev Tools" path="/dev-tools/json-validator" />
+    </>
   )
 }

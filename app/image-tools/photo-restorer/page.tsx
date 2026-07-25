@@ -1,8 +1,9 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client'
 import { useState } from 'react'
 import Link from 'next/link'
 
-export default function Restorer(){
+function OriginalPage(){
   const [img,setImg]=useState<string|null>(null)
   const [out,setOut]=useState<string|null>(null)
   const [loading,setLoading]=useState(false)
@@ -33,5 +34,14 @@ export default function Restorer(){
         </div>
       </div>
     </div>
+  )
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="Photo Restorer" cat="Image Tools" path="/image-tools/photo-restorer" />
+    </>
   )
 }

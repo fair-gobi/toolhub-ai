@@ -1,7 +1,8 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client'
 import { useState } from 'react'
 
-export default function YouTubeThumbnail() {
+function OriginalPage() {
   const [url, setUrl] = useState('')
   const [thumbs, setThumbs] = useState<string[]>([])
 
@@ -50,5 +51,14 @@ export default function YouTubeThumbnail() {
         )}
       </div>
     </main>
+  )
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="YouTube Thumbnail Downloader" cat="Utility" path="/utility/youtube-thumbnail" />
+    </>
   )
 }

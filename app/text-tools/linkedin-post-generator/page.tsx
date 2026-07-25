@@ -1,10 +1,11 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client';
 
 import { useState } from 'react';
 
 type Tone = 'story' | 'educational' | 'contrarian';
 
-export default function LinkedInGen() {
+function OriginalPage() {
   const [topic, setTopic] = useState<string>('building free tools in public');
   const [keywords, setKeywords] = useState<string>('buildinpublic, startup, productivity');
   const [achievement, setAchievement] = useState<string>('hit 10,000 users with zero ad spend');
@@ -101,3 +102,12 @@ Write in 2026 style, authentic voice, no corporate fluff.`;
   );
 }
 
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="LinkedIn Post Generator" cat="Text Tools" path="/text-tools/linkedin-post-generator" />
+    </>
+  )
+}

@@ -1,7 +1,8 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client'
 import { useState } from 'react'
 
-export default function JSMinifier(){
+function OriginalPage(){
   const [input,setInput]=useState('function hello() {\n  console.log("Hello");\n}')
   const [out,setOut]=useState('')
   
@@ -24,5 +25,14 @@ export default function JSMinifier(){
       </div>
       <button onClick={minify} className="mt-3 bg-yellow-600 text-white px-6 py-2 rounded-lg">Minify</button>
     </main>
+  )
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="JS Minifier" cat="Dev Tools" path="/dev-tools/js-minifier" />
+    </>
   )
 }

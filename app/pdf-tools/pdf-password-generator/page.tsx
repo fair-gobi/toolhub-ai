@@ -1,8 +1,9 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 // @ts-nocheck
 'use client';
 import { useState } from 'react';
 
-export default function PdfPasswordGenerator(){
+function OriginalPage(){
   const [length,setLength]=useState(16);
   const [upper,setUpper]=useState(true); const [lower,setLower]=useState(true);
   const [numbers,setNumbers]=useState(true); const [symbols,setSymbols]=useState(true);
@@ -73,4 +74,13 @@ export default function PdfPasswordGenerator(){
       </div>
     </main>
   );
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="PDF Password Generator" cat="PDF Tools" path="/pdf-tools/pdf-password-generator" />
+    </>
+  )
 }

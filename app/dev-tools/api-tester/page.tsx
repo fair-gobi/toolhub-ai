@@ -1,7 +1,8 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client'
 import { useState } from 'react'
 
-export default function APITester(){
+function OriginalPage(){
   const [url,setUrl]=useState('https://jsonplaceholder.typicode.com/posts/1')
   const [method,setMethod]=useState('GET')
   const [response,setResponse]=useState('')
@@ -31,5 +32,14 @@ export default function APITester(){
       </div>
       <textarea value={response} readOnly className="w-full h-96 border-2 rounded p-3 font-mono text-xs bg-gray-50" placeholder="Response appears here"/>
     </main>
+  )
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="API Tester" cat="Dev Tools" path="/dev-tools/api-tester" />
+    </>
   )
 }

@@ -1,3 +1,4 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 import type { Metadata } from 'next'
 import SipCalculator from './SipCalculator'
 
@@ -11,6 +12,15 @@ export const metadata: Metadata = {
     type: 'website',
   }
 }
-export default function Page() {
+function OriginalPage() {
   return <SipCalculator />
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="SIP Calculator" cat="Finance" path="/finance/sip-calculator" />
+    </>
+  )
 }

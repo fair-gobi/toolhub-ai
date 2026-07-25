@@ -1,7 +1,8 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client'
 import { useState, useEffect } from 'react'
 
-export default function TimeZoneConverter() {
+function OriginalPage() {
   const [time, setTime] = useState('')
   const [from, setFrom] = useState('Asia/Kathmandu')
   const [to, setTo] = useState('America/New_York')
@@ -33,5 +34,14 @@ export default function TimeZoneConverter() {
         </div>
       </div>
     </main>
+  )
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="Time Zone Converter" cat="Utility" path="/utility/time-zone-converter" />
+    </>
   )
 }

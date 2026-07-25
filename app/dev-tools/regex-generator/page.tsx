@@ -1,7 +1,8 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client'
 import { useState } from 'react'
 
-export default function RegexGenerator(){
+function OriginalPage(){
   const [type,setType]=useState('email')
   const [custom,setCustom]=useState('')
   const [regex,setRegex]=useState('')
@@ -52,5 +53,14 @@ export default function RegexGenerator(){
         <button onClick={()=>navigator.clipboard.writeText(regex)} className="mt-2 text-xs bg-gray-700 px-2 py-1 rounded">Copy</button>
       </div>
     </main>
+  )
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="Regex Generator" cat="Dev Tools" path="/dev-tools/regex-generator" />
+    </>
   )
 }

@@ -1,7 +1,8 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client'
 import { useState } from 'react'
 
-export default function UUIDGenerator(){
+function OriginalPage(){
   const [uuids,setUuids]=useState<string[]>([])
 
   const generate=()=>{
@@ -27,5 +28,14 @@ export default function UUIDGenerator(){
         <p className="text-gray-500">Click generate to create UUID v4</p>
       )}
     </main>
+  )
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="UUID Generator" cat="Dev Tools" path="/dev-tools/uuid-generator" />
+    </>
   )
 }

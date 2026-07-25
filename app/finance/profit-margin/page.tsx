@@ -1,3 +1,4 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 
 import type { Metadata } from 'next'
 import ProfitMarginCalculator from './ProfitMarginCalculator'
@@ -13,7 +14,16 @@ export const metadata: Metadata = {
   }
 }
 
-export default function Page() {
+function OriginalPage() {
   return <ProfitMarginCalculator />
 }
 
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="Profit Margin Calculator" cat="Finance" path="/finance/profit-margin" />
+    </>
+  )
+}

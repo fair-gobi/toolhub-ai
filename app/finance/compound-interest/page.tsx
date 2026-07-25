@@ -1,3 +1,4 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 import type { Metadata } from 'next'
 import CompoundInterestCalculator from './CompoundInterestCalculator'
 
@@ -12,6 +13,15 @@ export const metadata: Metadata = {
   }
 }
 
-export default function Page() {
+function OriginalPage() {
   return <CompoundInterestCalculator />
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="Compound Interest Calculator" cat="Finance" path="/finance/compound-interest" />
+    </>
+  )
 }

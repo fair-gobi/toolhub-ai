@@ -1,3 +1,4 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 import type { Metadata } from 'next'
 import LoanEmiCalculator from './LoanEmiCalculator'
 
@@ -12,6 +13,15 @@ export const metadata: Metadata = {
   }
 }
 
-export default function Page() {
+function OriginalPage() {
   return <LoanEmiCalculator />
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="Loan EMI Calculator" cat="Finance" path="/finance/loan-emi" />
+    </>
+  )
 }

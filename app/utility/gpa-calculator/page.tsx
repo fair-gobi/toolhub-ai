@@ -1,3 +1,4 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client';
 import { useState, useEffect } from 'react';
 
@@ -24,7 +25,7 @@ const UNIVERSITY_SCALES: Record<University, Record<GradeKey, number>> = {
   KU: { A: 4.0, 'A-': 3.7, 'B+': 3.3, B: 3.0, 'B-': 2.7, 'C+': 2.3, C: 2.0, 'C-': 1.7, 'D+': 1.0, D: 1.0, F: 0 }
 };
 
-export default function GPACalculator() {
+function OriginalPage() {
   const [uni, setUni] = useState<University>('TU');
   const [studentName, setStudentName] = useState('');
   const [rollNumber, setRollNumber] = useState('');
@@ -290,4 +291,13 @@ export default function GPACalculator() {
       </div>
     </main>
   );
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="GPA Calculator" cat="Utility" path="/utility/gpa-calculator" />
+    </>
+  )
 }

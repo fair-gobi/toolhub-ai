@@ -1,8 +1,9 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client';
 import { useState } from 'react';
 import imageCompression from 'browser-image-compression';
 
-export default function Compressor() {
+function OriginalPage() {
   const [file, setFile] = useState<File | null>(null);
   const [outputUrl, setOutputUrl] = useState<string | null>(null);
   const [info, setInfo] = useState<string>('');
@@ -47,4 +48,13 @@ export default function Compressor() {
       </div>
     </main>
   );
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="Image Compressor" cat="Image Tools" path="/image-tools/image-compressor" />
+    </>
+  )
 }

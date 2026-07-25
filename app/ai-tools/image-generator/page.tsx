@@ -1,9 +1,10 @@
-"use client";
+"use client"
+import { ToolPageSEO } from "@/components/ToolPageSEO";
 import { useState } from "react";
 
 const styles = ["Realistic Photo", "Anime", "3D Render", "Cyberpunk", "Oil Painting", "Cartoon", "Logo", "Fantasy"];
 
-export default function ImageGen(){
+function OriginalPage(){
   const [prompt,setPrompt]=useState("");
   const [style,setStyle]=useState("Realistic Photo");
   const [loading,setLoading]=useState(false);
@@ -54,5 +55,13 @@ export default function ImageGen(){
         </div>
       )}
     </main>
+  )
+}
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="Image Generator" cat="AI Tools" path="/ai-tools/image-generator" />
+    </>
   )
 }

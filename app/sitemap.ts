@@ -1,39 +1,24 @@
-﻿import { promptData, categoryData } from "@/data/prompts-data"
+﻿import { MetadataRoute } from 'next'
+import { ALL_TOOLS } from '@/data/all-tools'
+import { promptData } from '@/data/prompts-data'
 
-export default async function sitemap() {
-  const baseUrl = "https://www.promptoolhub.com"
-  const now = new Date()
-
-  // 1. Main pages
-  const mainPages = [
-    "",
-    "/prompts",
-    "/ai-tools",
-    "/pdf-tools",
-    "/image-tools",
-    "/dev-tools",
-    "/text-tools",
-    "/business",
-    "/finance",
-    "/about",
-    "/privacy",
-    "/contact",
-  ].map((route) => ({
-    url: `${baseUrl}${route}`,
-    lastModified: now,
+export default function sitemap(): MetadataRoute.Sitemap {
+  const base = 'https://www.promptoolhub.com'
+  
+  const mainPages = ['', '/ai-tools', '/business', '/dev-tools', '/finance', '/image-tools', '/pdf-tools', '/text-tools', '/utility', '/prompts'].map(p => ({
+    url: `${base}${p}`,
+    lastModified: new Date(),
   }))
 
-  // 2. Category pages
-  const categoryPages = categoryData.map((cat: any) => ({
-    url: `${baseUrl}/prompts/category/${cat.slug}`,
-    lastModified: now,
+  const toolPages = ALL_TOOLS.map(t => ({
+    url: `${base}${t.path}`,
+    lastModified: new Date(),
   }))
 
-  // 3. All 1500 prompt pages
   const promptPages = promptData.map((p: any) => ({
-    url: `${baseUrl}/prompts/${p.id}`,
-    lastModified: now,
+    url: `${base}/prompts/${p.slug || p.id}`,
+    lastModified: new Date(),
   }))
 
-  return [...mainPages, ...categoryPages, ...promptPages]
+  return [...mainPages, ...toolPages, ...promptPages]
 }

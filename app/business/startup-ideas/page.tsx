@@ -1,7 +1,8 @@
-"use client";
+"use client"
+import { ToolPageSEO } from "@/components/ToolPageSEO";
 import { useState } from "react";
 
-export default function StartupIdeas() {
+function OriginalPage() {
   const [skill, setSkill] = useState("");
   const [output, setOutput] = useState("");
   const [loading, setLoading] = useState(false);
@@ -41,4 +42,13 @@ export default function StartupIdeas() {
       </pre>
     </div>
   );
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="Startup Ideas Generator" cat="Business" path="/business/startup-ideas" />
+    </>
+  )
 }

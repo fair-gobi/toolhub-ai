@@ -1,8 +1,9 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client'
 import { useState } from 'react'
 import Link from 'next/link'
 
-export default function BgRemover(){
+function OriginalPage(){
   const [img,setImg]=useState<string|null>(null)
   const [out,setOut]=useState<string|null>(null)
   const [loading,setLoading]=useState(false)
@@ -59,3 +60,12 @@ async function removeBg(e:any){
   )
 }
 
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="Background Remover" cat="Image Tools" path="/image-tools/bg-remover" />
+    </>
+  )
+}

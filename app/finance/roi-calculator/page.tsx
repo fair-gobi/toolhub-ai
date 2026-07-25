@@ -1,3 +1,4 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 import type { Metadata } from 'next'
 import RoiCalculator from './RoiCalculator'
 
@@ -12,8 +13,17 @@ export const metadata: Metadata = {
   }
 }
 
-export default function Page() {
+function OriginalPage() {
   return <RoiCalculator />
 }
 
 
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="ROI Calculator" cat="Finance" path="/finance/roi-calculator" />
+    </>
+  )
+}

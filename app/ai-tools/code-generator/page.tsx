@@ -1,7 +1,8 @@
-"use client";
+"use client"
+import { ToolPageSEO } from "@/components/ToolPageSEO";
 import { useState } from "react";
 
-export default function CodeGen() {
+function OriginalPage() {
   const [loading, setLoading] = useState(false);
   const [code, setCode] = useState("");
   const [prompt, setPrompt] = useState("");
@@ -31,5 +32,13 @@ export default function CodeGen() {
       </div>
       {code && <pre className="whitespace-pre-wrap border p-5 mt-6 rounded bg-gray-900 text-green-400 text-sm overflow-x-auto">{code}</pre>}
     </main>
+  )
+}
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="Code Generator" cat="AI Tools" path="/ai-tools/code-generator" />
+    </>
   )
 }

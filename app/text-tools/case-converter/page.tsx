@@ -1,7 +1,8 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client'
 import { useState } from 'react'
 
-export default function CaseConverter() {
+function OriginalPage() {
   const [text, setText] = useState('hello world from promptoolhub')
 
   const cases = {
@@ -31,5 +32,14 @@ export default function CaseConverter() {
         ))}
       </div>
     </main>
+  )
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="Case Converter" cat="Text Tools" path="/text-tools/case-converter" />
+    </>
   )
 }

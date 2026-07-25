@@ -1,7 +1,8 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client'
 import { useState } from 'react'
 
-export default function Density() {
+function OriginalPage() {
   const [text, setText] = useState('free tools are the best free tools for everyone. Use free tools daily.')
 
   const words = text.toLowerCase().match(/\b\w+\b/g) || []
@@ -33,5 +34,14 @@ export default function Density() {
       </div>
       <p className="text-xs text-gray-500 mt-3">Total words: {total} | Ideal density: 1-2%</p>
     </main>
+  )
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="Keyword Density Checker" cat="Text Tools" path="/text-tools/keyword-density-checker" />
+    </>
   )
 }

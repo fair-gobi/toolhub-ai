@@ -1,7 +1,8 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client'
 import { useState } from 'react'
 
-export default function AgeCalculator() {
+function OriginalPage() {
   const [birthDate, setBirthDate] = useState('')
   const [age, setAge] = useState<any>(null)
 
@@ -49,5 +50,14 @@ export default function AgeCalculator() {
         </div>
       </div>
     </main>
+  )
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="Age Calculator" cat="Utility" path="/utility/age-calculator" />
+    </>
   )
 }

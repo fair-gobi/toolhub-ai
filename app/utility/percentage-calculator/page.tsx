@@ -1,7 +1,8 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client'
 import { useState } from 'react'
 
-export default function PercentageCalculator() {
+function OriginalPage() {
   const [val1, setVal1] = useState('')
   const [val2, setVal2] = useState('')
   const [result, setResult] = useState('')
@@ -34,5 +35,14 @@ export default function PercentageCalculator() {
         </div>
       </div>
     </main>
+  )
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="Percentage Calculator" cat="Utility" path="/utility/percentage-calculator" />
+    </>
   )
 }

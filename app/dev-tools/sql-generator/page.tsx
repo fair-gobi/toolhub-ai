@@ -1,7 +1,8 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client'
 import { useState } from 'react'
 
-export default function SQLGenerator(){
+function OriginalPage(){
   const [table,setTable]=useState('users')
   const [action,setAction]=useState('SELECT')
   const [columns,setColumns]=useState('id, name, email')
@@ -54,5 +55,14 @@ export default function SQLGenerator(){
       <button onClick={generate} className="bg-blue-700 text-white px-6 py-2 rounded-lg mb-4">Generate SQL</button>
       <pre className="bg-gray-900 text-green-400 p-4 rounded-lg font-mono text-sm overflow-x-auto">{sql || '-- SQL appears here'}</pre>
     </main>
+  )
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="SQL Generator" cat="Dev Tools" path="/dev-tools/sql-generator" />
+    </>
   )
 }

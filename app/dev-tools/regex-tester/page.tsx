@@ -1,7 +1,8 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client'
 import { useState } from 'react'
 
-export default function RegexTester(){
+function OriginalPage(){
   const [pattern,setPattern]=useState('\\d+')
   const [flags,setFlags]=useState('g')
   const [text,setText]=useState('Order 123 and 456')
@@ -31,5 +32,14 @@ export default function RegexTester(){
         {matches.map((m,i)=><div key={i} className="font-mono text-sm bg-yellow-100 inline-block mr-2 mb-1 px-2 py-1 rounded">{m}</div>)}
       </div>
     </main>
+  )
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="Regex Tester" cat="Dev Tools" path="/dev-tools/regex-tester" />
+    </>
   )
 }

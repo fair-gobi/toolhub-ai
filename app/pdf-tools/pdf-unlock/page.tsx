@@ -1,3 +1,4 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 // @ts-nocheck
 'use client';
 import { useState } from 'react';
@@ -6,7 +7,7 @@ import { PDFDocument } from 'pdf-lib';
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@4.10.38/build/pdf.worker.min.mjs`;
 
-export default function PdfUnlock(){
+function OriginalPage(){
   const [file,setFile]=useState<File|null>(null);
   const [pass,setPass]=useState('');
   const [loading,setLoading]=useState(false);
@@ -76,4 +77,13 @@ export default function PdfUnlock(){
       </div>
     </main>
   );
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="PDF Unlock" cat="PDF Tools" path="/pdf-tools/pdf-unlock" />
+    </>
+  )
 }

@@ -1,7 +1,8 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client'
 import { useState } from 'react'
 
-export default function Base64Tool(){
+function OriginalPage(){
   const [input,setInput]=useState('Hello World')
   const [output,setOutput]=useState('')
   const [mode,setMode]=useState<'encode'|'decode'>('encode')
@@ -28,5 +29,14 @@ export default function Base64Tool(){
       <textarea value={output} readOnly className="w-full h-40 font-mono border-2 rounded-lg p-3 bg-gray-50"/>
       <button onClick={()=>navigator.clipboard.writeText(output)} className="mt-2 text-sm border px-3 py-1 rounded">Copy</button>
     </main>
+  )
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="Base64 Encoder Decoder" cat="Dev Tools" path="/dev-tools/base64" />
+    </>
   )
 }

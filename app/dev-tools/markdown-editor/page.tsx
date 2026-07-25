@@ -1,7 +1,8 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client'
 import { useState } from 'react'
 
-export default function MarkdownEditor(){
+function OriginalPage(){
   const [md,setMd]=useState('# Hello\n\n**Bold** and *italic*\n\n- List item')
 
   const toHtml = (text:string) => {
@@ -28,5 +29,14 @@ export default function MarkdownEditor(){
         </div>
       </div>
     </main>
+  )
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="Markdown Editor" cat="Dev Tools" path="/dev-tools/markdown-editor" />
+    </>
   )
 }

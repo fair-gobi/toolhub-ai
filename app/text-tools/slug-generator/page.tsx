@@ -1,7 +1,8 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client'
 import { useState } from 'react'
 
-export default function SlugGen() {
+function OriginalPage() {
   const [text, setText] = useState('Best Free Online Tools 2026!')
 
   const slug = text
@@ -32,5 +33,14 @@ export default function SlugGen() {
         ))}
       </div>
     </main>
+  )
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="Slug Generator" cat="Text Tools" path="/text-tools/slug-generator" />
+    </>
   )
 }

@@ -1,7 +1,8 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client'
 import { useState } from 'react'
 
-export default function EMICalculator() {
+function OriginalPage() {
   const [amount, setAmount] = useState(1000000)
   const [rate, setRate] = useState(10)
   const [years, setYears] = useState(5)
@@ -69,5 +70,14 @@ export default function EMICalculator() {
         </div>
       </div>
     </main>
+  )
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="EMI Calculator" cat="Utility" path="/utility/emi-calculator" />
+    </>
   )
 }

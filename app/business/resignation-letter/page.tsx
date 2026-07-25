@@ -1,3 +1,4 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 import type { Metadata } from 'next'
 import ResignationLetter from './ResignationLetter'
 
@@ -6,6 +7,15 @@ export const metadata: Metadata = {
   description: 'Create professional resignation letters instantly. Download as PDF.',
 }
 
-export default function Page() {
+function OriginalPage() {
   return <ResignationLetter />
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="Resignation Letter Generator" cat="Business" path="/business/resignation-letter" />
+    </>
+  )
 }

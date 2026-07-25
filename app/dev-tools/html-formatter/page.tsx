@@ -1,7 +1,8 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client'
 import { useState } from 'react'
 
-export default function HTMLFormatter(){
+function OriginalPage(){
   const [input,setInput]=useState('<div><p>Hello</p></div>')
   const [out,setOut]=useState('')
   
@@ -31,5 +32,14 @@ export default function HTMLFormatter(){
       </div>
       <button onClick={format} className="mt-3 bg-orange-600 text-white px-6 py-2 rounded-lg">Format</button>
     </main>
+  )
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="HTML Formatter" cat="Dev Tools" path="/dev-tools/html-formatter" />
+    </>
   )
 }

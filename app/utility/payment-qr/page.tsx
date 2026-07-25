@@ -1,7 +1,8 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client';
 import { useState, useEffect } from 'react';
 import QRCode from 'qrcode';
-export default function PaymentQR(){
+function OriginalPage(){
   const [amount,setAmount]=useState('100'); const [name,setName]=useState('Gobinda'); const [note,setNote]=useState('Payment'); const [qr,setQr]=useState(''); const [app,setApp]=useState('esewa');
   useEffect(()=>{ const text = `${app.toUpperCase()}|NAME:${name}|AMT:${amount}|NOTE:${note}`; QRCode.toDataURL(text,{width:300}).then(setQr).catch(()=>{}); },[amount,name,note,app]);
   return (
@@ -15,4 +16,13 @@ export default function PaymentQR(){
       <div className="mt-8 border-t pt-4"><h2 className="font-semibold mb-1">How to use</h2><p className="text-sm text-gray-600">Enter your name and amount, show the QR to customer. They scan with eSewa/Khalti app. This generates a static QR with your details embedded. For dynamic Fonepay QR, connect merchant API later.</p></div>
     </div></main>
   );
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="Payment QR Generator" cat="Utility" path="/utility/payment-qr" />
+    </>
+  )
 }

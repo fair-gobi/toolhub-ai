@@ -1,7 +1,8 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client'
 import { useState } from 'react'
 
-export default function UnitConverter() {
+function OriginalPage() {
   const [value, setValue] = useState('1')
   const [type, setType] = useState('length')
   const [from, setFrom] = useState('m')
@@ -49,5 +50,14 @@ export default function UnitConverter() {
         </div>
       </div>
     </main>
+  )
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="Unit Converter" cat="Utility" path="/utility/unit-converter" />
+    </>
   )
 }

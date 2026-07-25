@@ -1,7 +1,8 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client'
 import { useState } from 'react'
 
-export default function XMLValidator(){
+function OriginalPage(){
   const [input,setInput]=useState('<note><to>User</to></note>')
   const [result,setResult]=useState('')
 
@@ -52,5 +53,14 @@ export default function XMLValidator(){
         </div>
       )}
     </main>
+  )
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="XML Validator" cat="Dev Tools" path="/dev-tools/xml-validator" />
+    </>
   )
 }

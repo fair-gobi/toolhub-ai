@@ -1,8 +1,9 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client';
 import { useState } from 'react';
 import { PDFDocument } from 'pdf-lib';
 
-export default function PdfMeta(){
+function OriginalPage(){
   const [file,setFile]=useState<File|null>(null); const [meta,setMeta]=useState({title:'',author:'',subject:'',keywords:''}); const [url,setUrl]=useState<string|null>(null);
   const load=async(f:File)=>{
     setFile(f); const pdf=await PDFDocument.load(await f.arrayBuffer());
@@ -22,4 +23,13 @@ export default function PdfMeta(){
   <input placeholder="Keywords (comma separated)" value={meta.keywords} onChange={e=>setMeta({...meta,keywords:e.target.value})} className="w-full border p-2 rounded"/>
   <button onClick={save} disabled={!file} className="w-full bg-red-600 text-white py-3 rounded-lg">Save Metadata</button>
   {url && <a href={url} download="meta-edited.pdf" className="block bg-green-600 text-white text-center py-2 rounded">Download PDF</a>}</div></main>);
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="PDF Metadata Viewer" cat="PDF Tools" path="/pdf-tools/pdf-meta" />
+    </>
+  )
 }

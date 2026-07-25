@@ -1,8 +1,9 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client';
 import { useState } from 'react';
 import { PDFDocument } from 'pdf-lib';
 
-export default function PdfCompress(){
+function OriginalPage(){
   const [file,setFile]=useState<File|null>(null);
   const [info,setInfo]=useState('');
   const [url,setUrl]=useState<string|null>(null);
@@ -26,4 +27,13 @@ export default function PdfCompress(){
       </div>
     </main>
   );
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="PDF Compress" cat="PDF Tools" path="/pdf-tools/pdf-compress" />
+    </>
+  )
 }

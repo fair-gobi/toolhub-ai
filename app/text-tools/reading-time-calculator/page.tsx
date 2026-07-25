@@ -1,7 +1,8 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client'
 import { useState, useMemo } from 'react'
 
-export default function ReadingTime() {
+function OriginalPage() {
   const [text, setText] = useState('Paste your article here. This advanced calculator counts words, images, and even code blocks.\n\nFor example, readers slow down for technical content.')
   const [wpm, setWpm] = useState(225)
   const [includeImages, setIncludeImages] = useState(true)
@@ -142,5 +143,14 @@ export default function ReadingTime() {
         </button>
       </div>
     </main>
+  )
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="Reading Time Calculator" cat="Text Tools" path="/text-tools/reading-time-calculator" />
+    </>
   )
 }

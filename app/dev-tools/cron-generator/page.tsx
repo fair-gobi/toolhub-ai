@@ -1,7 +1,8 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client'
 import { useState } from 'react'
 
-export default function CronGenerator(){
+function OriginalPage(){
   const [minute,setMinute]=useState('0')
   const [hour,setHour]=useState('9')
   const [day,setDay]=useState('*')
@@ -46,5 +47,14 @@ export default function CronGenerator(){
         ))}
       </div>
     </main>
+  )
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="Cron Generator" cat="Dev Tools" path="/dev-tools/cron-generator" />
+    </>
   )
 }

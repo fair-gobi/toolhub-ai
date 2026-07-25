@@ -1,8 +1,9 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client';
 import { useState } from 'react';
 import { PDFDocument } from 'pdf-lib';
 
-export default function PdfSplit(){
+function OriginalPage(){
   const [file,setFile]=useState<File|null>(null); const [count,setCount]=useState(0); const [range,setRange]=useState('1-3'); const [urls,setUrls]=useState<{name:string,url:string}[]>([]);
 
   const onFile=async(f:File)=>{
@@ -32,4 +33,13 @@ export default function PdfSplit(){
   <input value={range} onChange={e=>setRange(e.target.value)} placeholder="e.g. 1-3,5 or 'all'" className="w-full border p-2 rounded"/>
   <button onClick={split} disabled={!file} className="w-full bg-red-600 text-white py-3 rounded-lg">Split PDF</button>
   {urls.map(u=><a key={u.name} href={u.url} download={u.name} className="block bg-green-600 text-white text-center py-2 rounded">{u.name}</a>)}</div></main>);
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="PDF Split" cat="PDF Tools" path="/pdf-tools/pdf-split" />
+    </>
+  )
 }

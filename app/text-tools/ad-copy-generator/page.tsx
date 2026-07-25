@@ -1,3 +1,4 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client';
 
 import { useState } from 'react';
@@ -6,7 +7,7 @@ import Link from 'next/link';
 type Platform = 'facebook' | 'google' | 'instagram' | 'tiktok';
 type Tone = 'persuasive' | 'casual' | 'urgent' | 'professional';
 
-export default function AdCopyGeneratorPage() {
+function OriginalPage() {
   const [product, setProduct] = useState('');
   const [audience, setAudience] = useState('');
   const [platform, setPlatform] = useState<Platform>('facebook');
@@ -98,4 +99,13 @@ Requirements:
       </div>
     </main>
   );
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="Ad Copy Generator" cat="Text Tools" path="/text-tools/ad-copy-generator" />
+    </>
+  )
 }

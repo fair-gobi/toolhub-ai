@@ -1,3 +1,4 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 import type { Metadata } from 'next'
 import StartupRunwayCalculator from './StartupRunwayCalculator'
 
@@ -12,7 +13,16 @@ export const metadata: Metadata = {
   }
 }
 
-export default function Page() {
+function OriginalPage() {
   return <StartupRunwayCalculator />
 }
 
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="Startup Runway Calculator" cat="Finance" path="/finance/startup-runway" />
+    </>
+  )
+}

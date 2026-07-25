@@ -1,9 +1,10 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client';
 
 import { useState } from 'react';
 import Link from 'next/link';
 
-export default function BlogGeneratorPage() {
+function OriginalPage() {
   const [topic, setTopic] = useState('');
   const [tone, setTone] = useState('seo');
   const [length, setLength] = useState('medium');
@@ -86,4 +87,13 @@ Write for 2026, make it helpful and not generic.`;
       </div>
     </main>
   );
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="Blog Generator" cat="Text Tools" path="/text-tools/blog-generator" />
+    </>
+  )
 }

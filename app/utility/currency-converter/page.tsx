@@ -1,7 +1,8 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client'
 import { useState, useEffect } from 'react'
 
-export default function CurrencyConverter() {
+function OriginalPage() {
   const [amount, setAmount] = useState('1')
   const [from, setFrom] = useState('USD')
   const [to, setTo] = useState('NPR')
@@ -39,5 +40,14 @@ export default function CurrencyConverter() {
         </div>
       </div>
     </main>
+  )
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="Currency Converter" cat="Utility" path="/utility/currency-converter" />
+    </>
   )
 }

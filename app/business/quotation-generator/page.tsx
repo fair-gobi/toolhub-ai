@@ -1,3 +1,4 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 import type { Metadata } from 'next'
 import QuotationGenerator from './QuotationGenerator'
 
@@ -6,6 +7,15 @@ export const metadata: Metadata = {
   description: 'Generate professional quotations for clients instantly. Download as PDF.',
 }
 
-export default function Page() {
+function OriginalPage() {
   return <QuotationGenerator />
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="Quotation Generator" cat="Business" path="/business/quotation-generator" />
+    </>
+  )
 }

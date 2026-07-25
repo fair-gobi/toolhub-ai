@@ -1,10 +1,11 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client';
 import { useState } from 'react';
 import * as pdfjsLib from 'pdfjs-dist';
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjsLib.version}/build/pdf.worker.min.mjs`;
 
-export default function PdfExtract(){
+function OriginalPage(){
   const [text,setText]=useState(''); const [loading,setLoading]=useState(false);
   const onFile=async(e:React.ChangeEvent<HTMLInputElement>)=>{
     const f=e.target.files?.[0]; if(!f) return; setLoading(true);
@@ -17,4 +18,13 @@ export default function PdfExtract(){
   <input type="file" accept="application/pdf" onChange={onFile} className="w-full"/>
   {loading && <p>Extracting...</p>}
   {text && <><textarea value={text} readOnly rows={12} className="w-full border p-3 rounded text-sm"/><a href={URL.createObjectURL(new Blob([text],{type:'text/plain'}))} download="extracted.txt" className="block bg-green-600 text-white text-center py-2 rounded">Download.txt</a></>}</div></main>);
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="PDF Extract" cat="PDF Tools" path="/pdf-tools/pdf-extract" />
+    </>
+  )
 }

@@ -1,7 +1,8 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client'
 import { useState } from 'react'
 
-export default function BMICalculator() {
+function OriginalPage() {
   const [height, setHeight] = useState('')
   const [weight, setWeight] = useState('')
   const [bmi, setBmi] = useState<number|null>(null)
@@ -37,5 +38,14 @@ export default function BMICalculator() {
         </div>
       </div>
     </main>
+  )
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="BMI Calculator" cat="Utility" path="/utility/bmi-calculator" />
+    </>
   )
 }

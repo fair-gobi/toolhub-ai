@@ -1,7 +1,8 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client'
 import { useState } from 'react'
 
-export default function HeaderChecker(){
+function OriginalPage(){
   const [url,setUrl]=useState('https://example.com')
   const [headers,setHeaders]=useState<any>(null)
 
@@ -29,5 +30,14 @@ export default function HeaderChecker(){
         </div>
       )}
     </main>
+  )
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="Header Checker" cat="Dev Tools" path="/dev-tools/header-checker" />
+    </>
   )
 }

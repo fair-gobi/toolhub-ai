@@ -1,7 +1,8 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client'
 import { useState } from 'react'
 
-export default function URLEncoder(){
+function OriginalPage(){
   const [input,setInput]=useState('https://example.com?query=hello world')
   const [output,setOutput]=useState('')
 
@@ -18,5 +19,14 @@ export default function URLEncoder(){
       </div>
       <textarea value={output} readOnly className="w-full h-32 border-2 rounded-lg p-3 bg-gray-50 font-mono"/>
     </main>
+  )
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="URL Encoder Decoder" cat="Dev Tools" path="/dev-tools/url-encoder" />
+    </>
   )
 }

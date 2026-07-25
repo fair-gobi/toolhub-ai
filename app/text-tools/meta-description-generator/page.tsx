@@ -1,7 +1,8 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client'
 import { useState } from 'react'
 
-export default function MetaDesc() {
+function OriginalPage() {
   const [text, setText] = useState('Learn how to build free online tools with Next.js and deploy to Vercel')
   const [keyword, setKeyword] = useState('free tools')
 
@@ -28,5 +29,14 @@ export default function MetaDesc() {
         <button onClick={()=>navigator.clipboard.writeText(desc)} className="mt-3 text-sm bg-blue-600 text-white px-3 py-1 rounded">Copy</button>
       </div>
     </main>
+  )
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="Meta Description Generator" cat="Text Tools" path="/text-tools/meta-description-generator" />
+    </>
   )
 }

@@ -1,7 +1,8 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client'
 import { useState } from 'react'
 
-export default function HashGenerator(){
+function OriginalPage(){
   const [input,setInput]=useState('hello')
   const [hashes,setHashes]=useState<any>({})
 
@@ -36,5 +37,14 @@ export default function HashGenerator(){
         </div>
       )}
     </main>
+  )
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="Hash Generator" cat="Dev Tools" path="/dev-tools/hash-generator" />
+    </>
   )
 }

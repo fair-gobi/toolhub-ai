@@ -1,9 +1,10 @@
-"use client";
+"use client"
+import { ToolPageSEO } from "@/components/ToolPageSEO";
 import { useState } from "react";
 import * as pdfjsLib from "pdfjs-dist/legacy/build/pdf.mjs";
 pdfjsLib.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@4.10.38/build/pdf.worker.min.mjs`;
 
-export default function PdfQaPage() {
+function OriginalPage() {
   const [docText, setDocText] = useState("");
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
@@ -56,4 +57,13 @@ export default function PdfQaPage() {
       {answer && <div className="mt-4 border p-4 rounded bg-gray-50 whitespace-pre-wrap">{answer}</div>}
     </main>
   );
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="PDF Q&A AI" cat="PDF Tools" path="/pdf-tools/pdf-qa" />
+    </>
+  )
 }

@@ -1,3 +1,4 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 import NameGenerator from './NameGenerator'
 
 export const metadata = {
@@ -5,6 +6,15 @@ export const metadata = {
   description: 'Generate creative business names with AI'
 }
 
-export default function Page() {
+function OriginalPage() {
   return <NameGenerator />
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="Business Name Generator" cat="Business" path="/business/name-generator" />
+    </>
+  )
 }

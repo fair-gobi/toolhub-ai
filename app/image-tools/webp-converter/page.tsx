@@ -1,6 +1,7 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client';
 import { useState } from 'react';
-export default function WebpConverter(){
+function OriginalPage(){
   const [file,setFile]=useState<File|null>(null); const [format,setFormat]=useState('image/webp'); const [quality,setQuality]=useState(0.8); const [url,setUrl]=useState<string|null>(null);
   const convert = async()=>{
     if(!file) return; const img=new Image(); const src=URL.createObjectURL(file); img.src=src; await new Promise(r=>img.onload=r);
@@ -14,4 +15,13 @@ export default function WebpConverter(){
   <div><label className="text-sm">Quality: {quality}</label><input type="range" min="0.1" max="1" step="0.1" value={quality} onChange={e=>setQuality(Number(e.target.value))} className="w-full"/></div>
   <button onClick={convert} disabled={!file} className="w-full bg-purple-600 text-white py-3 rounded-lg">Convert</button>
   {url && <><img src={url} className="max-w-full rounded border"/><a href={url} download={`converted.${format.split('/')[1]}`} className="block text-center bg-green-600 text-white py-2 rounded mt-3">Download</a></>}</div></main>);
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="WebP Converter" cat="Image Tools" path="/image-tools/webp-converter" />
+    </>
+  )
 }

@@ -1,7 +1,8 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client'
 import { useState } from 'react'
 
-export default function CSSMinifier(){
+function OriginalPage(){
   const [input,setInput]=useState('body {\n  color: red;\n  margin: 0;\n}')
   const [out,setOut]=useState('')
   
@@ -26,5 +27,14 @@ export default function CSSMinifier(){
       </div>
       <button onClick={minify} className="mt-3 bg-pink-600 text-white px-6 py-2 rounded-lg">Minify</button>
     </main>
+  )
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="CSS Minifier" cat="Dev Tools" path="/dev-tools/css-minifier" />
+    </>
   )
 }

@@ -1,7 +1,8 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client'
 import { useState } from 'react'
 
-export default function WordCounter() {
+function OriginalPage() {
   const [text, setText] = useState('Paste your text here to count words, sentences, and paragraphs.')
 
   const words = text.trim() ? text.trim().split(/\s+/).length : 0
@@ -30,5 +31,14 @@ export default function WordCounter() {
         ))}
       </div>
     </main>
+  )
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="Word Counter" cat="Text Tools" path="/text-tools/word-counter" />
+    </>
   )
 }

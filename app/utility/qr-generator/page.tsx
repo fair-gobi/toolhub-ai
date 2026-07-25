@@ -1,7 +1,8 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client';
 import { useState, useEffect } from 'react';
 import QRCode from 'qrcode';
-export default function QRGen(){
+function OriginalPage(){
   const [text,setText]=useState('https://promptoolhub.com'); const [qr,setQr]=useState('');
   useEffect(()=>{ if(!text) return; QRCode.toDataURL(text,{width:300,margin:2}).then(setQr); },[text]);
   return (
@@ -11,4 +12,13 @@ export default function QRGen(){
       <div className="mt-8 border-t pt-4"><h2 className="font-semibold mb-1">About</h2><p className="text-sm text-gray-600">QR codes work for menus, business cards, payments, and WiFi sharing. Generated locally in your browser for privacy.</p></div>
     </div></main>
   );
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="QR Generator" cat="Utility" path="/utility/qr-generator" />
+    </>
+  )
 }

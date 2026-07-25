@@ -1,11 +1,12 @@
-"use client";
+"use client"
+import { ToolPageSEO } from "@/components/ToolPageSEO";
 import { useState } from 'react';
 import * as pdfjsLib from 'pdfjs-dist/legacy/build/pdf.mjs';
 import * as XLSX from 'xlsx';
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = '/pdf.worker.min.mjs';
 
-export default function PdfToExcel() {
+function OriginalPage() {
   const [loading, setLoading] = useState(false);
 
   const handleFile = async (e: any) => {
@@ -56,4 +57,12 @@ export default function PdfToExcel() {
       {loading && <p className="mt-4">Converting...</p>}
     </div>
   );
+}
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="PDF to Excel" cat="PDF Tools" path="/pdf-tools/pdf-to-excel" />
+    </>
+  )
 }

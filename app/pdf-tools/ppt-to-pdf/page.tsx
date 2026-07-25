@@ -1,3 +1,4 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 // @ts-nocheck
 'use client';
 import { useState } from 'react';
@@ -5,7 +6,7 @@ import { saveAs } from 'file-saver';
 
 export const dynamic = 'force-dynamic';
 
-export default function PptToPdf(){
+function OriginalPage(){
   const [msg,setMsg]=useState('');
   const [loading,setLoading]=useState(false);
 
@@ -116,4 +117,13 @@ export default function PptToPdf(){
       </div>
     </main>
   );
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="PPT to PDF" cat="PDF Tools" path="/pdf-tools/ppt-to-pdf" />
+    </>
+  )
 }

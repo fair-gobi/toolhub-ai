@@ -1,5 +1,15 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 import Paraphraser from './Paraphraser';
 
-export default function Page() {
+function OriginalPage() {
   return <Paraphraser />;
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="Paraphrasing Tool" cat="Text Tools" path="/text-tools/paraphrasing-tool" />
+    </>
+  )
 }

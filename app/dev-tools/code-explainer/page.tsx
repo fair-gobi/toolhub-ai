@@ -1,7 +1,8 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client'
 import { useState } from 'react'
 
-export default function CodeExplainer(){
+function OriginalPage(){
   const [code,setCode]=useState('function add(a,b){ return a+b }')
   const [explanation,setExplanation]=useState('')
 
@@ -30,5 +31,14 @@ export default function CodeExplainer(){
       <button onClick={explain} className="bg-indigo-600 text-white px-6 py-2 rounded-lg mb-4">Explain Code</button>
       <div className="border-2 rounded-lg p-4 bg-gray-50 whitespace-pre-line font-mono text-sm">{explanation}</div>
     </main>
+  )
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="Code Explainer" cat="Dev Tools" path="/dev-tools/code-explainer" />
+    </>
   )
 }

@@ -1,7 +1,8 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 'use client'
 import { useState } from 'react'
 
-export default function JWTDecoder(){
+function OriginalPage(){
   const [token,setToken]=useState('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c')
   const [decoded,setDecoded]=useState<any>(null)
 
@@ -39,5 +40,14 @@ export default function JWTDecoder(){
       )}
       {decoded?.error && <div className="text-red-600">{decoded.error}</div>}
     </main>
+  )
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="JWT Decoder" cat="Dev Tools" path="/dev-tools/jwt-decoder" />
+    </>
   )
 }

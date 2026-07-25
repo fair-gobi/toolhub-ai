@@ -1,7 +1,8 @@
-"use client";
+"use client"
+import { ToolPageSEO } from "@/components/ToolPageSEO";
 import { useState } from "react";
 
-export default function BugFinder(){
+function OriginalPage(){
   const [loading,setLoading]=useState(false);
   const [result,setResult]=useState("");
   const [code,setCode]=useState("");
@@ -32,5 +33,13 @@ export default function BugFinder(){
       </div>
       {result && <pre className="whitespace-pre-wrap border p-5 mt-6 rounded bg-gray-50 text-sm leading-6">{result}</pre>}
     </main>
+  )
+}
+export default function PageWrapper() {
+  return (
+    <>
+      <OriginalPage />
+      <ToolPageSEO name="Bug Finder" cat="AI Tools" path="/ai-tools/bug-finder" />
+    </>
   )
 }
