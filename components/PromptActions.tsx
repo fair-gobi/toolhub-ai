@@ -6,13 +6,35 @@ export function PromptActions({ prompt }: { prompt: string }) {
   const [showTry, setShowTry] = useState(false)
   const encoded = encodeURIComponent(prompt)
 
-  const tryLinks = [
-    { name: "ChatGPT", url: `https://chatgpt.com/?q=${encoded}`, icon: "💬" },
-    { name: "Claude", url: `https://claude.ai/new`, icon: "🤖" },
-    { name: "Gemini", url: `https://gemini.google.com/app`, icon: "✨" },
-    { name: "Perplexity", url: `https://www.perplexity.ai/search/new?q=${encoded}`, icon: "🔍" },
-    { name: "Leonardo AI", url: `https://app.leonardo.ai/`, icon: "🖼️" },
-    { name: "RunwayML", url: `https://app.runwayml.com/`, icon: "🎬" },
+    const tryLinks = [
+    // Chat / LLMs
+    { name: "ChatGPT", url: `https://chatgpt.com/?q=${encoded}`, icon: "💬", cat: "Chat" },
+    { name: "Claude", url: `https://claude.ai/new`, icon: "🤖", cat: "Chat" },
+    { name: "Gemini", url: `https://gemini.google.com/app`, icon: "✨", cat: "Chat" },
+    { name: "Perplexity", url: `https://www.perplexity.ai/search/new?q=${encoded}`, icon: "🔍", cat: "Chat" },
+    { name: "Meta AI", url: `https://www.meta.ai/`, icon: "💙", cat: "Chat" },
+    { name: "Grok (X)", url: `https://x.com/i/grok?q=${encoded}`, icon: "⚡", cat: "Chat" },
+
+    // Image Generators
+    { name: "Midjourney", url: `https://www.midjourney.com/imagine`, icon: "🎨", cat: "Image" },
+    { name: "Leonardo AI", url: `https://app.leonardo.ai/`, icon: "🖼️", cat: "Image" },
+    { name: "Ideogram", url: `https://ideogram.ai/`, icon: "🌈", cat: "Image" },
+    { name: "Firefly Adobe", url: `https://firefly.adobe.com/`, icon: "🔥", cat: "Image" },
+    { name: "DALL·E 3", url: `https://chatgpt.com/?q=${encoded}`, icon: "🖌️", cat: "Image" },
+    { name: "Flux AI", url: `https://flux-ai.io/`, icon: "⚙️", cat: "Image" },
+
+    // Video Generators
+    { name: "RunwayML", url: `https://app.runwayml.com/`, icon: "🎬", cat: "Video" },
+    { name: "Pika", url: `https://pika.art/`, icon: "📹", cat: "Video" },
+    { name: "Luma Dream", url: `https://lumalabs.ai/dream-machine`, icon: "🌙", cat: "Video" },
+    { name: "Sora", url: `https://sora.com/`, icon: "🎥", cat: "Video" },
+    { name: "Kling AI", url: `https://kling.kuaishou.com/`, icon: "🎞️", cat: "Video" },
+    { name: "Hailuo AI", url: `https://hailuoai.video/`, icon: "🎞️", cat: "Video" },
+
+    // Code / Dev
+    { name: "Cursor", url: `https://cursor.sh/`, icon: "💻", cat: "Code" },
+    { name: "v0.dev", url: `https://v0.dev/?q=${encoded}`, icon: "▲", cat: "Code" },
+    { name: "Bolt.new", url: `https://bolt.new/?q=${encoded}`, icon: "⚡", cat: "Code" },
   ]
 
   const savePrompt = () => {
@@ -74,16 +96,36 @@ export function PromptActions({ prompt }: { prompt: string }) {
         <button onClick={()=>setShowTry(!showTry)} className="px-4 py-2 bg-black text-white rounded-full">
           🤖 Try in ▼
         </button>
-        {showTry && (
-          <div className="absolute left-0 top-12 bg-white shadow-2xl rounded-xl p-2 z-50 w-56 border">
-            {tryLinks.map((t) => (
+                {showTry && (
+          <div className="absolute left-0 top-12 bg-white shadow-2xl rounded-xl p-2 z-50 w-64 border max-h- overflow-y-auto">
+            <p className="text-xs font-bold text-gray-400 px-2 py-1">CHAT</p>
+            {tryLinks.filter(t=>t.cat==="Chat").map((t) => (
+              <a key={t.name} href={t.url} target="_blank" className="flex gap-2 p-2.5 hover:bg-gray-100 rounded-lg text-sm text-black">
+                <span>{t.icon}</span> {t.name}
+              </a>
+            ))}
+            <p className="text-xs font-bold text-gray-400 px-2 py-1 mt-2">IMAGE</p>
+            {tryLinks.filter(t=>t.cat==="Image").map((t) => (
+              <a key={t.name} href={t.url} target="_blank" className="flex gap-2 p-2.5 hover:bg-gray-100 rounded-lg text-sm text-black">
+                <span>{t.icon}</span> {t.name}
+              </a>
+            ))}
+            <p className="text-xs font-bold text-gray-400 px-2 py-1 mt-2">VIDEO</p>
+            {tryLinks.filter(t=>t.cat==="Video").map((t) => (
+              <a key={t.name} href={t.url} target="_blank" className="flex gap-2 p-2.5 hover:bg-gray-100 rounded-lg text-sm text-black">
+                <span>{t.icon}</span> {t.name}
+              </a>
+            ))}
+            <p className="text-xs font-bold text-gray-400 px-2 py-1 mt-2">CODE</p>
+            {tryLinks.filter(t=>t.cat==="Code").map((t) => (
               <a key={t.name} href={t.url} target="_blank" className="flex gap-2 p-2.5 hover:bg-gray-100 rounded-lg text-sm text-black">
                 <span>{t.icon}</span> {t.name}
               </a>
             ))}
           </div>
         )}
+          </div>
+        )
       </div>
-    </div>
   )
 }
