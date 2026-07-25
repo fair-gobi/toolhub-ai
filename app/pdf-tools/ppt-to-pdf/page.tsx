@@ -74,12 +74,12 @@ function OriginalPage(){
           if(relsFile){
             const relsText = await relsFile.async('text');
             const relsXml = parser.parseFromString(relsText, 'text/xml');
-            const rels = Array.from(relsXml.getElementsByTagName('Relationship') as any);
-            for(const rel of rels){
-              const type = rel.getAttribute('Type') || '';
-              if(!type.includes('image')) continue;
-              const target = rel.getAttribute('Target') || '';
-              const imgPath = target.startsWith('..')? `ppt/slides/${target.replace('../','').replace('../','')}`.replace('ppt/slides/../','ppt/') : `ppt/media/${target.split('/').pop()}`;
+            const rels = Array.from(relsXml.getElementsByTagName('Relationship')) as any[];
+            for(const rel of rels as any[]){
+           const type = (rel as any).getAttribute('Type') || '';
+           if(!type.includes('image')) continue;
+           const target = (rel as any).getAttribute('Target') || '';
+            const imgPath = target.startsWith('..') ? `ppt/slides/${target.replace('../', '')}` : `ppt/${target}`;
               // normalize../media -> ppt/media
               const finalPath = target.includes('media')? `ppt/media/${target.split('/').pop()}` : imgPath;
               const imgFile = zip.file(finalPath);
