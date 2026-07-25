@@ -1,5 +1,6 @@
+"use client"
 import { ToolPageSEO } from "@/components/ToolPageSEO"
-'use client'
+
 import UspGenerator from './UspGenerator'
 function OriginalPage() {
   return <div className="min-h-screen bg-gray-50"><UspGenerator /></div>

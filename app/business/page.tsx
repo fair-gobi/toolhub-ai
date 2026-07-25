@@ -1,3 +1,5 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
+
 import Link from 'next/link'
 
 export default function BusinessPage() {

@@ -1,5 +1,6 @@
 "use client"
-import { ToolPageSEO } from "@/components/ToolPageSEO";
+import { ToolPageSEO } from "@/components/ToolPageSEO"
+
 import { useState, useRef } from "react";
 
 const styles = ["Realistic", "Anime", "3D Cartoon", "Cinematic", "Cyberpunk"];

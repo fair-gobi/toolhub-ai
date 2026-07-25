@@ -1,4 +1,6 @@
 "use client"
+import { ToolPageSEO } from "@/components/ToolPageSEO"
+
 import { useState } from "react"
 
 export default function TaxCalculator() {

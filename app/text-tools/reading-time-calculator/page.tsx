@@ -1,5 +1,6 @@
+"use client"
 import { ToolPageSEO } from "@/components/ToolPageSEO"
-'use client'
+
 import { useState, useMemo } from 'react'
 
 function OriginalPage() {

@@ -1,4 +1,5 @@
 import { ToolPageSEO } from "@/components/ToolPageSEO"
+
 import NameGenerator from './NameGenerator'
 
 export const metadata = {

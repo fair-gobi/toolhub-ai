@@ -1,4 +1,5 @@
 import { ToolPageSEO } from "@/components/ToolPageSEO"
+
 import Summarizer from './Summarizer';
 
 function OriginalPage() {

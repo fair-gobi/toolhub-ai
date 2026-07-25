@@ -1,5 +1,6 @@
+"use client"
 import { ToolPageSEO } from "@/components/ToolPageSEO"
-'use client';
+
 import { useState } from 'react';
 import { PDFDocument } from 'pdf-lib';
 

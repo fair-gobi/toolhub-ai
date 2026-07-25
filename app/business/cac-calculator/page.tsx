@@ -1,4 +1,5 @@
 import { ToolPageSEO } from "@/components/ToolPageSEO"
+
 import CACCalculator from './CACCalculator'
 export const metadata = { title: 'CAC Calculator - Customer Acquisition Cost' }
 function OriginalPage(){ return <CACCalculator /> }

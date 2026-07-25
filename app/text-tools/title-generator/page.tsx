@@ -1,4 +1,5 @@
 import { ToolPageSEO } from "@/components/ToolPageSEO"
+
 import TitleGenerator from './TitleGenerator';
 
 function OriginalPage() {

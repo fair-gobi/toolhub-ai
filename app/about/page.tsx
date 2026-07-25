@@ -1,3 +1,5 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
+
 export default function About() {
   return (
     <main className="min-h-screen bg-gray-50 p-6 md:p-12">

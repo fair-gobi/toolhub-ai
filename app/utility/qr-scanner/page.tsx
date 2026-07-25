@@ -1,5 +1,6 @@
+"use client"
 import { ToolPageSEO } from "@/components/ToolPageSEO"
-'use client'
+
 import { useState, useRef, useEffect } from 'react'
 import jsQR from 'jsqr'
 import * as OTPAuth from 'otpauth'

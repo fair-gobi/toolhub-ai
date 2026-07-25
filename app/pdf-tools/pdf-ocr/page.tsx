@@ -1,6 +1,8 @@
+"use client"
 import { ToolPageSEO } from "@/components/ToolPageSEO"
+
 // @ts-nocheck
-'use client'; import { useState } from 'react'; import * as pdfjsLib from 'pdfjs-dist';
+ import { useState } from 'react'; import * as pdfjsLib from 'pdfjs-dist';
 pdfjsLib.GlobalWorkerOptions.workerSrc=`https://unpkg.com/pdfjs-dist@4.10.38/build/pdf.worker.min.mjs`;
 function OriginalPage(){
   const [text,setText]=useState(''); const [loading,setLoading]=useState(false);

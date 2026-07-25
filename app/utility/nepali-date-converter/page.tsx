@@ -1,5 +1,6 @@
+"use client"
 import { ToolPageSEO } from "@/components/ToolPageSEO"
-'use client';
+
 import { useState, useEffect } from 'react';
 import { ADToBS, BSToAD } from 'bikram-sambat-js';
 function OriginalPage() {

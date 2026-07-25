@@ -1,5 +1,6 @@
+"use client"
 import { ToolPageSEO } from "@/components/ToolPageSEO"
-'use client';
+
 import { useState } from 'react';
 function OriginalPage(){
   const [file,setFile]=useState<File|null>(null); const [url,setUrl]=useState<string|null>(null);

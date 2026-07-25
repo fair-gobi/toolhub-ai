@@ -1,4 +1,5 @@
 "use client"
+import { ToolPageSEO } from "@/components/ToolPageSEO"
 
 import Link from "next/link"
 import { useState, useEffect } from "react"

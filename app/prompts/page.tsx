@@ -1,4 +1,6 @@
-'use client'
+"use client"
+import { ToolPageSEO } from "@/components/ToolPageSEO"
+
 import { promptData, categoryData } from '../../data/prompts-data'
 import { useState } from 'react'
 import Link from 'next/link'

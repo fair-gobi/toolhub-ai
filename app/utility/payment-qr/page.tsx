@@ -1,5 +1,6 @@
+"use client"
 import { ToolPageSEO } from "@/components/ToolPageSEO"
-'use client';
+
 import { useState, useEffect } from 'react';
 import QRCode from 'qrcode';
 function OriginalPage(){

@@ -1,4 +1,5 @@
 import { ToolPageSEO } from "@/components/ToolPageSEO"
+
 import type { Metadata } from 'next'
 import ResignationLetter from './ResignationLetter'
 

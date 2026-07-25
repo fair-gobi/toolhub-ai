@@ -1,6 +1,8 @@
+"use client"
 import { ToolPageSEO } from "@/components/ToolPageSEO"
+
 // @ts-nocheck
-'use client';
+
 import { useState } from 'react';
 
 function OriginalPage(){

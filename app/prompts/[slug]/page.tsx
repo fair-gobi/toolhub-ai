@@ -1,4 +1,6 @@
-'use client'
+"use client"
+import { ToolPageSEO } from "@/components/ToolPageSEO"
+
 import { PromptActions } from "@/components/PromptActions"
 import { promptData } from '../../../data/prompts-data'
 import { useParams } from 'next/navigation'

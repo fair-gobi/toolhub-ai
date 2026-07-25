@@ -1,5 +1,6 @@
+"use client"
 import { ToolPageSEO } from "@/components/ToolPageSEO"
-'use client';
+
 import { useState } from 'react';
 function OriginalPage(){
   const [file,setFile]=useState<File|null>(null); const [format,setFormat]=useState('image/webp'); const [quality,setQuality]=useState(0.8); const [url,setUrl]=useState<string|null>(null);

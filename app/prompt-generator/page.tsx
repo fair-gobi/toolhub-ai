@@ -1,3 +1,5 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
+
 export default function Page() {
   return (
     <main style={{padding:'60px',textAlign:'center',fontFamily:'sans-serif'}}>

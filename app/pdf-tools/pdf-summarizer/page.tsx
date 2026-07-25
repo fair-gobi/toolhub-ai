@@ -1,5 +1,6 @@
-﻿"use client"
-import { ToolPageSEO } from "@/components/ToolPageSEO";
+"use client"
+import { ToolPageSEO } from "@/components/ToolPageSEO"
+
 import { useState } from "react";
 import * as pdfjsLib from "pdfjs-dist/legacy/build/pdf.mjs";
 pdfjsLib.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@4.10.38/build/pdf.worker.min.mjs`;

@@ -1,6 +1,8 @@
+"use client"
 import { ToolPageSEO } from "@/components/ToolPageSEO"
+
 // @ts-nocheck
-'use client';
+
 import { useState } from 'react';
 import { saveAs } from 'file-saver';
 import * as pdfjsLib from 'pdfjs-dist/legacy/build/pdf.mjs';

@@ -1,3 +1,5 @@
+import { ToolPageSEO } from "@/components/ToolPageSEO"
+
 export default function DevToolsPage() {
   const tools = [
     { name: "JSON Formatter", href: "/dev-tools/json-formatter", desc: "Pretty print & validate JSON" },

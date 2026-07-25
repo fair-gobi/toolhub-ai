@@ -1,5 +1,6 @@
 "use client"
-import { ToolPageSEO } from "@/components/ToolPageSEO";
+import { ToolPageSEO } from "@/components/ToolPageSEO"
+
 import { useState } from 'react';
 import * as pdfjsLib from 'pdfjs-dist/legacy/build/pdf.mjs';
 import * as XLSX from 'xlsx';

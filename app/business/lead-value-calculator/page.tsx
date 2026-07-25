@@ -1,4 +1,5 @@
 import { ToolPageSEO } from "@/components/ToolPageSEO"
+
 import LeadValue from './LeadValue'
 export const metadata = { title: 'Lead Value Calculator' }
 function OriginalPage(){ return <LeadValue /> }

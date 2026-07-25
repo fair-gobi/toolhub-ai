@@ -1,4 +1,5 @@
 import { ToolPageSEO } from "@/components/ToolPageSEO"
+
 import type { Metadata } from 'next'
 import QuotationGenerator from './QuotationGenerator'
 

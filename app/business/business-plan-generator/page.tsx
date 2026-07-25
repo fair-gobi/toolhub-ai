@@ -1,5 +1,6 @@
+"use client"
 import { ToolPageSEO } from "@/components/ToolPageSEO"
-'use client'
+
 import BusinessPlanGenerator from './BusinessPlanGenerator'
 function OriginalPage() {
   return <div className="min-h-screen bg-gray-50"><BusinessPlanGenerator /></div>

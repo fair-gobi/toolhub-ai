@@ -1,4 +1,5 @@
 import { ToolPageSEO } from "@/components/ToolPageSEO"
+
 import LTVCalculator from './LTVCalculator'
 export const metadata = { title: 'LTV Calculator - Lifetime Value' }
 function OriginalPage(){ return <LTVCalculator /> }
