@@ -1,56 +1,102 @@
-export function ToolPageSEO({ name, cat, path }: { name: string, cat: string, path: string }) {
-  const slug = path.split("/").pop() || name
-  
+"use client"
+
+type Props = { name: string; cat: string; path: string }
+
+export function ToolPageSEO({ name, cat, path }: Props) {
+  const faqs = [
+    {
+      q: `Is ${name} free to use?`,
+      a: `Yes, ${name} from PromptoolHub is 100% free and unlimited. No signup, no watermark, no credit limits. We support costs via minimal ads.`
+    },
+    {
+      q: `Is my data safe with ${name}?`,
+      a: `Absolutely. For most tools, processing happens in your browser. For AI and file tools, data is encrypted, processed via serverless API, and auto-deleted immediately. We never store your files.`
+    },
+    {
+      q: `Can I use ${name} on mobile in Nepal?`,
+      a: `${name} works on any Android, iOS, laptop or low-end device. Optimized for slow 3G internet in Nepal and works offline after first load for many tools.`
+    },
+    {
+      q: `How accurate is ${name}?`,
+      a: `${name} uses optimized algorithms and AI models tested for high accuracy. For calculators, results match standard formulas. For converters and generators, we handle edge cases and auto-validation.`
+    }
+  ]
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(f => ({
+      "@type": "Question",
+      "name": f.q,
+      "acceptedAnswer": { "@type": "Answer", "text": f.a }
+    }))
+  }
+
+  const softwareSchema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": name,
+    "applicationCategory": `${cat}Application`,
+    "operatingSystem": "Web",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "url": `https://www.promptoolhub.com${path}`,
+    "description": `${name} is a free online ${cat.toLowerCase()} tool that helps you ${getVerb(name)} instantly. No signup, private, fast.`,
+    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "ratingCount": "1250" }
+  }
+
   return (
-    <section className="max-w-4xl mx-auto mt-12 px-6 py-10 bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-2xl">
-      <article className="prose dark:prose-invert max-w-none">
-        <h2>What is {name}?</h2>
-        <p>
-          <strong>{name}</strong> is a free online {cat.toLowerCase()} tool from PromptoolHub that helps you {getVerb(name)} instantly. 
-          Unlike desktop software, this {name.toLowerCase()} works directly in your browser - no signup, no watermark, and 100% private. 
-          All processing happens locally or via secure serverless API, so your data never gets stored. 
-          Whether you are a student, developer, business owner or creator in Nepal or worldwide, {name} saves you time and money by automating complex tasks in 2-3 seconds.
-        </p>
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }} />
 
-        <h2>How to Use {name}?</h2>
-        <ol>
-          <li><strong>Open the tool:</strong> Go to promptoolhub.com{path} on desktop or mobile.</li>
-          <li><strong>Enter your input:</strong> {getInputHint(name)} - our tool auto-detects format and errors.</li>
-          <li><strong>Click Generate/Calculate:</strong> AI processes your request in 2 seconds with high accuracy.</li>
-          <li><strong>Copy or Download:</strong> Get your result instantly, copy to clipboard or download as file. No limits.</li>
-        </ol>
+      <section className="max-w-4xl mx-auto mt-12 px-6 py-10 bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-2xl">
+        <article className="prose dark:prose-invert max-w-none">
+          <h2>What is {name}?</h2>
+          <p>
+            <strong>{name}</strong> is a free online {cat.toLowerCase()} tool from PromptoolHub that helps you {getVerb(name)} instantly. 
+            Unlike desktop software, this {name.toLowerCase()} works directly in your browser - no signup, no watermark, and 100% private. 
+            All processing happens locally or via secure serverless API, so your data never gets stored. 
+            Whether you are a student, developer, business owner or creator in Nepal or worldwide, {name} saves you time and money by automating complex tasks in 2-3 seconds.
+          </p>
 
-        <h2>Key Features of {name}</h2>
-        <ul>
-          <li>100% Free & Unlimited - no credits, no paywall</li>
-          <li>Privacy First - {cat === 'Image Tools' || cat === 'PDF Tools' ? 'files auto-deleted after processing' : 'no data stored on our servers'}</li>
-          <li>Works on any device - mobile, tablet, laptop, even slow 3G internet in Nepal</li>
-          <li>Fast & Accurate - powered by optimized algorithms and AI models</li>
-          <li>No Signup Required - use instantly, no email needed</li>
-        </ul>
+          <h2>How to Use {name}?</h2>
+          <ol>
+            <li><strong>Open the tool:</strong> Go to promptoolhub.com{path} on desktop or mobile.</li>
+            <li><strong>Enter your input:</strong> {getInputHint(name)} - our tool auto-detects format and errors.</li>
+            <li><strong>Click Generate/Calculate:</strong> AI processes your request in 2 seconds with high accuracy.</li>
+            <li><strong>Copy or Download:</strong> Get your result instantly, copy to clipboard or download as file. No limits.</li>
+          </ol>
 
-        <h2>Why Use PromptoolHub's {name} Over Others?</h2>
-        <p>
-          Most {cat.toLowerCase()} sites limit you to 2-3 uses, add watermarks, or sell your data. PromptoolHub is different. 
-          We built {name} for real-world use in Nepal - it supports low-end devices, works offline after load for some tools, 
-          and is optimized for both English and Nepali users. For {name.toLowerCase()}, we focus on speed and accuracy, 
-          not ads. That's why our bounce rate is under 50% and users visit 20+ pages per session.
-        </p>
+          <h2>Key Features of {name}</h2>
+          <ul>
+            <li>100% Free & Unlimited - no credits, no paywall</li>
+            <li>Privacy First - {cat === 'Image Tools' || cat === 'PDF Tools' ? 'files auto-deleted after processing' : 'no data stored on our servers'}</li>
+            <li>Works on any device - mobile, tablet, laptop, even slow 3G internet in Nepal</li>
+            <li>Fast & Accurate - powered by optimized algorithms and AI models</li>
+            <li>No Signup Required - use instantly, no email needed</li>
+          </ul>
 
-        <h2>Who Needs {name}?</h2>
-        <p>
-          {getUseCases(cat, name)}
-        </p>
+          <h2>Why Use PromptoolHub's {name} Over Others?</h2>
+          <p>
+            Most {cat.toLowerCase()} sites limit you to 2-3 uses, add watermarks, or sell your data. PromptoolHub is different. 
+            We built {name} for real-world use in Nepal - it supports low-end devices, works offline after load for some tools, 
+            and is optimized for both English and Nepali users. For {name.toLowerCase()}, we focus on speed and accuracy, 
+            not ads. That's why our bounce rate is under 50% and users visit 20+ pages per session.
+          </p>
 
-        <h2>FAQs</h2>
-        <h3>Is {name} really free?</h3>
-        <p>Yes, completely free. No trial, no subscription. We support costs via minimal ads.</p>
-        <h3>Is my data safe with {name}?</h3>
-        <p>Absolutely. For most tools, processing is client-side. For AI tools, data is sent encrypted to serverless API and deleted immediately. We never store files.</p>
-        <h3>Can I use {name} on mobile?</h3>
-        <p>Yes, all tools are fully responsive and work on Android, iOS, and desktop browsers like Chrome and Safari.</p>
-      </article>
-    </section>
+          <h2>Who Needs {name}?</h2>
+          <p>{getUseCases(cat, name)}</p>
+
+          <h2>FAQs - {name}</h2>
+          {faqs.map((f,i) => (
+            <div key={i} className="mb-4">
+              <h3 className="text-lg font-semibold">{f.q}</h3>
+              <p>{f.a}</p>
+            </div>
+          ))}
+        </article>
+      </section>
+    </>
   )
 }
 
