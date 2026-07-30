@@ -16,7 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }))
 
   const promptPages = promptData.map((p: any) => ({
-    url: `${base}/prompts/${p.slug || p.id}`,
+    url: `${base}/prompts/${p.slug}`,
     lastModified: new Date(),
   }))
 
