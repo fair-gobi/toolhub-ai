@@ -1,57 +1,19 @@
-"use client"
-import { ToolPageSEO } from "@/components/ToolPageSEO"
-
-import { PromptActions } from "@/components/PromptActions"
 import { promptData } from '../../../data/prompts-data'
-import { useParams } from 'next/navigation'
-import { useState } from 'react'
-import Link from 'next/link'
+import PromptDetailClient from './PromptDetailClient'
 
-export default function PromptDetail(){
-  const params = useParams()
-  const slug = decodeURIComponent(params.slug as string)
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+  const slug = decodeURIComponent(params.slug)
   const p:any = promptData.find((x:any)=> x.slug === slug)
-
-  const [copied, setCopied] = useState(false)
-
-  if(!p) return (
-    <div className="max-w-3xl mx-auto p-10">
-      <h1 className="text-2xl font-bold">Prompt not found</h1>
-      <p className="text-sm text-gray-500 mt-2">Slug: {slug}</p>
-      <Link href="/prompts" className="mt-4 inline-block border px-4 py-2 rounded">← Back to Library</Link>
-      <div className="mt-6 text-xs">Available example: {promptData[0]?.slug}</div>
-    </div>
-  )
-
-  const copy = ()=>{
-    navigator.clipboard.writeText(p.content)
-    setCopied(true)
-    setTimeout(()=>setCopied(false), 2000)
+  return {
+    title: p ? `${p.title} - PromptoolHub` : `Prompt ${slug}`,
+    description: p ? p.content.slice(0,155) : `Free AI prompt ${slug}`,
+    alternates: {
+      canonical: `https://www.promptoolhub.com/prompts/${slug}`
+    }
   }
+}
 
-  return (
-    <div className="max-w-3xl mx-auto p-6">
-      <Link href="/prompts" className="text-sm text-gray-500 hover:underline">← Back to Library</Link>
-
-      <h1 className="text-3xl font-bold mt-4">{p.title}</h1>
-      <p className="text-sm text-gray-500 mt-1">{p.category} • {p.slug}</p>
-
-      <div className="mt-6 p-5 bg-gray-50 dark:bg-gray-900 rounded-xl border">
-        <p className="whitespace-pre-wrap leading-relaxed">{p.content}</p>
-      </div>
-
-      <div className="mt-4 flex gap-2">
-        <button onClick={copy} className="px-5 py-2.5 bg-black text-white rounded-full font-medium">
-          {copied? "✅ Copied!" : "📋 Copy Prompt"}
-        </button>
-      </div>
-
-      {/* VIRAL FEATURES */}
-      <PromptActions prompt={p.content} />
-
-      <div className="mt-10 p-4 bg-blue-50 rounded-xl text-sm">
-        <b>Pro Tip:</b> Click "Try in" to open this prompt directly in ChatGPT, Claude, or Gemini.
-      </div>
-    </div>
-  )
+export default function Page({ params }: { params: { slug: string } }){
+  const slug = decodeURIComponent(params.slug)
+  return <PromptDetailClient slug={slug} />
 }
