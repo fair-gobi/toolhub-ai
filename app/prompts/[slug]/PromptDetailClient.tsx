@@ -5,7 +5,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 
 export default function PromptDetailClient({ slug }: { slug: string }){
-  const p:any = promptData.find((x:any)=> x.slug === slug)
+  const p:any = promptData.find((x:any)=> x.slug === slug || String(x.id) === String(slug) || x.slug.endsWith(`-${slug}`))
   const [copied, setCopied] = useState(false)
 
   if(!p) return (

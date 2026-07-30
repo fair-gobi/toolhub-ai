@@ -95,7 +95,7 @@ export default function PromptsPage(){
                 {copiedId===p.id?'✓ Copied':'Copy'}
               </button>
             </div>
-            <Link href={`/prompts/${p.slug}`}>
+            <Link href={`/prompts/${p.slug}`}>  // not p.id
               <h3 className="font-bold mt-3 text- group-hover:text-blue-600 line-clamp-2">{p.title}</h3>
               <p className="text-xs text-gray-500 mt-2 line-clamp-3">{p.content.slice(0,160)}...</p>
             </Link>
