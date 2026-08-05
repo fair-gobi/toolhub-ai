@@ -5,7 +5,7 @@ import Link from "next/link"
 import { useState, useEffect } from "react"
 
 const categories = [
-  { icon: "💬", name: "Prompt Library", count: "1500+ prompts", desc: "ChatGPT, Claude, Gemini prompts", href: "/prompts" },
+  { icon: "💬", name: "Prompt Library", count: "8235+ prompts", desc: "ChatGPT, Claude, Gemini prompts", href: "/prompts" },
   { icon: "🤖", name: "AI Tools", count: "6 tools", desc: "Generators & AI utilities", href: "/ai-tools" },
   { icon: "📄", name: "PDF Tools", count: "15 tools", desc: "Merge, split, compress, protect", href: "/pdf-tools"},
   { icon: "🖼", name: "Image Tools", count: "9 tools", desc: "Compress, resize, convert, upscale", href: "/image-tools"},
