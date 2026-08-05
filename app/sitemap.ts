@@ -1,24 +1,20 @@
-﻿import { MetadataRoute } from 'next'
-import { ALL_TOOLS } from '@/data/all-tools'
-import { promptData } from '@/data/prompts-data'
+import { MetadataRoute } from 'next'
+import { sql } from '@/lib/db'
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = 'https://www.promptoolhub.com'
-  
-  const mainPages = ['', '/ai-tools', '/business', '/dev-tools', '/finance', '/image-tools', '/pdf-tools', '/text-tools', '/utility', '/prompts'].map(p => ({
-    url: `${base}${p}`,
-    lastModified: new Date(),
-  }))
-
-  const toolPages = ALL_TOOLS.map(t => ({
-    url: `${base}${t.path}`,
-    lastModified: new Date(),
-  }))
-
-  const promptPages = promptData.map((p: any) => ({
-    url: `${base}/prompts/${p.slug}`,
-    lastModified: new Date(),
-  }))
-
-  return [...mainPages, ...toolPages, ...promptPages]
+  try {
+    const prompts = await sql`SELECT slug FROM prompts LIMIT 5000`
+    const urls = prompts.map((p: any) => ({
+      url: `${base}/prompts/${p.slug}`,
+      lastModified: new Date(),
+    }))
+    return [
+      { url: base, lastModified: new Date() },
+      { url: `${base}/prompts`, lastModified: new Date() },
+     ...urls
+    ]
+  } catch {
+    return [{ url: base, lastModified: new Date() }]
+  }
 }
