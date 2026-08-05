@@ -18,6 +18,10 @@ const CATEGORIES = [
   { key: 'seo', label: 'SEO', color: '#f97316', db: 'SEO' },
   { key: 'sales', label: 'Sales', color: '#e11d48', db: 'Sales' },
   { key: 'education', label: 'Education', color: '#a855f7', db: 'Education' },
+  { key: 'chatgpt-prompt', label: 'ChatGPT', color: '#10b981', db: 'ChatGPT Prompt' },
+  { key: 'claude-prompt', label: 'Claude', color: '#d97706', db: 'Claude Prompt' },
+  { key: 'gemini-prompt', label: 'Gemini', color: '#2563eb', db: 'Gemini Prompt' },
+  { key: 'developer-prompt', label: 'Developer', color: '#000', db: 'Developer Prompt' },
 ]
 const MAP: Record<string, any> = {}
 CATEGORIES.forEach(c=> MAP[c.key]=c)
