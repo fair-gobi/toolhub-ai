@@ -1,20 +1,11 @@
 "use client"
 import { useState } from "react"
-
 export function CopyButton({ text }: { text: string }) {
-  const [copied, setCopied] = useState(false)
-  const copy = async () => {
-    await navigator.clipboard.writeText(text)
-    setCopied(true)
-    setTimeout(()=>setCopied(false), 1500)
-  }
+  const [ok, setOk] = useState(false)
   return (
-    <button
-      onClick={copy}
-      className="h-8 w-8 grid place-items-center rounded-full border bg-white text- font-bold transition border-zinc-200 hover:border-black hover:text-black text-zinc-500"
-      title={copied? "Copied!" : "Copy"}
-    >
-      {copied? "✓" : "⎙"}
+    <button onClick={async()=>{ await navigator.clipboard.writeText(text); setOk(true); setTimeout(()=>setOk(false),1200) }}
+      className="h-8 w-8 grid place-items-center rounded-full border border-zinc-200 bg-white text-zinc-500 hover:border-black hover:text-black text-xs">
+      {ok? "✓" : "⎙"}
     </button>
   )
 }

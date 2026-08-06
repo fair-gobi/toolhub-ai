@@ -1,6 +1,7 @@
 import { sql } from '@/lib/db'
 import Link from 'next/link'
 import { CopyButton } from '@/components/CopyButton'
+import { PromptInfinite } from '@/components/PromptInfinite'
 export const dynamic = 'force-dynamic'
 
 const CATEGORIES = [
@@ -78,21 +79,14 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ c
           {CATEGORIES.map(c=> <Link key={c.key} href={`/prompts?cat=${c.key}`} className={`h-8 px-4 rounded-full border text-xs flex items-center gap-1.5 whitespace-nowrap ${activeKey===c.key?'bg-black text-white':'bg-white'}`}><span className="h-2 w-2 rounded-full" style={{background:c.color}}></span>{c.label}</Link>)}
         </div>
 
-        <div className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {prompts.map((p:any)=>(
-            <div key={p.id} className="bg-white border rounded- p-5">
-              <div className="flex justify-between items-center"><span className="text- uppercase text-zinc-500">{p.category}</span><CopyButton text={p.prompt_content || ''} /></div>
-              <Link href={`/prompts/${p.slug}`}><h3 className="font-semibold mt-2 line-clamp-2 hover:text-violet-600">{p.title}</h3></Link>
-            </div>
-          ))}
-        </div>
+       <div className="mt-6">
+       <PromptInfinite initialPrompts={prompts} initialCat={activeKey} initialQ={q} />
+       </div> 
 
         {prompts.length===0 && <div className="py-20 text-center text-zinc-500">No prompts — error: {errMsg || "empty result, check Neon is_hero column exists"}</div>}
 
         <div className="mt-10 flex justify-center gap-2">
-          {page>1 && <Link href={`/prompts?cat=${activeKey}&page=${page-1}`} className="h-9 px-4 rounded-full border bg-white text-sm">← Prev</Link>}
-          <span className="text-xs py-2">{page} / {Math.ceil(count/perPage)}</span>
-          {page < Math.ceil(count/perPage) && <Link href={`/prompts?cat=${activeKey}&page=${page+1}`} className="h-9 px-4 rounded-full bg-black text-white text-sm">Next →</Link>}
+          
         </div>
       </div>
     </div>
