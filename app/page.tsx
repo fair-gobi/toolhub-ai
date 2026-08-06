@@ -28,7 +28,9 @@ export default function Home(){
   const [text,setText]=useState("This runs entirely in your browser.")
   const toTitle=(s:string)=>s.replace(/\w\S*/g,t=>t.charAt(0).toUpperCase()+t.slice(1).toLowerCase())
   const words=text.trim()?text.trim().split(/\s+/).length:0
-
+  const [searchQ,setSearchQ]=useState("")
+  const [searchOpen,setSearchOpen]=useState(false)
+ 
   return(
     <>
     <style>{`
@@ -65,18 +67,53 @@ export default function Home(){
     `}</style>
 
     <header>
-      <div className="wrap header-inner">
-        <Link href="/" className="logo"><span className="logo-mark"><svg viewBox="0 0 72 72"><rect width="72" height="72" rx="16" fill="#14181A"/><path d="M22 14 h16 a14 14 0 010 28 h-6 v16 h-10 z" fill="#EEF0EC"/><path d="M32 24 h6 a4 4 0 010 8 h-6 z" fill="#E8990A"/></svg></span>Promptoolhub</Link>
-        <nav className="hidden md:flex items-center gap-7">
-          <div className="nav-links"><Link href="/prompts">Prompts</Link><Link href="/ai-tools">Tools</Link><Link href="/business">Business</Link><Link href="/finance">Finance</Link></div>
-        </nav>
-        <div className="flex gap-2">
-          <Link href="/prompts" className="icon-btn">🔍</Link>
-          <button onClick={()=>setMobileOpen(!mobileOpen)} className="icon-btn md:hidden">☰</button>
-        </div>
+  <div className="wrap header-inner">
+    <Link href="/" className="logo"><span className="logo-mark"><svg viewBox="0 0 72 72"><rect width="72" height="72" rx="16" fill="#14181A"/><path d="M22 14 h16 a14 14 0 010 28 h-6 v16 h-10 z" fill="#EEF0EC"/><path d="M32 24 h6 a4 4 0 010 8 h-6 z" fill="#E8990A"/></svg></span>Promptoolhub</Link>
+
+    <nav className="hidden md:flex items-center gap-7">
+      <div className="nav-links"><Link href="/prompts">Prompts</Link><Link href="/ai-tools">Tools</Link><Link href="/business">Business</Link><Link href="/finance">Finance</Link></div>
+    </nav>
+
+    <div className="flex gap-2 items-center">
+      <button onClick={()=>setSearchOpen(!searchOpen)} className="icon-btn" aria-label="Search">
+        {searchOpen? '✕' : '🔍'}
+      </button>
+      <button onClick={()=>setMobileOpen(!mobileOpen)} className="icon-btn md:hidden" aria-label="Menu">
+        {mobileOpen? '✕' : '☰'}
+      </button>
+    </div>
+  </div>
+
+  {/* Search bar */}
+  {searchOpen && (
+    <div className="border-t border-[#D2D6CC] bg-[#E4E7E0] p-3">
+      <div className="wrap">
+        <input
+          autoFocus
+          value={searchQ}
+          onChange={e=>setSearchQ(e.target.value)}
+          onKeyDown={e=>{
+            if(e.key==='Enter' && searchQ.trim()){
+              window.location.href=`/prompts?q=${encodeURIComponent(searchQ)}`
+            }
+          }}
+          placeholder="Search 8235 prompts, tools..."
+          className="w-full h-11 px-4 rounded- border border-[#D2D6CC] bg-white outline-none focus:border-[#0F6B5C]"
+        />
       </div>
-      {mobileOpen && <div className="md:hidden border-t border-[#D2D6CC] bg-[#EEF0EC] p-4 flex flex-col gap-3"><Link href="/prompts">Prompts</Link><Link href="/ai-tools">Tools</Link><Link href="/business">Business</Link><Link href="/finance">Finance</Link></div>}
-    </header>
+    </div>
+  )}
+
+  {/* Mobile menu */}
+  {mobileOpen && (
+    <div className="md:hidden border-t border-[#D2D6CC] bg-[#EEF0EC] p-4 flex flex-col gap-1">
+      <Link href="/prompts" onClick={()=>setMobileOpen(false)} className="py-3 px-2 font-semibold border-b border-[#D2D6CC]">Prompts</Link>
+      <Link href="/ai-tools" onClick={()=>setMobileOpen(false)} className="py-3 px-2 font-semibold border-b border-[#D2D6CC]">Tools</Link>
+      <Link href="/business" onClick={()=>setMobileOpen(false)} className="py-3 px-2 font-semibold border-b border-[#D2D6CC]">Business</Link>
+      <Link href="/finance" onClick={()=>setMobileOpen(false)} className="py-3 px-2 font-semibold">Finance</Link>
+    </div>
+  )}
+</header>
 
     <section className="hero">
       <div className="wrap hero-grid">
