@@ -59,7 +59,7 @@ export default function AIToolsPage(){
     <header>
       <div className="wrap header-inner">
         <Link href="/" className="logo"><span className="logo-mark">P</span>Promptoolhub</Link>
-        <div className="nav-links hidden md:flex"><Link href="/prompts">Prompts</Link><Link href="/ai-tools">Tools</Link><Link href="/business">Business</Link><Link href="/finance">Finance</Link><Link href="/image-tools">Image Tools</Link><Link href="/text-tools">Text Tools</Link><Link href="/utility">Utility Tools</Link><Link href="/dev-tools">Developer Tools</Link><Link href="/pdf-tools">PDF Tools</Link></div>
+        <div className="nav-links hidden md:flex"><Link href="/prompts">Prompts</Link></div>
         <Link href="/prompts" className="hidden md:flex text-sm font-semibold">🔍 Search</Link>
       </div>
     </header>
