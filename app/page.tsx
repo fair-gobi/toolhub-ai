@@ -71,7 +71,7 @@ export default function Home(){
     <Link href="/" className="logo"><span className="logo-mark"><svg viewBox="0 0 72 72"><rect width="72" height="72" rx="16" fill="#14181A"/><path d="M22 14 h16 a14 14 0 010 28 h-6 v16 h-10 z" fill="#EEF0EC"/><path d="M32 24 h6 a4 4 0 010 8 h-6 z" fill="#E8990A"/></svg></span>Promptoolhub</Link>
 
     <nav className="hidden md:flex items-center gap-7">
-      <div className="nav-links"><Link href="/prompts">Prompts</Link><Link href="/ai-tools">Tools</Link><Link href="/business">Business</Link><Link href="/finance">Finance</Link></div>
+      <div className="nav-links"><Link href="/prompts">Prompts</Link><Link href="/ai-tools">AI Tools</Link><Link href="/business">Business</Link><Link href="/finance">Finance</Link><Link href="/image-tools">Image Tools</Link><Link href="/text-tools">Text Tools</Link><Link href="/utility">Utility Tools</Link><Link href="/dev-tools">Developer Tools</Link><Link href="/pdf-tools">PDF Tools</Link></div>
     </nav>
 
     <div className="flex gap-2 items-center">
@@ -108,9 +108,14 @@ export default function Home(){
   {mobileOpen && (
     <div className="md:hidden border-t border-[#D2D6CC] bg-[#EEF0EC] p-4 flex flex-col gap-1">
       <Link href="/prompts" onClick={()=>setMobileOpen(false)} className="py-3 px-2 font-semibold border-b border-[#D2D6CC]">Prompts</Link>
-      <Link href="/ai-tools" onClick={()=>setMobileOpen(false)} className="py-3 px-2 font-semibold border-b border-[#D2D6CC]">Tools</Link>
+      <Link href="/ai-tools" onClick={()=>setMobileOpen(false)} className="py-3 px-2 font-semibold border-b border-[#D2D6CC]">AI Tools</Link>
       <Link href="/business" onClick={()=>setMobileOpen(false)} className="py-3 px-2 font-semibold border-b border-[#D2D6CC]">Business</Link>
-      <Link href="/finance" onClick={()=>setMobileOpen(false)} className="py-3 px-2 font-semibold">Finance</Link>
+      <Link href="/finance" onClick={()=>setMobileOpen(false)} className="py-3 px-2 font-semibold border-b border-[#D2D6CC]">Finance</Link>
+      <Link href="/image-tools" onClick={()=>setMobileOpen(false)} className="py-3 px-2 font-semibold border-b border-[#D2D6CC]">Image Tools</Link>
+      <Link href="/text-tools" onClick={()=>setMobileOpen(false)} className="py-3 px-2 font-semibold border-b border-[#D2D6CC]">Text Tools</Link>
+      <Link href="/utility" onClick={()=>setMobileOpen(false)} className="py-3 px-2 font-semibold border-b border-[#D2D6CC]">Utility Tools</Link>
+      <Link href="/dev-tools" onClick={()=>setMobileOpen(false)} className="py-3 px-2 font-semibold border-b border-[#D2D6CC]">Developer Tools</Link>
+      <Link href="/pdf-tools" onClick={()=>setMobileOpen(false)} className="py-3 px-2 font-semibold">PDF Tools</Link>
     </div>
   )}
 </header>
