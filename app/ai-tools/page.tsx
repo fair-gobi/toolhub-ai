@@ -95,7 +95,7 @@ export default function AIToolsPage(){
       </aside>
 
       <main className="main">
-        <div style={{display:'flex',justifyContent:'space-between',alignItems:'baseline',marginBottom:14}}><h2 className="display" style={{fontSize:'1.3rem',fontWeight:700}}>Your 6 Originals</h2><span className="mono" style={{fontSize:'.75rem',color:'var(--soft)'}}>BUILT IN-HOUSE</span></div>
+        <div style={{display:'flex',justifyContent:'space-between',alignItems:'baseline',marginBottom:14}}><h2 className="display" style={{fontSize:'1.3rem',fontWeight:700}}> </h2><span className="mono" style={{fontSize:'.75rem',color:'var(--soft)'}}>BUILT IN-HOUSE</span></div>
         <div className="grid4" style={{marginBottom:36}}>
           {originals.map(t=>(
             <Link key={t.slug} href={`/ai-tools/${t.slug}`} className="card original">
