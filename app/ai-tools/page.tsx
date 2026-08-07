@@ -1,107 +1,143 @@
 "use client"
 import Link from "next/link"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
-const TOOLS = [
-  { slug: "resume-builder", name: "AI Resume Builder", desc: "Create ATS resume in 30 sec" },
-  { slug: "cover-letter", name: "AI Cover Letter", desc: "Job-winning cover letters" },
-  { slug: "code-generator", name: "AI Code Generator", desc: "Generate code in any language" },
-  { slug: "bug-finder", name: "AI Bug Finder", desc: "Find & fix bugs instantly" },
-  { slug: "image-generator", name: "AI Image Generator", desc: "Text to image — unlimited free" },
-  { slug: "video-generator", name: "AI Video Generator", desc: "Text to video — 100% free" },
+type Cat = 'All'|'Image'|'Video'|'Writing'|'Code'|'Voice'|'Business'|'Productivity'
+type Tool = { slug:string; name:string; desc:string; cat:Cat; external?:string; hot?:boolean; new?:boolean }
+
+const ORIGINALS: Tool[] = [
+  { slug:"resume-builder", name:"AI Resume Builder", desc:"Create ATS resume in 30 sec", cat:"Writing", hot:true },
+  { slug:"cover-letter", name:"AI Cover Letter", desc:"Job-winning cover letters", cat:"Writing" },
+  { slug:"code-generator", name:"AI Code Generator", desc:"Generate code in any language", cat:"Code", hot:true },
+  { slug:"bug-finder", name:"AI Bug Finder", desc:"Find & fix bugs instantly", cat:"Code" },
+  { slug:"image-generator", name:"AI Image Generator", desc:"Text to image — unlimited free", cat:"Image", hot:true },
+  { slug:"video-generator", name:"AI Video Generator", desc:"Text to video — 100% free", cat:"Video" },
 ]
 
-const CATS = [
-  { key:'ai', label:'AI Tools', href:'/ai-tools' },
-  { key:'pdf', label:'PDF Tools', href:'/pdf-tools' },
-  { key:'image', label:'Image Tools', href:'/image-tools' },
-  { key:'dev', label:'Developer Tools', href:'/dev-tools' },
-  { key:'text', label:'Text Tools', href:'/text-tools' },
-  { key:'business', label:'Business Tools', href:'/business' },
-  { key:'finance', label:'Finance Tools', href:'/finance' },
-  { key:'utility', label:'Utility Tools', href:'/utility' },
+const FALLBACK_EXTERNAL: Tool[] = [
+  { slug:"midjourney", name:"Midjourney", desc:"Best AI image generator", cat:"Image", external:"https://midjourney.com", hot:true },
+  { slug:"runway", name:"Runway ML", desc:"Video generation & editing", cat:"Video", external:"https://runwayml.com", hot:true },
+  { slug:"elevenlabs", name:"ElevenLabs", desc:"Realistic AI voice", cat:"Voice", external:"https://elevenlabs.io", hot:true },
+]
+
+const CATS: {key:Cat, label:string, icon:string}[] = [
+  {key:'All', label:'All Tools', icon:'◍'},
+  {key:'Image', label:'Image', icon:'🖼'},
+  {key:'Video', label:'Video', icon:'🎬'},
+  {key:'Writing', label:'Writing', icon:'✍️'},
+  {key:'Code', label:'Code', icon:'💻'},
+  {key:'Voice', label:'Voice', icon:'🎙'},
+  {key:'Business', label:'Business', icon:'💼'},
+  {key:'Productivity', label:'Productivity', icon:'⚡'},
 ]
 
 export default function AIToolsPage(){
-  const [search,setSearch]=useState("")
-  const filtered = TOOLS.filter(t=>(t.name+t.desc).toLowerCase().includes(search.toLowerCase()))
+  const [active,setActive] = useState<Cat>('All')
+  const [q,setQ] = useState("")
+  const [externalTools,setExternalTools] = useState<Tool[]>(FALLBACK_EXTERNAL)
+  const [showAdd,setShowAdd] = useState(false)
+  const [form,setForm] = useState({name:"",desc:"",cat:"Image" as Cat,url:""})
+
+  useEffect(()=>{
+    fetch('/api/ai-tools').then(r=>r.json()).then((data:any[])=>{
+      if(Array.isArray(data) && data.length>0){
+        const ext = data.filter((t:any)=>!t.is_original).map((t:any)=>({
+          slug:t.slug, name:t.name, desc:t.description, cat:t.category as Cat, external:t.external_url, hot:t.is_hot, new:t.is_new
+        }))
+        if(ext.length>0) setExternalTools(ext)
+      }
+    }).catch(()=>{})
+  },[])
+
+  const filterFn = (t:Tool)=> (active==='All' || t.cat===active) && (t.name+t.desc).toLowerCase().includes(q.toLowerCase())
+  const originals = ORIGINALS.filter(filterFn)
+  const externals = externalTools.filter(filterFn)
+
+  const addTool = async ()=>{
+    if(!form.name || !form.desc) return alert("Fill name & desc")
+    const res = await fetch('/api/ai-tools',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:form.name,desc:form.desc,cat:form.cat,url:form.url})})
+    const newTool = await res.json()
+    const mapped:Tool = {slug:newTool.slug,name:newTool.name,desc:newTool.description,cat:newTool.category as Cat,external:newTool.external_url,new:true}
+    setExternalTools([mapped, ...externalTools])
+    setShowAdd(false)
+    setForm({name:"",desc:"",cat:"Image",url:""})
+  }
 
   return(
     <>
     <style>{`
-      @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap');
-      :root{--bg:#EEF0EC;--bg-alt:#E4E7E0;--ink:#14181A;--ink-soft:#52585A;--line:#D2D6CC;--card:#FCFDFB;--teal:#0F6B5C;--tint:#E4EEEC}
-      *{box-sizing:border-box;margin:0;padding:0} body{background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif}
-      .mono{font-family:'IBM Plex Mono',monospace} a{color:inherit;text-decoration:none}
-      .wrap{max-width:1180px;margin:0 auto;padding:0 24px} @media(max-width:600px){.wrap{padding:0 16px}}
-      header{border-bottom:1px solid var(--line);background:var(--bg);position:sticky;top:0;z-index:50}
-      .header-inner{display:flex;align-items:center;justify-content:space-between;height:68px}
-      .logo{display:flex;align-items:center;gap:10px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.15rem}
-      .logo-mark{width:32px;height:32px;border-radius:8px;background:var(--ink);display:grid;place-items:center;color:white;font-weight:900}
-      .nav-links{display:flex;gap:22px;font-size:.9rem;font-weight:500;color:var(--ink-soft)} .nav-links a:hover{color:var(--ink)}
-      .switcher{border-bottom:1px solid var(--line);background:var(--card);overflow-x:auto;white-space:nowrap}
-      .switcher-inner{display:flex;gap:8px;padding:12px 24px}
-      .switch-pill{font-family:'IBM Plex Mono';font-size:.78rem;font-weight:600;padding:8px 14px;border-radius:20px;border:1px solid var(--line);background:var(--bg);color:var(--ink-soft);cursor:pointer;flex-shrink:0}
-      .switch-pill.active{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-      .cat-hero{padding:40px 0 28px;border-bottom:1px solid var(--line)}
-      .back-link{font-size:.85rem;font-weight:600;color:var(--ink-soft);margin-bottom:18px;display:inline-flex;gap:6px}
-      .cat-head-row{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start}
-      .cat-icon{width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:var(--tint);color:var(--teal)}
-      .cat-count{font-family:'IBM Plex Mono';font-size:.72rem;font-weight:600;padding:4px 10px;border-radius:3px;background:var(--tint);color:var(--teal);border:1px solid #0F6B5C33;margin-left:auto;align-self:center}
-      .search-row{padding:20px 0} .search-box{display:flex;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px 16px;max-width:420px}
-      .search-box input{border:none;background:none;outline:none;font-size:.92rem;width:100%;font-family:'Inter'}
-      .section{padding:8px 0 64px} .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px} @media(max-width:1180px){.grid{grid-template-columns:repeat(3,1fr)}} @media(max-width:860px){.grid{grid-template-columns:repeat(2,1fr)}} @media(max-width:520px){.grid{grid-template-columns:1fr}}
-      .tool-card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:18px;display:flex;flex-direction:column;gap:10px;transition:.15s} .tool-card:hover{border-color:var(--ink-soft);transform:translateY(-2px)}
-      .ic{width:36px;height:36px;border-radius:7px;display:flex;align-items:center;justify-content:center;background:var(--tint)}
-      footer{border-top:1px solid var(--line);padding:32px 0}
+      @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap');
+      :root{--bg:#EEF0EC;--ink:#14181A;--soft:#52585A;--line:#D2D6CC;--card:#FCFDFB;--teal:#0F6B5C;--tint:#E4EEEC}
+      .wrap{max-width:1280px;margin:0 auto;padding:0 24px} *{box-sizing:border-box} body{background:var(--bg)}
+      .mono{font-family:'IBM Plex Mono'} .display{font-family:'Space Grotesk'}
+      header{border-bottom:1px solid var(--line);background:var(--bg);position:sticky;top:0;z-index:30}
+      .layout{display:grid;grid-template-columns:240px 1fr;min-height:calc(100vh - 68px)} @media(max-width:900px){.layout{grid-template-columns:1fr}}
+      .sidebar{border-right:1px solid var(--line);background:var(--card);position:sticky;top:68px;height:calc(100vh - 68px);padding:20px;overflow-y:auto} @media(max-width:900px){.sidebar{position:static;height:auto;border-right:none;border-bottom:1px solid var(--line);display:flex;gap:8px;overflow-x:auto;padding:12px 16px}}
+      .cat-btn{width:100%;text-align:left;padding:10px 12px;border-radius:6px;border:1px solid transparent;font-size:.9rem;font-weight:500;color:var(--soft);cursor:pointer;display:flex;gap:8px;align-items:center;background:transparent} .cat-btn.active{background:var(--ink);color:var(--bg);border-color:var(--ink)} @media(max-width:900px){.cat-btn{white-space:nowrap;width:auto;border:1px solid var(--line);background:var(--bg)}}
+      .main{padding:28px 24px} @media(max-width:600px){.main{padding:18px 16px}}
+      .grid4{display:grid;grid-template-columns:repeat(3,1fr);gap:16px} @media(max-width:1100px){.grid4{grid-template-columns:repeat(2,1fr)}} @media(max-width:600px){.grid4{grid-template-columns:1fr}}
+      .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:10px;transition:.15s} .card:hover{transform:translateY(-2px);border-color:var(--soft)}
+      .card.original{border:1.5px solid var(--ink)} .badge{font-size:.65rem;font-weight:700;padding:3px 7px;border-radius:4px} .badge-hot{background:#fee2e2;color:#dc2626} .badge-new{background:#dcfce7;color:#15803d}
+      .modal{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:50;display:grid;place-items:center;padding:16px} .modal-card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px;width:min(480px,100%);display:flex;flex-direction:column;gap:12px}
+      .input{height:44px;padding:0 12px;border:1px solid var(--line);border-radius:6px;background:var(--bg);outline:none;width:100%} .input:focus{border-color:var(--teal)}
     `}</style>
 
-    <header>
-      <div className="wrap header-inner">
-        <Link href="/" className="logo"><span className="logo-mark">P</span>Promptoolhub</Link>
-        <div className="nav-links hidden md:flex"><Link href="/prompts">Prompts</Link></div>
-        <Link href="/prompts" className="hidden md:flex text-sm font-semibold">🔍 Search</Link>
-      </div>
-    </header>
+    <header><div className="wrap" style={{height:68,display:'flex',justifyContent:'space-between',alignItems:'center'}}><Link href="/" className="display" style={{fontWeight:700}}>P Promptoolhub</Link><button onClick={()=>setShowAdd(true)} className="display" style={{background:'var(--ink)',color:'var(--bg)',padding:'9px 16px',borderRadius:6,fontWeight:600,fontSize:'.9rem',border:'none',cursor:'pointer'}}>+ Add New Tool</button></div></header>
 
-    <div className="switcher">
-      <div className="switcher-inner wrap">
+    <div className="layout">
+      <aside className="sidebar">
         {CATS.map(c=>(
-          <Link key={c.key} href={c.href} className={`switch-pill ${c.key==='ai'?'active':''}`}>{c.label}</Link>
+          <button key={c.key} onClick={()=>setActive(c.key)} className={`cat-btn ${active===c.key?'active':''}`}>
+            <span>{c.icon}</span> {c.label} <span className="mono" style={{marginLeft:'auto',fontSize:'.7rem',opacity:.6}}>{c.key==='All'? ORIGINALS.length+externalTools.length : [...ORIGINALS,...externalTools].filter(t=>t.cat===c.key).length}</span>
+          </button>
         ))}
-      </div>
+        <div style={{marginTop:20}}><input value={q} onChange={e=>setQ(e.target.value)} placeholder="Search..." className="input" /></div>
+      </aside>
+
+      <main className="main">
+        <div style={{display:'flex',justifyContent:'space-between',alignItems:'baseline',marginBottom:14}}><h2 className="display" style={{fontSize:'1.3rem',fontWeight:700}}>Your 6 Originals</h2><span className="mono" style={{fontSize:'.75rem',color:'var(--soft)'}}>BUILT IN-HOUSE</span></div>
+        <div className="grid4" style={{marginBottom:36}}>
+          {originals.map(t=>(
+            <Link key={t.slug} href={`/ai-tools/${t.slug}`} className="card original">
+              <div style={{display:'flex',justifyContent:'space-between'}}><div style={{width:36,height:36,borderRadius:8,background:'var(--ink)',color:'white',display:'grid',placeItems:'center',fontWeight:900}}>P</div>{t.hot && <span className="badge badge-hot">HOT</span>}</div>
+              <h3 className="display" style={{fontWeight:600}}>{t.name}</h3>
+              <p style={{fontSize:'.85rem',color:'var(--soft)',flex:1}}>{t.desc}</p>
+              <span style={{fontSize:'.8rem',fontWeight:600}}>Open →</span>
+            </Link>
+          ))}
+        </div>
+
+        <div style={{display:'flex',justifyContent:'space-between',alignItems:'baseline',marginBottom:14}}><h2 className="display" style={{fontSize:'1.3rem',fontWeight:700}}>External AI Directory</h2><span className="mono" style={{fontSize:'.75rem',color:'var(--soft)'}}>{externals.length} TOOLS</span></div>
+        <div className="grid4">
+          {externals.map(t=>(
+            <a key={t.slug} href={t.external} target="_blank" className="card">
+              <div style={{display:'flex',justifyContent:'space-between'}}><div style={{width:36,height:36,borderRadius:8,background:'var(--tint)',display:'grid',placeItems:'center'}}>✨</div><div style={{display:'flex',gap:6}}>{t.hot && <span className="badge badge-hot">HOT</span>}{t.new && <span className="badge badge-new">NEW</span>}</div></div>
+              <h3 className="display" style={{fontWeight:600}}>{t.name}</h3>
+              <p style={{fontSize:'.85rem',color:'var(--soft)',flex:1}}>{t.desc}</p>
+              <div style={{display:'flex',justifyContent:'space-between'}}><span className="mono" style={{fontSize:'.7rem',background:'#EEF0EC',padding:'3px 8px',borderRadius:20}}>{t.cat}</span><span style={{fontSize:'.8rem',fontWeight:600,color:'var(--teal)'}}>Visit ↗</span></div>
+            </a>
+          ))}
+        </div>
+      </main>
     </div>
 
-    <section className="cat-hero">
-      <div className="wrap">
-        <Link href="/" className="back-link">← Back to all tools</Link>
-        <div className="cat-head-row">
-          <div className="cat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" width="26" height="26"><path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4z"/></svg></div>
-          <div><h1 style={{fontFamily:'Space Grotesk',fontSize:'clamp(1.6rem,3.4vw,2.2rem)',fontWeight:700}}>AI Tools</h1><p style={{color:'#52585A'}}>AI-powered generators for resumes, code, images and video. 100% in-browser.</p></div>
-          <span className="cat-count mono">6 TOOLS</span>
+    {showAdd && (
+      <div className="modal" onClick={()=>setShowAdd(false)}>
+        <div className="modal-card" onClick={e=>e.stopPropagation()}>
+          <h3 className="display" style={{fontWeight:700,fontSize:'1.2rem'}}>Add New Tool</h3>
+          <input className="input" placeholder="Tool Name" value={form.name} onChange={e=>setForm({...form,name:e.target.value})} />
+          <input className="input" placeholder="Description" value={form.desc} onChange={e=>setForm({...form,desc:e.target.value})} />
+          <select className="input" value={form.cat} onChange={e=>setForm({...form,cat:e.target.value as Cat})}>
+            <option>Image</option><option>Video</option><option>Writing</option><option>Code</option><option>Voice</option><option>Business</option><option>Productivity</option>
+          </select>
+          <input className="input" placeholder="External URL https://..." value={form.url} onChange={e=>setForm({...form,url:e.target.value})} />
+          <div style={{display:'flex',gap:8,justifyContent:'flex-end',marginTop:8}}>
+            <button onClick={()=>setShowAdd(false)} className="input" style={{width:'auto',cursor:'pointer'}}>Cancel</button>
+            <button onClick={addTool} style={{background:'var(--ink)',color:'white',padding:'10px 18px',borderRadius:6,fontWeight:600,border:'none',cursor:'pointer'}}>Add Tool</button>
+          </div>
         </div>
       </div>
-    </section>
-
-    <div className="wrap search-row">
-      <div className="search-box"><span>🔍</span><input value={search} onChange={e=>setSearch(e.target.value)} placeholder="Search tools in this category..." /></div>
-    </div>
-
-    <section className="section wrap">
-      <div className="grid">
-        {filtered.map(t=>(
-          <Link key={t.slug} href={`/ai-tools/${t.slug}`} className="tool-card">
-            <div className="ic"><span>✨</span></div>
-            <h3 style={{fontFamily:'Space Grotesk',fontWeight:600}}>{t.name}</h3>
-            <p style={{fontSize:'.84rem',color:'#52585A',flex:1}}>{t.desc}</p>
-            <span style={{fontSize:'.8rem',fontWeight:600,color:'#0F6B5C'}}>Open tool →</span>
-          </Link>
-        ))}
-      </div>
-      {filtered.length===0 && <div style={{padding:48,textAlign:'center',color:'#52585A'}}>No tools match your search.</div>}
-    </section>
-
-    <footer><div className="wrap" style={{display:'flex',justifyContent:'space-between',flexWrap:'wrap',gap:16}}><div className="logo"><span className="logo-mark">P</span>Promptoolhub</div><div className="mono" style={{fontSize:'.75rem',color:'#52585A'}}>© 2026 Promptoolhub · AI Tools</div></div></footer>
+    )}
     </>
   )
 }
