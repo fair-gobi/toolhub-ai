@@ -3,8 +3,12 @@ import { NextResponse } from 'next/server'
 export const dynamic = 'force-dynamic'
 
 export async function GET(){
-  const tools = await sql`SELECT * FROM ai_tools ORDER BY is_original DESC, created_at DESC`
-  return NextResponse.json(tools)
+  try{
+    const tools = await sql`SELECT * FROM ai_tools ORDER BY is_original DESC, created_at DESC`
+    return NextResponse.json(tools)
+  }catch{
+    return NextResponse.json([])
+  }
 }
 
 export async function POST(req:Request){
@@ -13,7 +17,7 @@ export async function POST(req:Request){
   const [tool] = await sql`
     INSERT INTO ai_tools (slug, name, description, category, external_url, is_original, is_new)
     VALUES (${slug}, ${name}, ${desc}, ${cat}, ${url}, false, true)
-    ON CONFLICT (slug) DO UPDATE SET description=${desc}, external_url=${url}
+    ON CONFLICT (slug) DO UPDATE SET description=${desc}, external_url=${url}, category=${cat}
     RETURNING *
   `
   return NextResponse.json(tool)
