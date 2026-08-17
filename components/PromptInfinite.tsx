@@ -2,7 +2,7 @@
 import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { CopyButton } from './CopyButton'
-
+import PromptCardWithPreview from './CategoryPreview'
 export function PromptInfinite({ initialPrompts, initialCat, initialQ }: { initialPrompts: any[], initialCat: string, initialQ: string }) {
   const [prompts, setPrompts] = useState(initialPrompts)
   const [page, setPage] = useState(1)
@@ -40,10 +40,7 @@ export function PromptInfinite({ initialPrompts, initialCat, initialQ }: { initi
     <>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {prompts.map((p: any) => (
-          <div key={`${p.id}-${p.slug}`} className="bg-white rounded- border border-zinc-200 p-5 hover:border-black hover:shadow-lg transition group">
-            <div className="flex justify-between"><span className="text- font-bold uppercase tracking-widest text-zinc-500">{p.category}</span><CopyButton text={p.prompt_content || ''} /></div>
-            <Link href={`/prompts/${p.slug}`}><h3 className="font-semibold text- mt-3 line-clamp-2 group-hover:text-violet-600">{p.title}</h3></Link>
-          </div>
+          <PromptCardWithPreview key={`${p.id}-${p.slug}`} prompt={p} />
         ))}
       </div>
       <div ref={loaderRef} className="py-10 text-center">
