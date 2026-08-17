@@ -1,8 +1,16 @@
 import { sql } from '@/lib/db'
 export const dynamic = 'force-dynamic'
 
-function slugify(s: string) { return s.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0, 80) }
-function checkAuth(req: Request) { return req.headers.get('x-admin-key') === process.env.ADMIN_KEY }
+function slugify(s: string) { 
+  return s.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0, 80) 
+}
+
+function checkAuth(req: Request) { 
+  const incoming = req.headers.get('x-admin-key')?.trim()
+  const expected = process.env.ADMIN_KEY?.trim()
+  if (!expected) console.error("❌ ADMIN_KEY env is missing on Vercel!")
+  return !!incoming && !!expected && incoming === expected
+}
 
 export async function GET(req: Request) {
   if (!checkAuth(req)) return Response.json({ error: 'Unauthorized' }, { status: 401 })
@@ -14,6 +22,7 @@ export async function GET(req: Request) {
     : await sql`SELECT * FROM prompts ORDER BY id DESC LIMIT ${perPage}` as any[]
   return Response.json({ prompts })
 }
+
 export async function POST(req: Request) {
   if (!checkAuth(req)) return Response.json({ error: 'Unauthorized' }, { status: 401 })
   const { title, category, prompt_content } = await req.json()
@@ -22,6 +31,7 @@ export async function POST(req: Request) {
   await sql`INSERT INTO prompts (id, title, slug, category, prompt_content, is_hero, created_at) VALUES (${id}, ${title}, ${slug}, ${category}, ${prompt_content}, false, NOW())`
   return Response.json({ success: true, slug })
 }
+
 export async function PUT(req: Request) {
   if (!checkAuth(req)) return Response.json({ error: 'Unauthorized' }, { status: 401 })
   const { id, title, category, prompt_content } = await req.json()
