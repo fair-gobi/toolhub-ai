@@ -1,12 +1,11 @@
-name: Generate Cloudinary Images FAST
+name: Generate Cloudinary FAST SIGNED
 
 on:
   workflow_dispatch:
     inputs:
       batch_size:
-        description: 'Images per run (use 300)'
-        default: '300'
-        required: false
+        default: '500'
+        description: 'Images per run'
 
 jobs:
   generate:
@@ -17,57 +16,51 @@ jobs:
       - uses: actions/setup-node@v5
         with:
           node-version: 24
-      
-      - name: Install deps
-        run: npm install @neondatabase/serverless ws
 
-      - name: Generate FAST HD
+      - name: Install
+        run: npm install @neondatabase/serverless ws cloudinary
+
+      - name: Run
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
-          CLOUDINARY_UPLOAD_PRESET: ${{ secrets.CLOUDINARY_UPLOAD_PRESET }}
+          CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
+          CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
           BATCH_SIZE: ${{ inputs.batch_size }}
         run: |
           node << 'NODE'
           const { neon } = require('@neondatabase/serverless');
+          const cloudinary = require('cloudinary').v2;
           const sql = neon(process.env.DATABASE_URL);
-          const CLOUD_NAME = process.env.CLOUDINARY_CLOUD_NAME;
-          const PRESET = process.env.CLOUDINARY_UPLOAD_PRESET;
-          const BATCH = parseInt(process.env.BATCH_SIZE || '300');
-
-          async function uploadFromUrl(pollUrl, id){
-            const f = new FormData();
-            f.append('file', pollUrl); // Cloudinary fetches directly = 10x faster
-            f.append('upload_preset', PRESET);
-            f.append('folder','promptoolhub');
-            f.append('public_id', id);
-            const r = await fetch(`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`, {method:'POST', body:f});
-            const j = await r.json();
-            if(!j.secure_url) throw new Error(JSON.stringify(j).slice(0,400));
-            return j.secure_url;
-          }
+          cloudinary.config({
+            cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+            api_key: process.env.CLOUDINARY_API_KEY,
+            api_secret: process.env.CLOUDINARY_API_SECRET,
+          });
+          const BATCH = parseInt(process.env.BATCH_SIZE || '500');
 
           (async () => {
             const rows = await sql`SELECT id, prompt_content FROM prompts WHERE preview_url LIKE '%pollinations.ai%' LIMIT ${BATCH}`;
-            console.log(`Found ${rows.length}`);
-            if(rows.length===0){ console.log('ALL DONE'); process.exit(0); }
-            
+            console.log(`TO DO: ${rows.length}`);
+            if(!rows.length){ console.log('ALL DONE'); return; }
             for(let i=0;i<rows.length;i++){
               const p = rows[i];
+              const prompt = encodeURIComponent(p.prompt_content.slice(0,900));
               const seed = Math.floor(Math.random()*999999);
-              const fullPrompt = p.prompt_content.slice(0, 1000); // 1000 = fast + quality
-              const encoded = encodeURIComponent(fullPrompt);
-              // TURBO = 5 sec vs FLUX = 60 sec, still sharp
-              const pollUrl = `https://image.pollinations.ai/prompt/${encoded}?model=turbo&width=1024&height=1024&seed=${seed}&nologo=true&enhance=true`;
-              
+              const pollUrl = `https://image.pollinations.ai/prompt/${prompt}?model=turbo&width=1024&height=1024&seed=${seed}&nologo=true&enhance=true`;
               try{
-                console.log(`[${i+1}/${rows.length}] ${p.id} -> fetching via Cloudinary...`);
-                const cloud = await uploadFromUrl(pollUrl, p.id);
-                await sql`UPDATE prompts SET preview_url=${cloud} WHERE id=${p.id}`;
-                console.log(` OK ${cloud}`);
-              }catch(e){ 
-                console.error(` FAIL ${p.id} ${e.message.slice(0,300)}`);
-                await new Promise(r=>setTimeout(r, 3000));
+                console.log(`[${i+1}/${rows.length}] ${p.id}`);
+                // SIGNED remote fetch = Cloudinary downloads it server-to-server
+                const res = await cloudinary.uploader.upload(pollUrl, {
+                  folder: 'promptoolhub',
+                  public_id: p.id,
+                  overwrite: true,
+                  resource_type: 'image'
+                });
+                await sql`UPDATE prompts SET preview_url=${res.secure_url} WHERE id=${p.id}`;
+                console.log(` OK ${res.secure_url}`);
+              }catch(e){
+                console.error(` FAIL ${p.id} -> ${e.message?.slice(0,500)}`);
               }
             }
           })();
