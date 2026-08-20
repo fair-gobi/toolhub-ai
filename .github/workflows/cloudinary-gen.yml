@@ -1,11 +1,11 @@
-name: Generate Cloudinary Images HQ
+name: Generate Cloudinary Images FAST
 
 on:
   workflow_dispatch:
     inputs:
       batch_size:
-        description: 'Images per run'
-        default: '100'
+        description: 'Images per run (use 300)'
+        default: '300'
         required: false
 
 jobs:
@@ -21,7 +21,7 @@ jobs:
       - name: Install deps
         run: npm install @neondatabase/serverless ws
 
-      - name: Generate HD & Upload
+      - name: Generate FAST HD
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
@@ -33,45 +33,42 @@ jobs:
           const sql = neon(process.env.DATABASE_URL);
           const CLOUD_NAME = process.env.CLOUDINARY_CLOUD_NAME;
           const PRESET = process.env.CLOUDINARY_UPLOAD_PRESET;
-          const BATCH = parseInt(process.env.BATCH_SIZE || '100');
-          const DELAY = 5000;
+          const BATCH = parseInt(process.env.BATCH_SIZE || '300');
 
-          async function fetchBuf(url){
-            const r = await fetch(url, {signal: AbortSignal.timeout(30000)});
-            if(!r.ok) throw new Error(`Pollinations ${r.status}`);
-            return Buffer.from(await r.arrayBuffer());
-          }
-          async function upload(buf, id){
-            const blob = new Blob([buf], {type:'image/jpeg'});
+          async function uploadFromUrl(pollUrl, id){
             const f = new FormData();
-            f.append('file', blob, `${id}.jpg`);
+            f.append('file', pollUrl); // Cloudinary fetches directly = 10x faster
             f.append('upload_preset', PRESET);
             f.append('folder','promptoolhub');
             f.append('public_id', id);
-            f.append('quality', '100');
             const r = await fetch(`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`, {method:'POST', body:f});
             const j = await r.json();
             if(!j.secure_url) throw new Error(JSON.stringify(j).slice(0,400));
             return j.secure_url;
           }
+
           (async () => {
             const rows = await sql`SELECT id, prompt_content FROM prompts WHERE preview_url LIKE '%pollinations.ai%' LIMIT ${BATCH}`;
-            console.log(`Found ${rows.length} HD to generate`);
+            console.log(`Found ${rows.length}`);
             if(rows.length===0){ console.log('ALL DONE'); process.exit(0); }
+            
             for(let i=0;i<rows.length;i++){
               const p = rows[i];
-              const seed = Math.floor(Math.random()*9999999);
-              const fullPrompt = p.prompt_content;
-              const encoded = encodeURIComponent(fullPrompt).slice(0, 1800);
-              const url = `https://image.pollinations.ai/prompt/${encoded}?model=flux&width=1536&height=1536&seed=${seed}&nologo=true&enhance=true&safe=false`;
+              const seed = Math.floor(Math.random()*999999);
+              const fullPrompt = p.prompt_content.slice(0, 1000); // 1000 = fast + quality
+              const encoded = encodeURIComponent(fullPrompt);
+              // TURBO = 5 sec vs FLUX = 60 sec, still sharp
+              const pollUrl = `https://image.pollinations.ai/prompt/${encoded}?model=turbo&width=1024&height=1024&seed=${seed}&nologo=true&enhance=true`;
+              
               try{
-                console.log(`[${i+1}/${rows.length}] ${p.id} HD`);
-                const buf = await fetchBuf(url);
-                const cloud = await upload(buf, p.id);
+                console.log(`[${i+1}/${rows.length}] ${p.id} -> fetching via Cloudinary...`);
+                const cloud = await uploadFromUrl(pollUrl, p.id);
                 await sql`UPDATE prompts SET preview_url=${cloud} WHERE id=${p.id}`;
-                console.log(` OK HD -> ${cloud}`);
-              }catch(e){ console.error(` FAIL ${p.id} ${e.message.slice(0,300)}`); }
-              await new Promise(r=>setTimeout(r, DELAY));
+                console.log(` OK ${cloud}`);
+              }catch(e){ 
+                console.error(` FAIL ${p.id} ${e.message.slice(0,300)}`);
+                await new Promise(r=>setTimeout(r, 3000));
+              }
             }
           })();
           NODE
