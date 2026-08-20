@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       batch_size:
-        description: 'Images per run (100 = HD, slower)'
+        description: 'Images per run'
         default: '100'
         required: false
 
@@ -13,10 +13,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 360
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
-          node-version: 20
+          node-version: 24
       
       - name: Install deps
         run: npm install @neondatabase/serverless ws
@@ -55,9 +55,8 @@ jobs:
             return j.secure_url;
           }
           (async () => {
-            // HIGH QUALITY: uses FULL prompt_content
             const rows = await sql`SELECT id, prompt_content FROM prompts WHERE preview_url LIKE '%pollinations.ai%' LIMIT ${BATCH}`;
-            console.log(`Found ${rows.length} to generate in HD`);
+            console.log(`Found ${rows.length} HD to generate`);
             if(rows.length===0){ console.log('ALL DONE'); process.exit(0); }
             for(let i=0;i<rows.length;i++){
               const p = rows[i];
