@@ -3,9 +3,9 @@ import Link from "next/link"
 import { useState } from "react"
 
 const categories = [
-  { name:'Prompt Library', count:'8235+', desc:'Copy-paste prompts for ChatGPT, Claude & Gemini.', tab:'#E8990A', href:'/prompts',
+  { name:'Prompt Library', count:'13000+', desc:'Copy-paste prompts for ChatGPT, Claude & Gemini.', tab:'#E8990A', href:'/prompts',
     icon:<svg viewBox="0 0 24 24" fill="none" stroke="#E8990A" strokeWidth="1.8"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg> },
-  { name:'AI Tools', count:'6', desc:'Generators and AI-powered utilities.', tab:'#0F6B5C', href:'/ai-tools',
+  { name:'AI Tools', count:'146', desc:'6 free tools + 140 curated best AI tools.', tab:'#0F6B5C', href:'/ai-tools',
     icon:<svg viewBox="0 0 24 24" fill="none" stroke="#0F6B5C" strokeWidth="1.8"><path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4z"/></svg> },
   { name:'PDF Tools', count:'15', desc:'Merge, split, compress and protect PDFs.', tab:'#6B4C7A', href:'/pdf-tools',
     icon:<svg viewBox="0 0 24 24" fill="none" stroke="#6B4C7A" strokeWidth="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg> },
@@ -42,8 +42,6 @@ export default function Home(){
       header{border-bottom:1px solid var(--line);background:var(--bg);position:sticky;top:0;z-index:50}
       .header-inner{display:flex;align-items:center;justify-content:space-between;height:68px}
       .logo{display:flex;align-items:center;gap:10px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.15rem}
-      .logo-mark{width:32px;height:32px;border-radius:8px;background:var(--ink);position:relative}
-      .nav-links{display:flex;gap:22px;font-size:.9rem;font-weight:500;color:var(--ink-soft)} .nav-links a:hover{color:var(--ink)}
       .icon-btn{width:40px;height:40px;border-radius:6px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);background:var(--card);cursor:pointer}
       .hero{padding:72px 0 88px;border-bottom:1px solid var(--line)}
       .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
@@ -51,83 +49,86 @@ export default function Home(){
       h1{font-family:'Space Grotesk';font-size:clamp(2.4rem,4.4vw,3.6rem);font-weight:700;letter-spacing:-.02em;line-height:1.05;margin-bottom:20px} .hi{color:var(--teal)}
       .hero-sub{font-size:1.08rem;color:var(--ink-soft);max-width:46ch;margin-bottom:28px}
       .trust-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:34px} .trust-chip{font-family:'IBM Plex Mono';font-size:.78rem;padding:6px 11px;border:1px solid var(--line);border-radius:3px;background:var(--card);color:var(--ink-soft)}
-      .btn{font-weight:600;font-size:.95rem;padding:12px 22px;border-radius:5px;display:inline-flex;gap:8px;border:1px solid transparent;cursor:pointer} .btn-primary{background:var(--ink);color:var(--bg)} .btn-secondary{background:transparent;border-color:var(--line)}
+      .btn{font-weight:600;font-size:.95rem;padding:12px 22px;border-radius:5px;display:inline-flex;gap:8px;border:1px solid transparent;cursor:pointer;text-decoration:none} .btn-primary{background:var(--ink);color:var(--bg)} .btn-secondary{background:transparent;border-color:var(--line);color:var(--ink)}
       .demo-card{background:var(--card);border:1px solid var(--line);border-radius:8px;overflow:hidden}
       .demo-topbar{display:flex;justify-content:space-between;padding:10px 16px;border-bottom:1px solid var(--line);background:var(--bg-alt);font-family:'IBM Plex Mono';font-size:.72rem;color:var(--ink-soft)}
       .demo-body{padding:18px} .demo-body textarea{width:100%;min-height:78px;border:1px solid var(--line);border-radius:5px;padding:12px;background:var(--bg)} .demo-body textarea:focus{border-color:var(--teal);outline:none}
       .demo-outputs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px} .demo-out{background:var(--bg);border:1px solid var(--line);border-radius:5px;padding:10px 12px}
       .demo-out label{font-family:'IBM Plex Mono';font-size:.66rem;text-transform:uppercase;color:var(--teal);font-weight:600;display:block;margin-bottom:5px}
       .section{padding:64px 0} .section-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:32px;flex-wrap:wrap;gap:20px}
-      .section-head h2{font-family:'Space Grotesk';font-size:1.7rem;font-weight:700}
       .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px} @media(max-width:1024px){.grid{grid-template-columns:repeat(2,1fr)}} @media(max-width:600px){.grid{grid-template-columns:1fr} .hero-grid{grid-template-columns:1fr} .hero{padding:48px 0 56px}}
-      .tool-card{background:var(--card);border:1px solid var(--line);border-radius:6px;overflow:hidden;transition:.15s} .tool-card:hover{border-color:var(--ink-soft);transform:translateY(-2px)}
+      .tool-card{background:var(--card);border:1px solid var(--line);border-radius:6px;overflow:hidden;transition:.15s;text-decoration:none;color:inherit} .tool-card:hover{border-color:var(--ink-soft);transform:translateY(-2px)}
       .tab{height:5px;width:100%} .tool-inner{padding:20px 20px 18px} .tool-top{display:flex;justify-content:space-between;margin-bottom:14px}
       .tool-icon{width:38px;height:38px;border-radius:6px;display:flex;align-items:center;justify-content:center;background:var(--bg-alt)} .count-tag{font-family:'IBM Plex Mono';font-size:.7rem;font-weight:600;color:var(--ink-soft);background:var(--bg-alt);border:1px solid var(--line);padding:3px 7px;border-radius:3px}
       footer{border-top:1px solid var(--line);padding:40px 0 32px;margin-top:20px}
+      .flex{display:flex} .gap-2{gap:8px} .gap-3{gap:12px} .flex-wrap{flex-wrap:wrap} .items-center{align-items:center}
+      .hidden{display:none}
     `}</style>
 
     <header>
-  <div className="wrap header-inner">
-    <Link href="/" className="logo"><span className="logo-mark"><svg viewBox="0 0 72 72"><rect width="72" height="72" rx="16" fill="#14181A"/><path d="M22 14 h16 a14 14 0 010 28 h-6 v16 h-10 z" fill="#EEF0EC"/><path d="M32 24 h6 a4 4 0 010 8 h-6 z" fill="#E8990A"/></svg></span>Promptoolhub</Link>
+      <div className="wrap header-inner">
+        <Link href="/" className="logo" style={{textDecoration:'none', color:'inherit'}}>
+          <span style={{width:32,height:32,borderRadius:8,background:'#14181A',display:'grid',placeItems:'center'}}>
+            <svg viewBox="0 0 72 72" width="32" height="32"><rect width="72" height="72" rx="16" fill="#14181A"/><path d="M22 14 h16 a14 14 0 010 28 h-6 v16 h-10 z" fill="#EEF0EC"/><path d="M32 24 h6 a4 4 0 010 8 h-6 z" fill="#E8990A"/></svg>
+          </span>
+          Promptoolhub
+        </Link>
 
-    <nav className="hidden md:flex items-center gap-7">
-      <div className="nav-links"><Link href="/prompts">Prompts</Link><Link href="/ai-tools">AI Tools</Link><Link href="/business">Business</Link><Link href="/finance">Finance</Link><Link href="/image-tools">Image Tools</Link><Link href="/text-tools">Text Tools</Link><Link href="/utility">Utility Tools</Link><Link href="/dev-tools">Developer Tools</Link><Link href="/pdf-tools">PDF Tools</Link></div>
-    </nav>
-
-    <div className="flex gap-2 items-center">
-      <button onClick={()=>setSearchOpen(!searchOpen)} className="icon-btn" aria-label="Search">
-        {searchOpen? '✕' : '🔍'}
-      </button>
-      <button onClick={()=>setMobileOpen(!mobileOpen)} className="icon-btn md:hidden" aria-label="Menu">
-        {mobileOpen? '✕' : '☰'}
-      </button>
-    </div>
-  </div>
-
-  {/* Search bar */}
-  {searchOpen && (
-    <div className="border-t border-[#D2D6CC] bg-[#E4E7E0] p-3">
-      <div className="wrap">
-        <input
-          autoFocus
-          value={searchQ}
-          onChange={e=>setSearchQ(e.target.value)}
-          onKeyDown={e=>{
-            if(e.key==='Enter' && searchQ.trim()){
-              window.location.href=`/prompts?q=${encodeURIComponent(searchQ)}`
-            }
-          }}
-          placeholder="Search 8235 prompts, tools..."
-          className="w-full h-11 px-4 rounded- border border-[#D2D6CC] bg-white outline-none focus:border-[#0F6B5C]"
-        />
+        {/* RIGHT TOP CORNER - ONLY SEARCH + 3-LINE BUTTON */}
+        <div className="flex gap-2 items-center">
+          <button onClick={()=>setSearchOpen(!searchOpen)} className="icon-btn" aria-label="Search">
+            {searchOpen? '✕' : '🔍'}
+          </button>
+          <button onClick={()=>setMobileOpen(!mobileOpen)} className="icon-btn" aria-label="Menu">
+            {mobileOpen? '✕' : '☰'}
+          </button>
+        </div>
       </div>
-    </div>
-  )}
 
-  {/* Mobile menu */}
-  {mobileOpen && (
-    <div className="md:hidden border-t border-[#D2D6CC] bg-[#EEF0EC] p-4 flex flex-col gap-1">
-      <Link href="/prompts" onClick={()=>setMobileOpen(false)} className="py-3 px-2 font-semibold border-b border-[#D2D6CC]">Prompts</Link>
-      <Link href="/ai-tools" onClick={()=>setMobileOpen(false)} className="py-3 px-2 font-semibold border-b border-[#D2D6CC]">AI Tools</Link>
-      <Link href="/business" onClick={()=>setMobileOpen(false)} className="py-3 px-2 font-semibold border-b border-[#D2D6CC]">Business</Link>
-      <Link href="/finance" onClick={()=>setMobileOpen(false)} className="py-3 px-2 font-semibold border-b border-[#D2D6CC]">Finance</Link>
-      <Link href="/image-tools" onClick={()=>setMobileOpen(false)} className="py-3 px-2 font-semibold border-b border-[#D2D6CC]">Image Tools</Link>
-      <Link href="/text-tools" onClick={()=>setMobileOpen(false)} className="py-3 px-2 font-semibold border-b border-[#D2D6CC]">Text Tools</Link>
-      <Link href="/utility" onClick={()=>setMobileOpen(false)} className="py-3 px-2 font-semibold border-b border-[#D2D6CC]">Utility Tools</Link>
-      <Link href="/dev-tools" onClick={()=>setMobileOpen(false)} className="py-3 px-2 font-semibold border-b border-[#D2D6CC]">Developer Tools</Link>
-      <Link href="/pdf-tools" onClick={()=>setMobileOpen(false)} className="py-3 px-2 font-semibold">PDF Tools</Link>
-    </div>
-  )}
-</header>
+      {/* Search bar */}
+      {searchOpen && (
+        <div style={{borderTop:'1px solid #D2D6CC', background:'#E4E7E0', padding:12}}>
+          <div className="wrap">
+            <input
+              autoFocus
+              value={searchQ}
+              onChange={e=>setSearchQ(e.target.value)}
+              onKeyDown={e=>{
+                if(e.key==='Enter' && searchQ.trim()){
+                  window.location.href=`/prompts?q=${encodeURIComponent(searchQ)}`
+                }
+              }}
+              placeholder="Search 13000 prompts, tools..."
+              style={{width:'100%', height:44, padding:'0 16px', borderRadius:6, border:'1px solid #D2D6CC', background:'white', outline:'none'}}
+            />
+          </div>
+        </div>
+      )}
+
+      {/* 3-LINE MENU - CONTAINS ALL NAV ITEMS */}
+      {mobileOpen && (
+        <div style={{borderTop:'1px solid #D2D6CC', background:'#EEF0EC', padding:'16px 24px', display:'flex', flexDirection:'column', gap:1}}>
+          <Link href="/prompts" onClick={()=>setMobileOpen(false)} style={{padding:'14px 8px', fontWeight:600, borderBottom:'1px solid #D2D6CC', textDecoration:'none', color:'inherit'}}>Prompts</Link>
+          <Link href="/ai-tools" onClick={()=>setMobileOpen(false)} style={{padding:'14px 8px', fontWeight:600, borderBottom:'1px solid #D2D6CC', textDecoration:'none', color:'inherit'}}>AI Tools</Link>
+          <Link href="/business" onClick={()=>setMobileOpen(false)} style={{padding:'14px 8px', fontWeight:600, borderBottom:'1px solid #D2D6CC', textDecoration:'none', color:'inherit'}}>Business</Link>
+          <Link href="/finance" onClick={()=>setMobileOpen(false)} style={{padding:'14px 8px', fontWeight:600, borderBottom:'1px solid #D2D6CC', textDecoration:'none', color:'inherit'}}>Finance</Link>
+          <Link href="/image-tools" onClick={()=>setMobileOpen(false)} style={{padding:'14px 8px', fontWeight:600, borderBottom:'1px solid #D2D6CC', textDecoration:'none', color:'inherit'}}>Image Tools</Link>
+          <Link href="/text-tools" onClick={()=>setMobileOpen(false)} style={{padding:'14px 8px', fontWeight:600, borderBottom:'1px solid #D2D6CC', textDecoration:'none', color:'inherit'}}>Text Tools</Link>
+          <Link href="/utility" onClick={()=>setMobileOpen(false)} style={{padding:'14px 8px', fontWeight:600, borderBottom:'1px solid #D2D6CC', textDecoration:'none', color:'inherit'}}>Utility Tools</Link>
+          <Link href="/dev-tools" onClick={()=>setMobileOpen(false)} style={{padding:'14px 8px', fontWeight:600, borderBottom:'1px solid #D2D6CC', textDecoration:'none', color:'inherit'}}>Developer Tools</Link>
+          <Link href="/pdf-tools" onClick={()=>setMobileOpen(false)} style={{padding:'14px 8px', fontWeight:600, textDecoration:'none', color:'inherit'}}>PDF Tools</Link>
+        </div>
+      )}
+    </header>
 
     <section className="hero">
       <div className="wrap hero-grid">
         <div>
           <span className="eyebrow">Live in your browser right now</span>
           <h1 className="display">Tools that <span className="hi">just work.</span><br/>No account required.</h1>
-          <p className="hero-sub">8235+ prompts and 130+ free utilities for writing, coding, finance and design — everything runs client-side, so nothing you type ever leaves your browser.</p>
-          <div className="trust-row"><span className="trust-chip mono">$ no-signup</span><span className="trust-chip mono">$ no-uploads</span><span className="trust-chip mono">$ 100%-private</span><span className="trust-chip mono">$ 8235+-prompts</span></div>
-          <div className="flex gap-3 flex-wrap"><Link href="/ai-tools" className="btn btn-primary display">Browse all tools →</Link><Link href="/prompts" className="btn btn-secondary display">Explore 8235 prompts</Link></div>
+          <p className="hero-sub">13000+ prompts and 130+ free utilities for writing, coding, finance and design — everything runs client-side, so nothing you type ever leaves your browser.</p>
+          <div className="trust-row"><span className="trust-chip mono">$ no-signup</span><span className="trust-chip mono">$ no-uploads</span><span className="trust-chip mono">$ 100%-private</span><span className="trust-chip mono">$ 13000+-prompts</span></div>
+          <div className="flex gap-3 flex-wrap"><Link href="/ai-tools" className="btn btn-primary display">Browse all tools →</Link><Link href="/prompts" className="btn btn-secondary display">Explore 13000+ prompts</Link></div>
         </div>
         <div className="demo-card">
           <div className="demo-topbar"><span>text-tools / case-converter.live</span><span>●●●</span></div>
@@ -145,7 +146,10 @@ export default function Home(){
     </section>
 
     <section className="section wrap">
-      <div className="section-head"><h2 className="display">Every tool, organized like a real workbench</h2><p className="text-[#52585A] text-[0.95rem]">9 categories · 130+ tools · updated regularly</p></div>
+      {/* REMOVED: Every tool, organized like a real workbench */}
+      <div className="section-head">
+        <p style={{color:'#52585A', fontSize:'0.95rem'}}>9 categories · 130+ tools · updated regularly</p>
+      </div>
       <div className="grid">
         {categories.map(c=>(
           <Link key={c.name} href={c.href} className="tool-card">
@@ -154,14 +158,14 @@ export default function Home(){
               <div className="tool-top"><div className="tool-icon">{c.icon}</div><span className="count-tag">{c.count} TOOLS</span></div>
               <h3 className="display" style={{fontSize:'1.12rem',fontWeight:600,marginBottom:6}}>{c.name}</h3>
               <p style={{fontSize:'.87rem',color:'#52585A',marginBottom:14}}>{c.desc}</p>
-              <span className="tool-link" style={{fontSize:'.83rem',fontWeight:600,display:'inline-flex',alignItems:'center',gap:5}}>Open category →</span>
+              <span style={{fontSize:'.83rem',fontWeight:600,display:'inline-flex',alignItems:'center',gap:5}}>Open category →</span>
             </div>
           </Link>
         ))}
       </div>
     </section>
 
-    <footer><div className="wrap" style={{display:'flex',justifyContent:'space-between',flexWrap:'wrap',gap:16}}><div className="logo"><span className="logo-mark"><svg viewBox="0 0 72 72"><rect width="72" height="72" rx="16" fill="#14181A"/><path d="M22 14 h16 a14 14 0 010 28 h-6 v16 h-10 z" fill="#EEF0EC"/><path d="M32 24 h6 a4 4 0 010 8 h-6 z" fill="#E8990A"/></svg></span>Promptoolhub</div><div className="mono" style={{fontSize:'.75rem',color:'#52585A'}}>© 2026 Promptoolhub · Built in Nepal · 8235 prompts live</div></div></footer>
+    <footer><div className="wrap" style={{display:'flex',justifyContent:'space-between',flexWrap:'wrap',gap:16}}><div className="logo"><span style={{width:32,height:32,borderRadius:8,background:'#14181A',display:'grid',placeItems:'center'}}><svg viewBox="0 0 72 72" width="32" height="32"><rect width="72" height="72" rx="16" fill="#14181A"/><path d="M22 14 h16 a14 14 0 010 28 h-6 v16 h-10 z" fill="#EEF0EC"/><path d="M32 24 h6 a4 4 0 010 8 h-6 z" fill="#E8990A"/></svg></span>Promptoolhub</div><div className="mono" style={{fontSize:'.75rem',color:'#52585A'}}>© 2026 Promptoolhub · Built in Nepal · 13000 prompts live</div></div></footer>
     </>
   )
 }
