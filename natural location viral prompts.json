@@ -1,0 +1,2708 @@
+{
+  "library": "Promptoolhub - Natural Location Image Prompts",
+  "total_prompts": 100,
+  "category": "Image ",
+  "generated_for": "Viral AI Image Generation",
+  "prompts": [
+    {
+      "id": "location-001",
+      "category": "Image ",
+      "subcategory": "Mountains & Peaks",
+      "title": "Sunrise Over Himalayan Peaks",
+      "prompt": "A world-class, hyper-realistic landscape photograph of a jagged row of snow-capped Himalayan peaks glowing pink and gold as the sun rises above the clouds, a sea of fog filling the valleys below. Captured with a 24mm wide-angle lens, f/11, warm alpenglow sunrise light. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "himalaya",
+        "sunrise",
+        "mountains",
+        "clouds",
+        "peaks",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 8.6
+    },
+    {
+      "id": "location-002",
+      "category": "Image ",
+      "subcategory": "Mountains & Peaks",
+      "title": "Matterhorn Reflected in Alpine Lake",
+      "prompt": "A world-class, hyper-realistic landscape photograph of the iconic pyramid peak of the Matterhorn perfectly mirrored in a still turquoise alpine lake at dawn. Captured with a 16mm wide-angle lens, soft cool dawn light. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "matterhorn",
+        "alps",
+        "reflection",
+        "lake",
+        "switzerland",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 8.7
+    },
+    {
+      "id": "location-003",
+      "category": "Image ",
+      "subcategory": "Mountains & Peaks",
+      "title": "Climber Silhouette on Ridge at Sunset",
+      "prompt": "A world-class, hyper-realistic landscape photograph of a lone climber silhouetted on a narrow rocky ridge, dramatic orange sunset sky filling the frame behind them. Captured with a 70mm lens, vivid orange sunset backlight. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "21:9",
+      "style": "photorealistic",
+      "tags": [
+        "climber",
+        "ridge",
+        "silhouette",
+        "sunset",
+        "adventure",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 8.8
+    },
+    {
+      "id": "location-004",
+      "category": "Image ",
+      "subcategory": "Mountains & Peaks",
+      "title": "Cloud Inversion Over Mountain Range",
+      "prompt": "A world-class, hyper-realistic landscape photograph of a dense cloud inversion filling the valleys between mountain peaks, summits rising above the white sea like islands. Captured with a 35mm lens, elevated viewpoint, soft golden morning light. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "cloudinversion",
+        "mountains",
+        "fog",
+        "valley",
+        "aerial",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 8.9
+    },
+    {
+      "id": "location-005",
+      "category": "Image ",
+      "subcategory": "Mountains & Peaks",
+      "title": "Aurora Over Snow-Capped Range",
+      "prompt": "A world-class, hyper-realistic landscape photograph of vivid green and purple aurora borealis dancing above a jagged snow-capped mountain range under a star-filled sky. Captured with a 14mm wide-angle lens, long exposure, aurora glow against dark night sky. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "aurora",
+        "mountains",
+        "snow",
+        "night",
+        "stars",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.0
+    },
+    {
+      "id": "location-006",
+      "category": "Image ",
+      "subcategory": "Mountains & Peaks",
+      "title": "Terraced Rice Fields Below Volcano",
+      "prompt": "A world-class, hyper-realistic landscape photograph of emerald green terraced rice fields cascading down a hillside with a dormant volcano rising in the misty background. Captured with a 35mm lens, soft overcast tropical morning light. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "21:9",
+      "style": "photorealistic",
+      "tags": [
+        "ricefields",
+        "volcano",
+        "terrace",
+        "asia",
+        "green",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.1
+    },
+    {
+      "id": "location-007",
+      "category": "Image ",
+      "subcategory": "Mountains & Peaks",
+      "title": "Golden Larches in Autumn Alps",
+      "prompt": "A world-class, hyper-realistic landscape photograph of a mountainside covered in golden larch trees in full autumn color, jagged grey peaks rising behind under a clear blue sky. Captured with a 50mm lens, crisp clear autumn daylight. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "larch",
+        "autumn",
+        "alps",
+        "gold",
+        "mountains",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.2
+    },
+    {
+      "id": "location-008",
+      "category": "Image ",
+      "subcategory": "Mountains & Peaks",
+      "title": "Milky Way Over Rocky Summit",
+      "prompt": "A world-class, hyper-realistic landscape photograph of the Milky Way arching directly over a jagged rocky mountain summit, thousands of stars visible in the clear night sky. Captured with a 14mm wide-angle lens, long exposure, deep starlit night sky. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "milkyway",
+        "stars",
+        "summit",
+        "night",
+        "astro",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.3
+    },
+    {
+      "id": "location-009",
+      "category": "Image ",
+      "subcategory": "Mountains & Peaks",
+      "title": "Dolomites at Golden Hour",
+      "prompt": "A world-class, hyper-realistic landscape photograph of the dramatic pink-tinged limestone spires of the Dolomites glowing at golden hour, wildflower meadow in the foreground. Captured with a 24mm lens, warm pink alpenglow light. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "21:9",
+      "style": "photorealistic",
+      "tags": [
+        "dolomites",
+        "italy",
+        "goldenhour",
+        "spires",
+        "meadow",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.4
+    },
+    {
+      "id": "location-010",
+      "category": "Image ",
+      "subcategory": "Mountains & Peaks",
+      "title": "Snowstorm Rolling Over Peak",
+      "prompt": "A world-class, hyper-realistic landscape photograph of a dramatic snowstorm rolling in over a jagged mountain peak, dark clouds swirling against exposed rock and fresh snow. Captured with a 35mm lens, dramatic stormy overcast light. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "snowstorm",
+        "mountain",
+        "clouds",
+        "dramatic",
+        "weather",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.5
+    },
+    {
+      "id": "location-011",
+      "category": "Image ",
+      "subcategory": "Waterfalls & Rivers",
+      "title": "Iceland Waterfall With Rainbow",
+      "prompt": "A world-class, hyper-realistic landscape photograph of a massive Icelandic waterfall thundering into a misty gorge, a vivid rainbow arching through the spray. Captured with a 16mm wide-angle lens, polarizing filter, bright midday sun creating a rainbow. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "iceland",
+        "waterfall",
+        "rainbow",
+        "mist",
+        "gorge",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.6
+    },
+    {
+      "id": "location-012",
+      "category": "Image ",
+      "subcategory": "Waterfalls & Rivers",
+      "title": "Long Exposure Silky Waterfall",
+      "prompt": "A world-class, hyper-realistic landscape photograph of a tall forest waterfall captured with silky smooth long-exposure water, moss-covered rocks framing the flow. Captured with a 24mm lens, 2-second long exposure, ND filter, soft overcast diffused forest light. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "21:9",
+      "style": "photorealistic",
+      "tags": [
+        "waterfall",
+        "longexposure",
+        "forest",
+        "moss",
+        "silk",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.7
+    },
+    {
+      "id": "location-013",
+      "category": "Image ",
+      "subcategory": "Waterfalls & Rivers",
+      "title": "Aerial View of River Delta",
+      "prompt": "A world-class, hyper-realistic landscape photograph of a sweeping aerial view of a braided river delta, turquoise water channels winding through golden sandbars. Captured with a drone aerial lens, top-down, bright clear midday sunlight. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "riverdelta",
+        "aerial",
+        "drone",
+        "sandbar",
+        "pattern",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.8
+    },
+    {
+      "id": "location-014",
+      "category": "Image ",
+      "subcategory": "Waterfalls & Rivers",
+      "title": "Plitvice Lakes Turquoise Cascades",
+      "prompt": "A world-class, hyper-realistic landscape photograph of a series of turquoise waterfalls cascading between forested limestone terraces at Plitvice Lakes. Captured with a 24mm lens, soft dappled forest sunlight. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "plitvice",
+        "waterfall",
+        "turquoise",
+        "croatia",
+        "cascade",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.9
+    },
+    {
+      "id": "location-015",
+      "category": "Image ",
+      "subcategory": "Waterfalls & Rivers",
+      "title": "Misty Rainforest River Gorge",
+      "prompt": "A world-class, hyper-realistic landscape photograph of a narrow rainforest river gorge shrouded in mist, ferns and moss clinging to the steep rock walls. Captured with a 35mm lens, soft diffused misty jungle light. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "21:9",
+      "style": "photorealistic",
+      "tags": [
+        "gorge",
+        "rainforest",
+        "mist",
+        "river",
+        "fern",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 8.5
+    },
+    {
+      "id": "location-016",
+      "category": "Image ",
+      "subcategory": "Waterfalls & Rivers",
+      "title": "Frozen Waterfall Ice Formations",
+      "prompt": "A world-class, hyper-realistic landscape photograph of a completely frozen waterfall, thick blue-white ice formations cascading down a rock face in winter. Captured with a 35mm lens, cold flat winter daylight. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "frozenwaterfall",
+        "ice",
+        "winter",
+        "blue",
+        "formation",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 8.6
+    },
+    {
+      "id": "location-017",
+      "category": "Image ",
+      "subcategory": "Waterfalls & Rivers",
+      "title": "Sunset Reflection on Winding River",
+      "prompt": "A world-class, hyper-realistic landscape photograph of a wide winding river reflecting a brilliant orange sunset sky, silhouetted trees lining both banks. Captured with a 35mm lens, vivid orange sunset backlight. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "river",
+        "sunset",
+        "reflection",
+        "silhouette",
+        "winding",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 8.7
+    },
+    {
+      "id": "location-018",
+      "category": "Image ",
+      "subcategory": "Waterfalls & Rivers",
+      "title": "Victoria Falls Aerial Mist",
+      "prompt": "A world-class, hyper-realistic landscape photograph of a massive aerial view of Victoria Falls, thick white mist billowing hundreds of feet into the air above the gorge. Captured with a drone aerial lens, bright equatorial midday sun. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "21:9",
+      "style": "photorealistic",
+      "tags": [
+        "victoriafalls",
+        "aerial",
+        "mist",
+        "africa",
+        "gorge",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 8.8
+    },
+    {
+      "id": "location-019",
+      "category": "Image ",
+      "subcategory": "Waterfalls & Rivers",
+      "title": "Multi-Tiered Jungle Waterfall",
+      "prompt": "A world-class, hyper-realistic landscape photograph of a multi-tiered waterfall cascading through dense tropical jungle, each pool glowing turquoise below. Captured with a 24mm lens, dappled tropical canopy light. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "waterfall",
+        "jungle",
+        "tiered",
+        "turquoise",
+        "tropical",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 8.9
+    },
+    {
+      "id": "location-020",
+      "category": "Image ",
+      "subcategory": "Waterfalls & Rivers",
+      "title": "Canyon River at Dawn",
+      "prompt": "A world-class, hyper-realistic landscape photograph of a river winding through a deep red-rock canyon at dawn, soft mist rising off the water's surface. Captured with a 24mm lens, soft pastel dawn light. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "canyon",
+        "river",
+        "dawn",
+        "mist",
+        "redrock",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.0
+    },
+    {
+      "id": "location-021",
+      "category": "Image ",
+      "subcategory": "Deserts & Dunes",
+      "title": "Sahara Dunes at Golden Hour",
+      "prompt": "A world-class, hyper-realistic landscape photograph of rippling golden sand dunes of the Sahara stretching to the horizon, long shadows carving dramatic curves at sunset. Captured with a 35mm lens, warm low golden-hour light. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "21:9",
+      "style": "photorealistic",
+      "tags": [
+        "sahara",
+        "dunes",
+        "desert",
+        "goldenhour",
+        "shadow",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.1
+    },
+    {
+      "id": "location-022",
+      "category": "Image ",
+      "subcategory": "Deserts & Dunes",
+      "title": "Lone Tree in Red Desert",
+      "prompt": "A world-class, hyper-realistic landscape photograph of a single acacia tree standing alone in a vast red desert landscape, cracked earth stretching into the distance. Captured with a 50mm lens, harsh bright desert midday sun. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "desert",
+        "tree",
+        "redearth",
+        "lone",
+        "dry",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.2
+    },
+    {
+      "id": "location-023",
+      "category": "Image ",
+      "subcategory": "Deserts & Dunes",
+      "title": "Milky Way Over Desert Dunes",
+      "prompt": "A world-class, hyper-realistic landscape photograph of the Milky Way rising over smooth desert sand dunes, star trails faintly visible in the clear night sky. Captured with a 14mm wide-angle lens, long exposure, deep starlit desert night. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "desert",
+        "milkyway",
+        "dunes",
+        "stars",
+        "night",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.3
+    },
+    {
+      "id": "location-024",
+      "category": "Image ",
+      "subcategory": "Deserts & Dunes",
+      "title": "Salt Flat Mirror Reflection",
+      "prompt": "A world-class, hyper-realistic landscape photograph of the Bolivian salt flats after rain, creating a perfect mirror reflection of the sky that erases the horizon line. Captured with a 24mm lens, soft overcast diffused light. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "21:9",
+      "style": "photorealistic",
+      "tags": [
+        "saltflat",
+        "bolivia",
+        "reflection",
+        "mirror",
+        "sky",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.4
+    },
+    {
+      "id": "location-025",
+      "category": "Image ",
+      "subcategory": "Deserts & Dunes",
+      "title": "Sandstorm Rolling Over Dunes",
+      "prompt": "A world-class, hyper-realistic landscape photograph of a dramatic sandstorm wall rolling across desert dunes, orange dust obscuring the horizon in the distance. Captured with a 35mm lens, hazy orange dust-filtered light. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "sandstorm",
+        "desert",
+        "dust",
+        "dramatic",
+        "wind",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.5
+    },
+    {
+      "id": "location-026",
+      "category": "Image ",
+      "subcategory": "Deserts & Dunes",
+      "title": "Namib Desert Dead Trees",
+      "prompt": "A world-class, hyper-realistic landscape photograph of the iconic dead camel-thorn trees of Deadvlei standing black against the deep orange dunes of the Namib Desert. Captured with a 50mm lens, crisp bright desert daylight. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "namib",
+        "deadvlei",
+        "desert",
+        "trees",
+        "orange",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.6
+    },
+    {
+      "id": "location-027",
+      "category": "Image ",
+      "subcategory": "Deserts & Dunes",
+      "title": "Slot Canyon Light Beams",
+      "prompt": "A world-class, hyper-realistic landscape photograph of narrow sandstone slot canyon walls glowing orange and purple, a single beam of sunlight piercing down from above. Captured with a 24mm lens, dramatic single light beam in shadow. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "21:9",
+      "style": "photorealistic",
+      "tags": [
+        "slotcanyon",
+        "antelope",
+        "lightbeam",
+        "sandstone",
+        "glow",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.7
+    },
+    {
+      "id": "location-028",
+      "category": "Image ",
+      "subcategory": "Deserts & Dunes",
+      "title": "Joshua Tree Desert Sunset",
+      "prompt": "A world-class, hyper-realistic landscape photograph of twisted Joshua trees silhouetted against a fiery desert sunset sky, boulders scattered across the landscape. Captured with a 35mm lens, vivid orange-purple sunset gradient. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "joshuatree",
+        "desert",
+        "sunset",
+        "silhouette",
+        "california",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.8
+    },
+    {
+      "id": "location-029",
+      "category": "Image ",
+      "subcategory": "Deserts & Dunes",
+      "title": "Camel Caravan Crossing Dunes",
+      "prompt": "A world-class, hyper-realistic landscape photograph of a camel caravan silhouetted crossing the crest of a tall sand dune, footprints trailing behind in the sand. Captured with a 70mm lens, warm low sunset backlight. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "camel",
+        "caravan",
+        "dunes",
+        "silhouette",
+        "desert",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.9
+    },
+    {
+      "id": "location-030",
+      "category": "Image ",
+      "subcategory": "Deserts & Dunes",
+      "title": "Cracked Earth Drought Pattern",
+      "prompt": "A world-class, hyper-realistic landscape photograph of an aerial view of deeply cracked, dried desert earth forming an intricate natural mosaic pattern. Captured with a drone aerial lens, top-down, harsh flat midday sunlight. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "21:9",
+      "style": "photorealistic",
+      "tags": [
+        "crackedearth",
+        "desert",
+        "drought",
+        "pattern",
+        "aerial",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 8.5
+    },
+    {
+      "id": "location-031",
+      "category": "Image ",
+      "subcategory": "Forests & Woodlands",
+      "title": "Sunbeams Through Redwood Forest",
+      "prompt": "A world-class, hyper-realistic landscape photograph of towering ancient redwood trees with golden sunbeams piercing through the canopy and morning fog below. Captured with a 24mm lens, warm golden sunbeams through fog. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "redwood",
+        "forest",
+        "sunbeams",
+        "fog",
+        "california",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 8.6
+    },
+    {
+      "id": "location-032",
+      "category": "Image ",
+      "subcategory": "Forests & Woodlands",
+      "title": "Autumn Forest Canopy From Above",
+      "prompt": "A world-class, hyper-realistic landscape photograph of an aerial view of a dense forest canopy exploding with red, orange, and gold autumn color. Captured with a drone aerial lens, bright crisp autumn daylight. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "autumn",
+        "forest",
+        "canopy",
+        "aerial",
+        "color",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 8.7
+    },
+    {
+      "id": "location-033",
+      "category": "Image ",
+      "subcategory": "Forests & Woodlands",
+      "title": "Misty Pine Forest at Dawn",
+      "prompt": "A world-class, hyper-realistic landscape photograph of a dense pine forest shrouded in thick morning mist, tall trunks fading into the fog with distance. Captured with a 50mm lens, soft diffused dawn mist light. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "21:9",
+      "style": "photorealistic",
+      "tags": [
+        "pineforest",
+        "mist",
+        "dawn",
+        "fog",
+        "moody",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 8.8
+    },
+    {
+      "id": "location-034",
+      "category": "Image ",
+      "subcategory": "Forests & Woodlands",
+      "title": "Bamboo Forest Path",
+      "prompt": "A world-class, hyper-realistic landscape photograph of a narrow winding path through a dense green bamboo forest, tall stalks swaying gently and filtering soft light. Captured with a 35mm lens, soft filtered green bamboo light. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "bamboo",
+        "forest",
+        "path",
+        "japan",
+        "green",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 8.9
+    },
+    {
+      "id": "location-035",
+      "category": "Image ",
+      "subcategory": "Forests & Woodlands",
+      "title": "Bioluminescent Forest Floor Fungi",
+      "prompt": "A world-class, hyper-realistic landscape photograph of glowing bioluminescent mushrooms scattered across a dark forest floor at night, faint blue-green light emitted. Captured with a macro lens, long exposure, self-illuminated bioluminescent glow. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "bioluminescent",
+        "mushroom",
+        "forest",
+        "night",
+        "glow",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.0
+    },
+    {
+      "id": "location-036",
+      "category": "Image ",
+      "subcategory": "Forests & Woodlands",
+      "title": "Snow-Covered Pine Forest",
+      "prompt": "A world-class, hyper-realistic landscape photograph of a dense pine forest completely blanketed in fresh snow, each branch heavy with white powder under pale winter light. Captured with a 35mm lens, soft flat winter daylight. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "21:9",
+      "style": "photorealistic",
+      "tags": [
+        "snow",
+        "pineforest",
+        "winter",
+        "white",
+        "quiet",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.1
+    },
+    {
+      "id": "location-037",
+      "category": "Image ",
+      "subcategory": "Forests & Woodlands",
+      "title": "Ancient Oak Woodland Meadow",
+      "prompt": "A world-class, hyper-realistic landscape photograph of a sprawling ancient oak tree standing alone in a golden wildflower meadow at the edge of a woodland. Captured with a 50mm lens, warm golden afternoon light. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "oaktree",
+        "meadow",
+        "woodland",
+        "wildflower",
+        "golden",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.2
+    },
+    {
+      "id": "location-038",
+      "category": "Image ",
+      "subcategory": "Forests & Woodlands",
+      "title": "Foggy Forest Silhouette Trees",
+      "prompt": "A world-class, hyper-realistic landscape photograph of layered silhouettes of forest trees fading into dense fog, creating a soft gradient of grey depth. Captured with a 135mm lens, compression, flat diffused foggy light. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "fog",
+        "forest",
+        "silhouette",
+        "layers",
+        "moody",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.3
+    },
+    {
+      "id": "location-039",
+      "category": "Image ",
+      "subcategory": "Forests & Woodlands",
+      "title": "Fireflies Lighting Summer Forest",
+      "prompt": "A world-class, hyper-realistic landscape photograph of hundreds of fireflies illuminating a dark summer forest at dusk, their glowing trails weaving between tree trunks. Captured with a 35mm lens, long exposure, self-illuminated firefly glow at dusk. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "21:9",
+      "style": "photorealistic",
+      "tags": [
+        "firefly",
+        "forest",
+        "summer",
+        "glow",
+        "dusk",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.4
+    },
+    {
+      "id": "location-040",
+      "category": "Image ",
+      "subcategory": "Forests & Woodlands",
+      "title": "Rainforest Canopy Walkway",
+      "prompt": "A world-class, hyper-realistic landscape photograph of a suspended wooden canopy walkway threading through a lush tropical rainforest, mist rising from the jungle below. Captured with a 24mm lens, soft diffused tropical canopy light. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "rainforest",
+        "canopy",
+        "walkway",
+        "jungle",
+        "mist",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.5
+    },
+    {
+      "id": "location-041",
+      "category": "Image ",
+      "subcategory": "Beaches & Coastlines",
+      "title": "Turquoise Lagoon Aerial View",
+      "prompt": "A world-class, hyper-realistic landscape photograph of an aerial view of a vivid turquoise lagoon fringed by white sand and a coral reef ring below the surface. Captured with a drone aerial lens, top-down, bright clear tropical midday sun. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "lagoon",
+        "aerial",
+        "turquoise",
+        "tropical",
+        "reef",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.6
+    },
+    {
+      "id": "location-042",
+      "category": "Image ",
+      "subcategory": "Beaches & Coastlines",
+      "title": "Dramatic Sea Cliffs at Sunset",
+      "prompt": "A world-class, hyper-realistic landscape photograph of towering dramatic sea cliffs plunging into crashing ocean waves, glowing orange under a setting sun. Captured with a 24mm lens, vivid orange sunset backlight. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "21:9",
+      "style": "photorealistic",
+      "tags": [
+        "cliffs",
+        "ocean",
+        "sunset",
+        "coastline",
+        "dramatic",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.7
+    },
+    {
+      "id": "location-043",
+      "category": "Image ",
+      "subcategory": "Beaches & Coastlines",
+      "title": "Bioluminescent Wave at Night",
+      "prompt": "A world-class, hyper-realistic landscape photograph of a glowing blue bioluminescent wave crashing onto a dark sandy beach at night, stars visible above. Captured with a 24mm lens, long exposure, self-illuminated blue bioluminescent glow. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "bioluminescence",
+        "beach",
+        "wave",
+        "night",
+        "glow",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.8
+    },
+    {
+      "id": "location-044",
+      "category": "Image ",
+      "subcategory": "Beaches & Coastlines",
+      "title": "Sea Stack Sunrise Silhouette",
+      "prompt": "A world-class, hyper-realistic landscape photograph of a lone rocky sea stack silhouetted against a vivid pink and orange sunrise sky over calm ocean water. Captured with a 50mm lens, soft pink-orange sunrise gradient. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "seastack",
+        "sunrise",
+        "silhouette",
+        "ocean",
+        "coast",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.9
+    },
+    {
+      "id": "location-045",
+      "category": "Image ",
+      "subcategory": "Beaches & Coastlines",
+      "title": "Tropical Palm-Fringed White Beach",
+      "prompt": "A world-class, hyper-realistic landscape photograph of a pristine white sand beach fringed with swaying palm trees, turquoise water lapping gently at the shore. Captured with a 35mm lens, bright warm tropical daylight. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "21:9",
+      "style": "photorealistic",
+      "tags": [
+        "beach",
+        "palm",
+        "tropical",
+        "turquoise",
+        "paradise",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 8.5
+    },
+    {
+      "id": "location-046",
+      "category": "Image ",
+      "subcategory": "Beaches & Coastlines",
+      "title": "Long Exposure Crashing Waves",
+      "prompt": "A world-class, hyper-realistic landscape photograph of powerful ocean waves crashing against dark volcanic rocks, captured with a silky long-exposure blur. Captured with a 24mm lens, ND filter, long exposure, soft overcast diffused coastal light. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "waves",
+        "longexposure",
+        "rocks",
+        "coast",
+        "silk",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 8.6
+    },
+    {
+      "id": "location-047",
+      "category": "Image ",
+      "subcategory": "Beaches & Coastlines",
+      "title": "Aerial View of Winding Coastal Road",
+      "prompt": "A world-class, hyper-realistic landscape photograph of a dramatic coastal road winding along steep cliffs above a brilliant turquoise ocean, captured from directly above. Captured with a drone aerial lens, bright clear coastal daylight. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "coastalroad",
+        "aerial",
+        "cliffs",
+        "ocean",
+        "winding",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 8.7
+    },
+    {
+      "id": "location-048",
+      "category": "Image ",
+      "subcategory": "Beaches & Coastlines",
+      "title": "Storm Clouds Over Ocean Horizon",
+      "prompt": "A world-class, hyper-realistic landscape photograph of dramatic dark storm clouds building over a distant ocean horizon, shafts of sunlight breaking through the gaps. Captured with a 35mm lens, dramatic stormy god-ray light. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "21:9",
+      "style": "photorealistic",
+      "tags": [
+        "storm",
+        "ocean",
+        "clouds",
+        "godrays",
+        "dramatic",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 8.8
+    },
+    {
+      "id": "location-049",
+      "category": "Image ",
+      "subcategory": "Beaches & Coastlines",
+      "title": "Ice Cave Beach Diamond Sand",
+      "prompt": "A world-class, hyper-realistic landscape photograph of black volcanic sand beach scattered with glittering chunks of clear glacial ice, waves washing around them. Captured with a 50mm lens, soft cold overcast light. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "icebeach",
+        "iceland",
+        "diamond",
+        "volcanic",
+        "glacier",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 8.9
+    },
+    {
+      "id": "location-050",
+      "category": "Image ",
+      "subcategory": "Beaches & Coastlines",
+      "title": "Coral Reef Aerial Pattern",
+      "prompt": "A world-class, hyper-realistic landscape photograph of an aerial view of an intricate coral reef pattern beneath shallow turquoise water, natural organic shapes visible. Captured with a drone aerial lens, top-down, bright clear tropical sunlight. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "coralreef",
+        "aerial",
+        "pattern",
+        "turquoise",
+        "tropical",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.0
+    },
+    {
+      "id": "location-051",
+      "category": "Image ",
+      "subcategory": "Canyons & Rock Formations",
+      "title": "Grand Canyon at Sunrise",
+      "prompt": "A world-class, hyper-realistic landscape photograph of layered red and orange rock strata of the Grand Canyon glowing at sunrise, mist settling in the deep gorge below. Captured with a 24mm lens, warm golden sunrise light. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "21:9",
+      "style": "photorealistic",
+      "tags": [
+        "grandcanyon",
+        "sunrise",
+        "layers",
+        "gorge",
+        "mist",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.1
+    },
+    {
+      "id": "location-052",
+      "category": "Image ",
+      "subcategory": "Canyons & Rock Formations",
+      "title": "Antelope Canyon Light Beam",
+      "prompt": "A world-class, hyper-realistic landscape photograph of smooth swirling sandstone walls of a narrow slot canyon, a golden beam of light cutting through the dusty air. Captured with a 24mm lens, single dramatic light beam in shadow. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "antelopecanyon",
+        "slotcanyon",
+        "lightbeam",
+        "sandstone",
+        "dust",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.2
+    },
+    {
+      "id": "location-053",
+      "category": "Image ",
+      "subcategory": "Canyons & Rock Formations",
+      "title": "Bryce Canyon Hoodoos at Dawn",
+      "prompt": "A world-class, hyper-realistic landscape photograph of thousands of orange spire-like hoodoo rock formations glowing at dawn in Bryce Canyon, frost on the ground. Captured with a 35mm lens, warm pink-orange dawn light. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "bryce",
+        "hoodoo",
+        "canyon",
+        "dawn",
+        "spires",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.3
+    },
+    {
+      "id": "location-054",
+      "category": "Image ",
+      "subcategory": "Canyons & Rock Formations",
+      "title": "Zhangjiajie Sandstone Pillars in Mist",
+      "prompt": "A world-class, hyper-realistic landscape photograph of towering sandstone pillars of Zhangjiajie rising through thick mist like floating mountains. Captured with a 50mm lens, soft diffused misty light. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "21:9",
+      "style": "photorealistic",
+      "tags": [
+        "zhangjiajie",
+        "china",
+        "pillars",
+        "mist",
+        "surreal",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.4
+    },
+    {
+      "id": "location-055",
+      "category": "Image ",
+      "subcategory": "Canyons & Rock Formations",
+      "title": "Arches National Park Delicate Arch",
+      "prompt": "A world-class, hyper-realistic landscape photograph of the iconic Delicate Arch rock formation silhouetted against a vivid starry night sky in Utah. Captured with a 14mm wide-angle lens, long exposure, starlit desert night sky. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "arch",
+        "utah",
+        "desert",
+        "stars",
+        "silhouette",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.5
+    },
+    {
+      "id": "location-056",
+      "category": "Image ",
+      "subcategory": "Canyons & Rock Formations",
+      "title": "Wave Rock Sandstone Formation",
+      "prompt": "A world-class, hyper-realistic landscape photograph of the smooth curling wave-shaped sandstone formation of Wave Rock, striped with bands of red and grey color. Captured with a 24mm lens, bright even daylight. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "waverock",
+        "sandstone",
+        "australia",
+        "pattern",
+        "curve",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.6
+    },
+    {
+      "id": "location-057",
+      "category": "Image ",
+      "subcategory": "Canyons & Rock Formations",
+      "title": "Aerial View of Meandering Canyon",
+      "prompt": "A world-class, hyper-realistic landscape photograph of a sweeping aerial view of a deep red canyon meandering through a rugged desert landscape, dramatic shadows. Captured with a drone aerial lens, bright harsh midday desert light. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "21:9",
+      "style": "photorealistic",
+      "tags": [
+        "canyon",
+        "aerial",
+        "meander",
+        "desert",
+        "shadow",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.7
+    },
+    {
+      "id": "location-058",
+      "category": "Image ",
+      "subcategory": "Canyons & Rock Formations",
+      "title": "Cappadocia Fairy Chimneys at Sunrise",
+      "prompt": "A world-class, hyper-realistic landscape photograph of hundreds of cone-shaped fairy chimney rock formations glowing at sunrise, hot air balloons dotting the sky above. Captured with a 35mm lens, warm golden sunrise light. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "cappadocia",
+        "turkey",
+        "fairychimney",
+        "balloons",
+        "sunrise",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.8
+    },
+    {
+      "id": "location-059",
+      "category": "Image ",
+      "subcategory": "Canyons & Rock Formations",
+      "title": "Basalt Column Coastline",
+      "prompt": "A world-class, hyper-realistic landscape photograph of geometric hexagonal basalt columns forming a dramatic coastline, ocean waves crashing against the sharp edges. Captured with a 24mm lens, soft overcast coastal light. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "basalt",
+        "giantscauseway",
+        "columns",
+        "coast",
+        "geometric",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.9
+    },
+    {
+      "id": "location-060",
+      "category": "Image ",
+      "subcategory": "Canyons & Rock Formations",
+      "title": "Red Rock Canyon Storm Light",
+      "prompt": "A world-class, hyper-realistic landscape photograph of dramatic storm light breaking through dark clouds over a red rock canyon, shafts of sun illuminating the cliffs. Captured with a 35mm lens, dramatic broken storm light. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "21:9",
+      "style": "photorealistic",
+      "tags": [
+        "redrock",
+        "canyon",
+        "storm",
+        "godrays",
+        "dramatic",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 8.5
+    },
+    {
+      "id": "location-061",
+      "category": "Image ",
+      "subcategory": "Caves & Underground Wonders",
+      "title": "Crystal Ice Cave Glacier",
+      "prompt": "A world-class, hyper-realistic landscape photograph of a glowing blue glacial ice cave with smooth translucent walls, soft natural light filtering through the ice above. Captured with a 16mm wide-angle lens, cold blue translucent ice-filtered light. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "icecave",
+        "glacier",
+        "blue",
+        "iceland",
+        "translucent",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 8.6
+    },
+    {
+      "id": "location-062",
+      "category": "Image ",
+      "subcategory": "Caves & Underground Wonders",
+      "title": "Bioluminescent Glowworm Cave",
+      "prompt": "A world-class, hyper-realistic landscape photograph of the ceiling of a dark limestone cave twinkling with thousands of tiny glowing bioluminescent glowworms. Captured with a 24mm lens, long exposure, self-illuminated blue-green glowworm light. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "glowworm",
+        "cave",
+        "bioluminescent",
+        "newzealand",
+        "stars",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 8.7
+    },
+    {
+      "id": "location-063",
+      "category": "Image ",
+      "subcategory": "Caves & Underground Wonders",
+      "title": "Underground Lake Cenote",
+      "prompt": "A world-class, hyper-realistic landscape photograph of crystal clear turquoise water of a cenote sinkhole, sunbeams piercing down through a hole in the cave ceiling above. Captured with a 16mm wide-angle lens, dramatic single sunbeam in cave darkness. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "21:9",
+      "style": "photorealistic",
+      "tags": [
+        "cenote",
+        "mexico",
+        "cave",
+        "sunbeam",
+        "turquoise",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 8.8
+    },
+    {
+      "id": "location-064",
+      "category": "Image ",
+      "subcategory": "Caves & Underground Wonders",
+      "title": "Marble Cave Cathedral Formation",
+      "prompt": "A world-class, hyper-realistic landscape photograph of smooth swirling blue and white marble cave walls forming natural cathedral-like patterns, reflected in still water. Captured with a 24mm lens, soft diffused cave ambient light. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "marblecave",
+        "chile",
+        "pattern",
+        "reflection",
+        "blue",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 8.9
+    },
+    {
+      "id": "location-065",
+      "category": "Image ",
+      "subcategory": "Caves & Underground Wonders",
+      "title": "Stalactite Chamber With Light Beam",
+      "prompt": "A world-class, hyper-realistic landscape photograph of an enormous limestone cave chamber filled with hanging stalactites, a single shaft of light illuminating the floor. Captured with a 16mm wide-angle lens, single dramatic light beam in darkness. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "stalactite",
+        "cave",
+        "chamber",
+        "lightbeam",
+        "limestone",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.0
+    },
+    {
+      "id": "location-066",
+      "category": "Image ",
+      "subcategory": "Caves & Underground Wonders",
+      "title": "Lava Tube Tunnel Interior",
+      "prompt": "A world-class, hyper-realistic landscape photograph of the smooth curved interior of an ancient volcanic lava tube tunnel, textured black rock walls illuminated by headlamp. Captured with a 24mm lens, artificial fill light, warm artificial light against black rock. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "21:9",
+      "style": "photorealistic",
+      "tags": [
+        "lavatube",
+        "volcanic",
+        "tunnel",
+        "cave",
+        "texture",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.1
+    },
+    {
+      "id": "location-067",
+      "category": "Image ",
+      "subcategory": "Caves & Underground Wonders",
+      "title": "Frozen Waterfall Inside Ice Cave",
+      "prompt": "A world-class, hyper-realistic landscape photograph of a frozen waterfall of thick blue ice cascading down inside a glacial ice cave, textured ice formations glowing. Captured with a 24mm lens, cold blue ice-filtered ambient light. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "icecave",
+        "frozenwaterfall",
+        "glacier",
+        "blue",
+        "texture",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.2
+    },
+    {
+      "id": "location-068",
+      "category": "Image ",
+      "subcategory": "Caves & Underground Wonders",
+      "title": "Reflection Pool Cave Chamber",
+      "prompt": "A world-class, hyper-realistic landscape photograph of a perfectly still underground pool reflecting the cave ceiling above, creating a symmetrical mirrored chamber. Captured with a 16mm wide-angle lens, soft ambient cave light. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "cave",
+        "reflection",
+        "pool",
+        "symmetry",
+        "underground",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.3
+    },
+    {
+      "id": "location-069",
+      "category": "Image ",
+      "subcategory": "Caves & Underground Wonders",
+      "title": "Salt Cave Crystal Formations",
+      "prompt": "A world-class, hyper-realistic landscape photograph of glittering white salt crystal formations covering the walls of an underground salt cave, warm lantern light glowing. Captured with a 24mm lens, warm fill light, warm amber lantern glow. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "21:9",
+      "style": "photorealistic",
+      "tags": [
+        "saltcave",
+        "crystal",
+        "underground",
+        "amber",
+        "texture",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.4
+    },
+    {
+      "id": "location-070",
+      "category": "Image ",
+      "subcategory": "Caves & Underground Wonders",
+      "title": "Sea Cave Ocean Entrance",
+      "prompt": "A world-class, hyper-realistic landscape photograph of the dramatic entrance of a coastal sea cave, ocean waves washing in as light streams through the opening. Captured with a 16mm wide-angle lens, bright natural light streaming through cave mouth. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "seacave",
+        "ocean",
+        "coast",
+        "light",
+        "entrance",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.5
+    },
+    {
+      "id": "location-071",
+      "category": "Image ",
+      "subcategory": "Islands & Archipelagos",
+      "title": "Aerial View of Tropical Atoll",
+      "prompt": "A world-class, hyper-realistic landscape photograph of a sweeping aerial view of a ring-shaped tropical atoll, turquoise lagoon encircled by a thin strip of white sand. Captured with a drone aerial lens, top-down, bright clear tropical daylight. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "atoll",
+        "aerial",
+        "tropical",
+        "lagoon",
+        "turquoise",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.6
+    },
+    {
+      "id": "location-072",
+      "category": "Image ",
+      "subcategory": "Islands & Archipelagos",
+      "title": "Santorini Cliffside Village at Sunset",
+      "prompt": "A world-class, hyper-realistic landscape photograph of white-washed cliffside buildings glowing under a vivid orange sunset, overlooking the deep blue Aegean Sea. Captured with a 50mm lens, vivid orange Mediterranean sunset. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "21:9",
+      "style": "photorealistic",
+      "tags": [
+        "santorini",
+        "greece",
+        "sunset",
+        "cliffside",
+        "sea",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.7
+    },
+    {
+      "id": "location-073",
+      "category": "Image ",
+      "subcategory": "Islands & Archipelagos",
+      "title": "Ha Long Bay Limestone Islands",
+      "prompt": "A world-class, hyper-realistic landscape photograph of hundreds of jagged limestone karst islands rising from misty emerald waters at dawn. Captured with a 35mm lens, soft diffused misty dawn light. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "halongbay",
+        "vietnam",
+        "karst",
+        "mist",
+        "islands",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.8
+    },
+    {
+      "id": "location-074",
+      "category": "Image ",
+      "subcategory": "Islands & Archipelagos",
+      "title": "Remote Volcanic Island Aerial",
+      "prompt": "A world-class, hyper-realistic landscape photograph of an aerial view of a remote volcanic island rising sharply from the deep blue ocean, a crater lake visible at its peak. Captured with a drone aerial lens, bright clear midday sunlight. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "volcanicisland",
+        "aerial",
+        "crater",
+        "ocean",
+        "remote",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.9
+    },
+    {
+      "id": "location-075",
+      "category": "Image ",
+      "subcategory": "Islands & Archipelagos",
+      "title": "Palawan Hidden Lagoon",
+      "prompt": "A world-class, hyper-realistic landscape photograph of a hidden turquoise lagoon enclosed by towering limestone cliffs, accessible only through a narrow cave entrance. Captured with a 24mm lens, soft filtered tropical light. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "21:9",
+      "style": "photorealistic",
+      "tags": [
+        "palawan",
+        "lagoon",
+        "limestone",
+        "hidden",
+        "philippines",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 8.5
+    },
+    {
+      "id": "location-076",
+      "category": "Image ",
+      "subcategory": "Islands & Archipelagos",
+      "title": "Faroe Islands Dramatic Sea Cliffs",
+      "prompt": "A world-class, hyper-realistic landscape photograph of dramatic green sea cliffs of the Faroe Islands plunging into the North Atlantic, waterfalls streaming into the ocean. Captured with a 24mm lens, soft overcast Nordic light. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "faroeislands",
+        "cliffs",
+        "waterfall",
+        "northatlantic",
+        "green",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 8.6
+    },
+    {
+      "id": "location-077",
+      "category": "Image ",
+      "subcategory": "Islands & Archipelagos",
+      "title": "Maldives Overwater Bungalow Reef",
+      "prompt": "A world-class, hyper-realistic landscape photograph of an aerial view of overwater bungalows above a vivid turquoise coral reef in the Maldives. Captured with a drone aerial lens, bright tropical midday sunlight. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "maldives",
+        "reef",
+        "aerial",
+        "turquoise",
+        "bungalow",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 8.7
+    },
+    {
+      "id": "location-078",
+      "category": "Image ",
+      "subcategory": "Islands & Archipelagos",
+      "title": "Skellig Michael Monastic Island",
+      "prompt": "A world-class, hyper-realistic landscape photograph of a dramatic rocky island rising steeply from stormy Atlantic waters, ancient stone structures perched near the summit. Captured with a 35mm lens, moody overcast Atlantic light. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "21:9",
+      "style": "photorealistic",
+      "tags": [
+        "skellig",
+        "ireland",
+        "island",
+        "atlantic",
+        "dramatic",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 8.8
+    },
+    {
+      "id": "location-079",
+      "category": "Image ",
+      "subcategory": "Islands & Archipelagos",
+      "title": "Galapagos Volcanic Coastline",
+      "prompt": "A world-class, hyper-realistic landscape photograph of a rugged black volcanic coastline in the Galapagos Islands, waves crashing against ancient lava rock formations. Captured with a 24mm lens, bright equatorial daylight. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "galapagos",
+        "volcanic",
+        "coastline",
+        "lava",
+        "ecuador",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 8.9
+    },
+    {
+      "id": "location-080",
+      "category": "Image ",
+      "subcategory": "Islands & Archipelagos",
+      "title": "Whitehaven Beach Swirling Sands",
+      "prompt": "A world-class, hyper-realistic landscape photograph of an aerial view of Whitehaven Beach's famous swirling pure white silica sand meeting brilliant turquoise water. Captured with a drone aerial lens, top-down, bright clear Australian daylight. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "whitehaven",
+        "australia",
+        "aerial",
+        "sand",
+        "turquoise",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.0
+    },
+    {
+      "id": "location-081",
+      "category": "Image ",
+      "subcategory": "Volcanoes & Geothermal Landscapes",
+      "title": "Erupting Volcano Lava Flow at Night",
+      "prompt": "A world-class, hyper-realistic landscape photograph of a powerful volcanic eruption at night, glowing red-orange lava flowing down the mountainside against a black sky. Captured with a 35mm lens, long exposure, self-illuminated glowing lava light. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "21:9",
+      "style": "photorealistic",
+      "tags": [
+        "volcano",
+        "eruption",
+        "lava",
+        "night",
+        "glow",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.1
+    },
+    {
+      "id": "location-082",
+      "category": "Image ",
+      "subcategory": "Volcanoes & Geothermal Landscapes",
+      "title": "Geyser Eruption at Sunrise",
+      "prompt": "A world-class, hyper-realistic landscape photograph of a powerful geyser erupting in a tall column of steam and water, backlit by a warm golden sunrise. Captured with a 35mm lens, fast shutter, warm golden sunrise backlight. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "geyser",
+        "yellowstone",
+        "eruption",
+        "steam",
+        "sunrise",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.2
+    },
+    {
+      "id": "location-083",
+      "category": "Image ",
+      "subcategory": "Volcanoes & Geothermal Landscapes",
+      "title": "Colorful Geothermal Hot Spring Pool",
+      "prompt": "A world-class, hyper-realistic landscape photograph of a vividly colored geothermal hot spring pool with rings of orange, yellow, and turquoise mineral deposits. Captured with a 24mm lens, bright clear daylight. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "hotspring",
+        "geothermal",
+        "yellowstone",
+        "color",
+        "mineral",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.3
+    },
+    {
+      "id": "location-084",
+      "category": "Image ",
+      "subcategory": "Volcanoes & Geothermal Landscapes",
+      "title": "Lava Meeting Ocean Steam Cloud",
+      "prompt": "A world-class, hyper-realistic landscape photograph of molten lava flowing into the ocean, creating a massive billowing cloud of white steam against the dark night sky. Captured with a 70mm lens, long exposure, glowing orange lava against black night. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "21:9",
+      "style": "photorealistic",
+      "tags": [
+        "lava",
+        "ocean",
+        "steam",
+        "hawaii",
+        "night",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.4
+    },
+    {
+      "id": "location-085",
+      "category": "Image ",
+      "subcategory": "Volcanoes & Geothermal Landscapes",
+      "title": "Volcanic Crater Lake Turquoise",
+      "prompt": "A world-class, hyper-realistic landscape photograph of a vivid turquoise crater lake filling the caldera of a dormant volcano, steep rock walls surrounding the water. Captured with a 35mm lens, bright clear midday sunlight. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "craterlake",
+        "volcano",
+        "turquoise",
+        "caldera",
+        "dormant",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.5
+    },
+    {
+      "id": "location-086",
+      "category": "Image ",
+      "subcategory": "Volcanoes & Geothermal Landscapes",
+      "title": "Steaming Fumaroles on Volcanic Slope",
+      "prompt": "A world-class, hyper-realistic landscape photograph of wisps of steam rising from fumarole vents scattered across a barren volcanic slope, sulfur-yellow rock coloring. Captured with a 50mm lens, soft overcast volcanic light. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "fumarole",
+        "volcano",
+        "steam",
+        "sulfur",
+        "barren",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.6
+    },
+    {
+      "id": "location-087",
+      "category": "Image ",
+      "subcategory": "Volcanoes & Geothermal Landscapes",
+      "title": "Aerial View of Volcanic Caldera",
+      "prompt": "A world-class, hyper-realistic landscape photograph of a dramatic aerial view looking directly down into a massive volcanic caldera, layered rock rings visible. Captured with a drone aerial lens, top-down, bright clear high-altitude sunlight. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "21:9",
+      "style": "photorealistic",
+      "tags": [
+        "caldera",
+        "volcano",
+        "aerial",
+        "rings",
+        "drone",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.7
+    },
+    {
+      "id": "location-088",
+      "category": "Image ",
+      "subcategory": "Volcanoes & Geothermal Landscapes",
+      "title": "Lava Lake Glowing at Dusk",
+      "prompt": "A world-class, hyper-realistic landscape photograph of an active lava lake glowing bright orange within a volcanic crater at dusk, cracks of light forming across its surface. Captured with a 70mm lens, long exposure, glowing orange lava against dusk sky. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "lavalake",
+        "volcano",
+        "glow",
+        "dusk",
+        "crater",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.8
+    },
+    {
+      "id": "location-089",
+      "category": "Image ",
+      "subcategory": "Volcanoes & Geothermal Landscapes",
+      "title": "Mineral Terraces Pamukkale",
+      "prompt": "A world-class, hyper-realistic landscape photograph of brilliant white travertine mineral terraces cascading down a hillside, filled with pale blue thermal pools. Captured with a 35mm lens, bright clear Mediterranean daylight. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "pamukkale",
+        "turkey",
+        "travertine",
+        "thermal",
+        "white",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.9
+    },
+    {
+      "id": "location-090",
+      "category": "Image ",
+      "subcategory": "Volcanoes & Geothermal Landscapes",
+      "title": "Ash Cloud Volcanic Eruption",
+      "prompt": "A world-class, hyper-realistic landscape photograph of a massive volcanic eruption sending a towering column of ash and smoke miles into the sky, lightning crackling within. Captured with a 70mm lens, dramatic dark ash-filtered light. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "21:9",
+      "style": "photorealistic",
+      "tags": [
+        "asheruption",
+        "volcano",
+        "lightning",
+        "smoke",
+        "dramatic",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 8.5
+    },
+    {
+      "id": "location-091",
+      "category": "Image ",
+      "subcategory": "Lakes & Wetlands",
+      "title": "Symmetrical Mountain Lake Reflection",
+      "prompt": "A world-class, hyper-realistic landscape photograph of a perfectly still alpine lake creating a flawless mirror reflection of the snow-capped mountains behind it. Captured with a 24mm lens, soft calm golden-hour light. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "lake",
+        "reflection",
+        "mountains",
+        "symmetry",
+        "alpine",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 8.6
+    },
+    {
+      "id": "location-092",
+      "category": "Image ",
+      "subcategory": "Lakes & Wetlands",
+      "title": "Flooded Cypress Swamp at Dawn",
+      "prompt": "A world-class, hyper-realistic landscape photograph of ancient cypress trees rising from a still flooded swamp, thin mist hovering just above the water at dawn. Captured with a 35mm lens, soft diffused dawn mist light. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "swamp",
+        "cypress",
+        "wetland",
+        "mist",
+        "dawn",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 8.7
+    },
+    {
+      "id": "location-093",
+      "category": "Image ",
+      "subcategory": "Lakes & Wetlands",
+      "title": "Frozen Lake Cracked Ice Patterns",
+      "prompt": "A world-class, hyper-realistic landscape photograph of a frozen lake surface covered in intricate spiderweb-like crack patterns, mountains visible in the background. Captured with a 24mm lens, low angle, cold flat winter daylight. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "21:9",
+      "style": "photorealistic",
+      "tags": [
+        "frozenlake",
+        "ice",
+        "pattern",
+        "winter",
+        "crack",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 8.8
+    },
+    {
+      "id": "location-094",
+      "category": "Image ",
+      "subcategory": "Lakes & Wetlands",
+      "title": "Flamingo Wetland at Sunset",
+      "prompt": "A world-class, hyper-realistic landscape photograph of a shallow wetland lake filled with wading flamingos, silhouetted against a vivid pink and orange sunset sky. Captured with a 70-200mm lens, vivid pink-orange sunset backlight. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "wetland",
+        "flamingo",
+        "sunset",
+        "silhouette",
+        "lake",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 8.9
+    },
+    {
+      "id": "location-095",
+      "category": "Image ",
+      "subcategory": "Lakes & Wetlands",
+      "title": "Aerial View of Braided Wetland Channels",
+      "prompt": "A world-class, hyper-realistic landscape photograph of an aerial view of intricate braided water channels winding through a green wetland delta. Captured with a drone aerial lens, top-down, bright clear midday sunlight. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "wetland",
+        "aerial",
+        "delta",
+        "channels",
+        "green",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.0
+    },
+    {
+      "id": "location-096",
+      "category": "Image ",
+      "subcategory": "Lakes & Wetlands",
+      "title": "Reflection of Aurora on Still Lake",
+      "prompt": "A world-class, hyper-realistic landscape photograph of vivid green aurora borealis reflected perfectly on the still surface of a remote mountain lake. Captured with a 14mm wide-angle lens, long exposure, aurora glow against a dark starlit sky. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "21:9",
+      "style": "photorealistic",
+      "tags": [
+        "aurora",
+        "lake",
+        "reflection",
+        "night",
+        "mountains",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.1
+    },
+    {
+      "id": "location-097",
+      "category": "Image ",
+      "subcategory": "Lakes & Wetlands",
+      "title": "Lily Pad Covered Tropical Lake",
+      "prompt": "A world-class, hyper-realistic landscape photograph of a tranquil tropical lake almost entirely covered in giant lily pads, soft morning mist drifting above the water. Captured with a 35mm lens, soft diffused tropical morning light. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "lilypad",
+        "lake",
+        "tropical",
+        "mist",
+        "tranquil",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.2
+    },
+    {
+      "id": "location-098",
+      "category": "Image ",
+      "subcategory": "Lakes & Wetlands",
+      "title": "Salt Lake Pink Waters",
+      "prompt": "A world-class, hyper-realistic landscape photograph of a striking pink-hued salt lake, the mineral-rich water creating a surreal candy-colored landscape. Captured with a 35mm lens, bright even midday light. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "saltlake",
+        "pink",
+        "surreal",
+        "mineral",
+        "landscape",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.3
+    },
+    {
+      "id": "location-099",
+      "category": "Image ",
+      "subcategory": "Lakes & Wetlands",
+      "title": "Misty Everglades Wetland Sunrise",
+      "prompt": "A world-class, hyper-realistic landscape photograph of a vast wetland at sunrise, tall sawgrass and scattered trees emerging from thin ground mist over still water. Captured with a 35mm lens, warm soft sunrise light. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "21:9",
+      "style": "photorealistic",
+      "tags": [
+        "everglades",
+        "wetland",
+        "sunrise",
+        "mist",
+        "grass",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.4
+    },
+    {
+      "id": "location-100",
+      "category": "Image ",
+      "subcategory": "Lakes & Wetlands",
+      "title": "Turquoise Glacial Lake Valley",
+      "prompt": "A world-class, hyper-realistic landscape photograph of a vivid turquoise glacial lake nestled in a dramatic mountain valley, fed by a distant hanging glacier. Captured with a 24mm lens, bright clear alpine daylight. Ultra-detailed textures, tack-sharp focus across the scene, epic wide dynamic range, award-winning landscape composition, 8K resolution, hyperrealistic, cinematic color grading, trending on social media, awe-inspiring and viral-worthy.",
+      "negative_prompt": "blurry, low resolution, deformed geometry, watermark, text, logo, cartoon, illustration, oversaturated, low detail, jpeg artifacts, out of focus, unnatural colors, lens flare artifacts",
+      "recommended_models": [
+        "Midjourney v6",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux"
+      ],
+      "aspect_ratio": "16:9",
+      "style": "photorealistic",
+      "tags": [
+        "glaciallake",
+        "turquoise",
+        "valley",
+        "mountains",
+        "glacier",
+        "natural location",
+        "viral",
+        "landscape photography"
+      ],
+      "viral_score": 9.5
+    }
+  ]
+}

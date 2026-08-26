@@ -37,6 +37,7 @@
     "react": "^18",
     "react-dom": "^18",
     "tesseract.js": "^7.0.0",
+    "ws": "^8.21.3",
     "xlsx": "^0.18.5"
   },
   "devDependencies": {
@@ -51,5 +52,22 @@
     "postcss": "^8.5.16",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
-  }
+  },
+  "description": "This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fair-gobi/toolhub-ai.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/fair-gobi/toolhub-ai/issues"
+  },
+  "homepage": "https://github.com/fair-gobi/toolhub-ai#readme"
 }
