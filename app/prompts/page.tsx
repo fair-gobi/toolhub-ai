@@ -1,6 +1,6 @@
 import { sql } from '@/lib/db'
 import Link from 'next/link'
-import PromptInfinite from '@/components/PromptInfinite'
+import { PromptInfinite } from '@/components/PromptInfinite'
 import AdminAddButton from '@/components/AdminAddButton'
 
 export const dynamic = 'force-dynamic'
