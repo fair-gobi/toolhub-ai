@@ -1,93 +1,84 @@
 import { sql } from '@/lib/db'
 import Link from 'next/link'
-import { PromptInfinite } from '@/components/PromptInfinite'
-import AdminAddButton from '@/components/AdminAddButton'
 
 export const dynamic = 'force-dynamic'
-export const revalidate = 0
+const PER_PAGE = 24
+function safeCount(r: any) { return Number(r[0]?.total || 0) }
 
-const CATEGORIES = [
-  { key: 'all', label: 'All', color: '#111', db: null },
-  { key: 'image-prompt', label: 'Image', color: '#E8990A', db: 'Image Prompt' },
-  { key: 'video-prompt', label: 'Video', color: '#6366f1', db: 'Video Prompt' },
-  { key: 'marketing', label: 'Marketing', color: '#0F6B5C', db: 'Marketing' },
-  { key: 'design', label: 'Design', color: '#ec4899', db: 'Design' },
-  { key: 'social-media', label: 'Social', color: '#06b6d4', db: 'Social Media' },
-  { key: 'productivity', label: 'Productivity', color: '#52525b', db: 'Productivity' },
-  { key: 'business', label: 'Business', color: '#16a34a', db: 'Business' },
-  { key: 'coding', label: 'Coding', color: '#0ea5e9', db: 'Coding' },
-  { key: 'writing', label: 'Writing', color: '#8b5cf6', db: 'Writing' },
-  { key: 'seo', label: 'SEO', color: '#f97316', db: 'SEO' },
-  { key: 'sales', label: 'Sales', color: '#e11d48', db: 'Sales' },
-  { key: 'education', label: 'Education', color: '#a855f7', db: 'Education' },
-  { key: 'chatgpt-prompt', label: 'ChatGPT', color: '#10b981', db: 'ChatGPT Prompt' },
-  { key: 'claude-prompt', label: 'Claude', color: '#d97706', db: 'Claude Prompt' },
-  { key: 'gemini-prompt', label: 'Gemini', color: '#2563eb', db: 'Gemini Prompt' },
-  { key: 'developer-prompt', label: 'Developer', color: '#000', db: 'Developer Prompt' },
-  { key: 'vfx', label: 'VFX', color: '#ff6600', db: 'VFX Templates' },
-]
+export default async function PromptsPage({ searchParams }: any) {
+  const params = await searchParams
+  const q = (params?.q || '').trim()
+  const page = Math.max(1, Number(params?.page || 1))
+  const category = (params?.category || '').trim()
+  const offset = (page - 1) * PER_PAGE
+  const like = `%${q}%`
 
-const MAP: Record<string, any> = {}
-CATEGORIES.forEach(c=> MAP[c.key]=c)
-function safeCount(r:any){ return Number(r?.[0]?.total?? 0) }
-
-export default async function Page({ searchParams }: { searchParams: Promise<{ cat?: string, q?: string }> }) {
-  const { cat: rawCat, q: rawQ } = await searchParams
-  const activeKey = rawCat || 'all'
-  const active = MAP[activeKey] || MAP['all']
-  const q = (rawQ || '').trim()
-  const perPage = 18
   let prompts: any[] = []
-  let count = 0
+  let total = 0
+
+  // get categories
+  const cats = await sql`SELECT DISTINCT TRIM(category) as cat FROM prompts WHERE category IS NOT NULL AND TRIM(category) <> '' ORDER BY cat ASC LIMIT 50`
 
   try {
-    const like = `%${q}%`
-    if (active.db) {
+    if (category) {
       if (q) {
-        prompts = await sql`SELECT id, title, COALESCE(NULLIF(TRIM(slug),''), id::text) as slug, category, prompt_content FROM prompts WHERE LOWER(TRIM(category)) = LOWER(TRIM(${active.db})) AND (title ILIKE ${like} OR prompt_content ILIKE ${like} OR category ILIKE ${like}) ORDER BY id DESC LIMIT ${perPage}`
-        const r = await sql`SELECT COUNT(*) as total FROM prompts WHERE LOWER(TRIM(category)) = LOWER(TRIM(${active.db})) AND (title ILIKE ${like} OR prompt_content ILIKE ${like} OR category ILIKE ${like})`
-        count = safeCount(r)
+        prompts = await sql`SELECT id, title, COALESCE(NULLIF(TRIM(slug),''), id::text) as slug, category FROM prompts WHERE LOWER(TRIM(category)) = LOWER(TRIM(${category})) AND (title ILIKE ${like} OR prompt_content ILIKE ${like}) ORDER BY id DESC LIMIT ${PER_PAGE} OFFSET ${offset}`
+        const r = await sql`SELECT COUNT(*) as total FROM prompts WHERE LOWER(TRIM(category)) = LOWER(TRIM(${category})) AND (title ILIKE ${like} OR prompt_content ILIKE ${like})`
+        total = safeCount(r)
       } else {
-        prompts = await sql`SELECT id, title, COALESCE(NULLIF(TRIM(slug),''), id::text) as slug, category, prompt_content FROM prompts WHERE LOWER(TRIM(category)) = LOWER(TRIM(${active.db})) ORDER BY id DESC LIMIT ${perPage}`
-        const r = await sql`SELECT COUNT(*) as total FROM prompts WHERE LOWER(TRIM(category)) = LOWER(TRIM(${active.db}))`
-        count = safeCount(r)
+        prompts = await sql`SELECT id, title, COALESCE(NULLIF(TRIM(slug),''), id::text) as slug, category FROM prompts WHERE LOWER(TRIM(category)) = LOWER(TRIM(${category})) ORDER BY id DESC LIMIT ${PER_PAGE} OFFSET ${offset}`
+        const r = await sql`SELECT COUNT(*) as total FROM prompts WHERE LOWER(TRIM(category)) = LOWER(TRIM(${category}))`
+        total = safeCount(r)
       }
     } else {
       if (q) {
-        prompts = await sql`SELECT id, title, COALESCE(NULLIF(TRIM(slug),''), id::text) as slug, category, prompt_content FROM prompts WHERE title ILIKE ${like} OR prompt_content ILIKE ${like} OR category ILIKE ${like} ORDER BY id DESC LIMIT ${perPage}`
+        prompts = await sql`SELECT id, title, COALESCE(NULLIF(TRIM(slug),''), id::text) as slug, category FROM prompts WHERE title ILIKE ${like} OR prompt_content ILIKE ${like} OR category ILIKE ${like} ORDER BY id DESC LIMIT ${PER_PAGE} OFFSET ${offset}`
         const r = await sql`SELECT COUNT(*) as total FROM prompts WHERE title ILIKE ${like} OR prompt_content ILIKE ${like} OR category ILIKE ${like}`
-        count = safeCount(r)
+        total = safeCount(r)
       } else {
-        prompts = await sql`SELECT id, title, COALESCE(NULLIF(TRIM(slug),''), id::text) as slug, category, prompt_content FROM prompts ORDER BY id DESC LIMIT ${perPage}`
+        prompts = await sql`SELECT id, title, COALESCE(NULLIF(TRIM(slug),''), id::text) as slug, category FROM prompts ORDER BY id DESC LIMIT ${PER_PAGE} OFFSET ${offset}`
         const r = await sql`SELECT COUNT(*) as total FROM prompts`
-        count = safeCount(r)
+        total = safeCount(r)
       }
     }
-  } catch (e: any) {}
+  } catch (e: any) {
+    return <div className="p-8">DB Error: {e.message}</div>
+  }
+
+  const totalPages = Math.max(1, Math.ceil(total / PER_PAGE))
 
   return (
-    <div className="min-h-screen bg-[#fcfcf9]">
-      <div className="mx-auto max-w-7xl px-4 py-6">
-        <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-          <h1 className="text-3xl font-black">Prompt Library - {count} prompts</h1>
-          <form action="/prompts" method="GET" className="flex items-center gap-2 w-full md:w-auto">
-            <input type="hidden" name="cat" value={activeKey} />
-            <div className="relative flex-1 md:w-">
-              <input name="q" defaultValue={q} placeholder="Search prompts..." className="w-full h-10 rounded-full border border-zinc-300 bg-white px-4 pr-10 text-sm focus:outline-none focus:ring-2 focus:ring-black" />
-              <span className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-400">🔍</span>
-            </div>
-            <button type="submit" className="h-10 px-6 rounded-full bg-black text-white text-sm font-bold">Search</button>
-            {q && <Link href={`/prompts?cat=${activeKey}`} className="h-10 px-4 rounded-full border bg-white text-sm flex items-center">Clear</Link>}
-          </form>
-        </div>
-        <div className="mt-4 flex gap-2 overflow-x-auto pb-2">
-          {CATEGORIES.map(c=> <Link key={c.key} href={`/prompts?cat=${c.key}${q?`&q=${encodeURIComponent(q)}`:''}`} className={`h-8 px-4 rounded-full border text-xs flex items-center gap-1.5 whitespace-nowrap ${activeKey===c.key?'bg-black text-white border-black':'bg-white'}`}><span className="h-2 w-2 rounded-full" style={{background:c.color}}></span>{c.label}</Link>)}
-        </div>
-        <div className="flex items-center gap-3 mt-4">
-          <h2 className="text-xl font-bold">Prompts {q && <span className="text-sm font-normal text-zinc-500">for "{q}"</span>}</h2>
-          <AdminAddButton />
-        </div>
-        <div className="mt-6"><PromptInfinite initialPrompts={prompts} initialCat={activeKey} initialQ={q} /></div>
+    <div className="mx-auto max-w-6xl px-4 py-8">
+      <h1 className="text-3xl font-bold">Prompts ({total.toLocaleString()})</h1>
+
+      <form className="mt-6 flex gap-2">
+        <input name="q" defaultValue={q} placeholder="Search prompts..." className="border rounded-lg px-4 py-2 w-full" />
+        {category && <input type="hidden" name="category" value={category} />}
+        <button className="px-5 py-2 bg-black text-white rounded-lg">Search</button>
+      </form>
+
+      <div className="mt-4 flex flex-wrap gap-2">
+        <Link href="/prompts" className={`px-3 py-1 rounded-full border text-sm ${!category?'bg-black text-white':'bg-white'}`}>All</Link>
+        {cats.map((c: any) => (
+          <Link key={c.cat} href={`/prompts?category=${encodeURIComponent(c.cat)}${q?`&q=${q}`:''}`} className={`px-3 py-1 rounded-full border text-sm ${category.toLowerCase()===c.cat.toLowerCase()?'bg-black text-white':'bg-white hover:bg-zinc-50'}`}>{c.cat}</Link>
+        ))}
+      </div>
+
+      <div className="mt-8 grid md:grid-cols-3 gap-4">
+        {prompts.map((p: any) => (
+          <Link key={p.id} href={`/prompts/${p.slug}`} className="border rounded-xl p-4 hover:bg-zinc-50">
+            <div className="text- text-zinc-500 uppercase tracking-wider">{p.category || 'General'}</div>
+            <div className="font-medium mt-1 line-clamp-2">{p.title}</div>
+          </Link>
+        ))}
+      </div>
+
+      <div className="mt-8 flex gap-2 justify-center flex-wrap">
+        {Array.from({ length: Math.min(totalPages, 10) }, (_, i) => {
+          const pg = i + 1
+          return <Link key={pg} href={`/prompts?page=${pg}${q?`&q=${q}`:''}${category?`&category=${encodeURIComponent(category)}`:''}`} className={`px-3 py-1 rounded border ${pg===page?'bg-black text-white':'bg-white'}`}>{pg}</Link>
+        })}
+        {totalPages > 10 && <span className="px-2 py-1 text-sm">... {totalPages} pages</span>}
       </div>
     </div>
   )
