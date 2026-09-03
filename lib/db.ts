@@ -1,30 +1,9 @@
-import { neon } from '@neondatabase/serverless';
+import { neon } from '@neondatabase/serverless'
 
-let _sql: any = null;
+const url = process.env.DATABASE_URL || process.env.POSTGRES_URL || process.env.NEON_DATABASE_URL
 
-function getRealSql() {
-  const url = process.env.DATABASE_URL || process.env.POSTGRES_URL || process.env.NEON_DATABASE_URL || '';
-  if (!url) return null;
-  if (!_sql) _sql = neon(url);
-  return _sql;
+if (!url) {
+  throw new Error('DATABASE_URL missing in Vercel env')
 }
 
-// dummy sql that returns [] during build when no DB URL
-const dummySql: any = async () => [];
-dummySql.query = async () => [];
-
-export const sql: any = new Proxy(dummySql, {
-  apply(_target: any, _this: any, args: any[]) {
-    const real = getRealSql();
-    if (!real) {
-      // during `next build` without env, return empty
-      return [];
-    }
-    return real(...args);
-  },
-  get(_target: any, prop: any) {
-    const real = getRealSql();
-    if (!real) return dummySql[prop] || (() => []);
-    return (real as any)[prop];
-  }
-});
+export const sql = neon(url)
