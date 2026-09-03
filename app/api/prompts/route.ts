@@ -4,7 +4,6 @@ import { NextRequest } from 'next/server'
 export const dynamic = 'force-dynamic'
 
 const CAT_MAP: Record<string, string> = {
-  'hero': 'HERO',
   'image-prompt': 'Image Prompt',
   'video-prompt': 'Video Prompt',
   'marketing': 'Marketing',
@@ -59,7 +58,7 @@ export async function GET(req: NextRequest) {
             SELECT id, title, COALESCE(slug, id::text) as slug, category, prompt_content
             FROM prompts
             WHERE LOWER(TRIM(category)) = LOWER(TRIM(${dbCat}))
-            AND (title ILIKE ${'%' + search + '%'} OR prompt_content ILIKE ${'%' + search + '%'})
+            AND (title ILIKE ${'%' + search + '%'} OR prompt_content ILIKE ${'%' + search + '%'} OR category ILIKE ${'%' + search + '%'})
             ORDER BY id DESC
             LIMIT ${limit} OFFSET ${offset}
           `

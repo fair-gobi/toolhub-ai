@@ -39,14 +39,13 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ c
   const perPage = 18
   let prompts: any[] = []
   let count = 0
-  let errMsg = ""
 
   try {
     const like = `%${q}%`
     if (active.db) {
       if (q) {
-        prompts = await sql`SELECT id, title, COALESCE(slug, id::text) as slug, category, prompt_content FROM prompts WHERE LOWER(TRIM(category)) = LOWER(TRIM(${active.db})) AND title ILIKE ${like} ORDER BY id DESC LIMIT ${perPage}`
-        const r = await sql`SELECT COUNT(*) as total FROM prompts WHERE LOWER(TRIM(category)) = LOWER(TRIM(${active.db})) AND title ILIKE ${like}`
+        prompts = await sql`SELECT id, title, COALESCE(slug, id::text) as slug, category, prompt_content FROM prompts WHERE LOWER(TRIM(category)) = LOWER(TRIM(${active.db})) AND (title ILIKE ${like} OR prompt_content ILIKE ${like} OR category ILIKE ${like}) ORDER BY id DESC LIMIT ${perPage}`
+        const r = await sql`SELECT COUNT(*) as total FROM prompts WHERE LOWER(TRIM(category)) = LOWER(TRIM(${active.db})) AND (title ILIKE ${like} OR prompt_content ILIKE ${like} OR category ILIKE ${like})`
         count = safeCount(r)
       } else {
         prompts = await sql`SELECT id, title, COALESCE(slug, id::text) as slug, category, prompt_content FROM prompts WHERE LOWER(TRIM(category)) = LOWER(TRIM(${active.db})) ORDER BY id DESC LIMIT ${perPage}`
@@ -55,8 +54,8 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ c
       }
     } else {
       if (q) {
-        prompts = await sql`SELECT id, title, COALESCE(slug, id::text) as slug, category, prompt_content FROM prompts WHERE title ILIKE ${like} OR prompt_content ILIKE ${like} ORDER BY id DESC LIMIT ${perPage}`
-        const r = await sql`SELECT COUNT(*) as total FROM prompts WHERE title ILIKE ${like} OR prompt_content ILIKE ${like}`
+        prompts = await sql`SELECT id, title, COALESCE(slug, id::text) as slug, category, prompt_content FROM prompts WHERE title ILIKE ${like} OR prompt_content ILIKE ${like} OR category ILIKE ${like} ORDER BY id DESC LIMIT ${perPage}`
+        const r = await sql`SELECT COUNT(*) as total FROM prompts WHERE title ILIKE ${like} OR prompt_content ILIKE ${like} OR category ILIKE ${like}`
         count = safeCount(r)
       } else {
         prompts = await sql`SELECT id, title, COALESCE(slug, id::text) as slug, category, prompt_content FROM prompts ORDER BY id DESC LIMIT ${perPage}`
@@ -64,47 +63,31 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ c
         count = safeCount(r)
       }
     }
-  } catch (e: any) {
-    errMsg = String(e?.message || e)
-  }
+  } catch (e: any) {}
 
   return (
     <div className="min-h-screen bg-[#fcfcf9]">
       <div className="mx-auto max-w-7xl px-4 py-6">
         <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <h1 className="text-3xl font-black">Prompt Library - {count} prompts</h1>
-
-          {/* SEARCH BUTTON AT TOP */}
           <form action="/prompts" method="GET" className="flex items-center gap-2 w-full md:w-auto">
             <input type="hidden" name="cat" value={activeKey} />
             <div className="relative flex-1 md:w-">
-              <input
-                name="q"
-                defaultValue={q}
-                placeholder="Search prompts..."
-                className="w-full h-10 rounded-full border border-zinc-300 bg-white px-4 pr-10 text-sm focus:outline-none focus:ring-2 focus:ring-black"
-              />
+              <input name="q" defaultValue={q} placeholder="Search prompts..." className="w-full h-10 rounded-full border border-zinc-300 bg-white px-4 pr-10 text-sm focus:outline-none focus:ring-2 focus:ring-black" />
               <span className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-400">🔍</span>
             </div>
-            <button type="submit" className="h-10 px-6 rounded-full bg-black text-white text-sm font-bold hover:bg-zinc-800">
-              Search
-            </button>
+            <button type="submit" className="h-10 px-6 rounded-full bg-black text-white text-sm font-bold">Search</button>
             {q && <Link href={`/prompts?cat=${activeKey}`} className="h-10 px-4 rounded-full border bg-white text-sm flex items-center">Clear</Link>}
           </form>
         </div>
-
         <div className="mt-4 flex gap-2 overflow-x-auto pb-2">
-          {CATEGORIES.map(c=> <Link key={c.key} href={`/prompts?cat=${c.key}${q?`&q=${encodeURIComponent(q)}`:''}`} className={`h-8 px-4 rounded-full border text-xs flex items-center gap-1.5 whitespace-nowrap ${activeKey===c.key?'bg-black text-white border-black':'bg-white hover:bg-zinc-50'}`}><span className="h-2 w-2 rounded-full" style={{background:c.color}}></span>{c.label}</Link>)}
+          {CATEGORIES.map(c=> <Link key={c.key} href={`/prompts?cat=${c.key}${q?`&q=${encodeURIComponent(q)}`:''}`} className={`h-8 px-4 rounded-full border text-xs flex items-center gap-1.5 whitespace-nowrap ${activeKey===c.key?'bg-black text-white border-black':'bg-white'}`}><span className="h-2 w-2 rounded-full" style={{background:c.color}}></span>{c.label}</Link>)}
         </div>
-
         <div className="flex items-center gap-3 mt-4">
           <h2 className="text-xl font-bold">Prompts {q && <span className="text-sm font-normal text-zinc-500">for "{q}"</span>}</h2>
           <AdminAddButton />
         </div>
-
-        <div className="mt-6">
-          <PromptInfinite initialPrompts={prompts} initialCat={activeKey} initialQ={q} />
-        </div>
+        <div className="mt-6"><PromptInfinite initialPrompts={prompts} initialCat={activeKey} initialQ={q} /></div>
       </div>
     </div>
   )
