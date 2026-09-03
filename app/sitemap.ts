@@ -1,6 +1,7 @@
 import { sql } from '@/lib/db'
 
 export const dynamic = 'force-dynamic'
+export const revalidate = 0
 
 export default async function sitemap() {
   const base = 'https://www.promptoolhub.com'
@@ -11,18 +12,19 @@ export default async function sitemap() {
     { url: `${base}/prompts?cat=image-prompt`, lastModified: new Date(), priority: 0.8 },
     { url: `${base}/prompts?cat=video-prompt`, lastModified: new Date(), priority: 0.8 },
     { url: `${base}/prompts?cat=marketing`, lastModified: new Date(), priority: 0.7 },
-    { url: `${base}/prompts?cat=design`, lastModified: new Date(), priority: 0.7 },
     { url: `${base}/prompts?cat=business`, lastModified: new Date(), priority: 0.7 },
-    { url: `${base}/prompts?cat=coding`, lastModified: new Date(), priority: 0.7 },
   ]
 
   try {
+    // Use ID as slug fallback - always exists, no WHERE filter
     const rows = await sql`
-      SELECT COALESCE(slug, id::text) as slug, COALESCE(updated_at, created_at, NOW()) as updated_at 
+      SELECT id, COALESCE(NULLIF(slug,''), id::text) as slug, COALESCE(updated_at, created_at, NOW()) as updated_at 
       FROM prompts 
-      WHERE COALESCE(slug, id::text) IS NOT NULL 
+      ORDER BY id DESC
       LIMIT 50000
     `
+
+    console.log(`SITEMAP: found ${rows.length} prompts`)
 
     const promptUrls = rows.map((p: any) => ({
       url: `${base}/prompts/${p.slug}`,
@@ -33,7 +35,7 @@ export default async function sitemap() {
 
     return [...staticUrls, ...promptUrls]
   } catch (e) {
-    console.error('sitemap error', e)
+    console.error('SITEMAP ERROR', e)
     return staticUrls
   }
 }
