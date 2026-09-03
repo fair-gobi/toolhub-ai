@@ -44,21 +44,21 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ c
     const like = `%${q}%`
     if (active.db) {
       if (q) {
-        prompts = await sql`SELECT id, title, COALESCE(slug, id::text) as slug, category, prompt_content FROM prompts WHERE LOWER(TRIM(category)) = LOWER(TRIM(${active.db})) AND (title ILIKE ${like} OR prompt_content ILIKE ${like} OR category ILIKE ${like}) ORDER BY id DESC LIMIT ${perPage}`
+        prompts = await sql`SELECT id, title, COALESCE(NULLIF(TRIM(slug),''), id::text) as slug, category, prompt_content FROM prompts WHERE LOWER(TRIM(category)) = LOWER(TRIM(${active.db})) AND (title ILIKE ${like} OR prompt_content ILIKE ${like} OR category ILIKE ${like}) ORDER BY id DESC LIMIT ${perPage}`
         const r = await sql`SELECT COUNT(*) as total FROM prompts WHERE LOWER(TRIM(category)) = LOWER(TRIM(${active.db})) AND (title ILIKE ${like} OR prompt_content ILIKE ${like} OR category ILIKE ${like})`
         count = safeCount(r)
       } else {
-        prompts = await sql`SELECT id, title, COALESCE(slug, id::text) as slug, category, prompt_content FROM prompts WHERE LOWER(TRIM(category)) = LOWER(TRIM(${active.db})) ORDER BY id DESC LIMIT ${perPage}`
+        prompts = await sql`SELECT id, title, COALESCE(NULLIF(TRIM(slug),''), id::text) as slug, category, prompt_content FROM prompts WHERE LOWER(TRIM(category)) = LOWER(TRIM(${active.db})) ORDER BY id DESC LIMIT ${perPage}`
         const r = await sql`SELECT COUNT(*) as total FROM prompts WHERE LOWER(TRIM(category)) = LOWER(TRIM(${active.db}))`
         count = safeCount(r)
       }
     } else {
       if (q) {
-        prompts = await sql`SELECT id, title, COALESCE(slug, id::text) as slug, category, prompt_content FROM prompts WHERE title ILIKE ${like} OR prompt_content ILIKE ${like} OR category ILIKE ${like} ORDER BY id DESC LIMIT ${perPage}`
+        prompts = await sql`SELECT id, title, COALESCE(NULLIF(TRIM(slug),''), id::text) as slug, category, prompt_content FROM prompts WHERE title ILIKE ${like} OR prompt_content ILIKE ${like} OR category ILIKE ${like} ORDER BY id DESC LIMIT ${perPage}`
         const r = await sql`SELECT COUNT(*) as total FROM prompts WHERE title ILIKE ${like} OR prompt_content ILIKE ${like} OR category ILIKE ${like}`
         count = safeCount(r)
       } else {
-        prompts = await sql`SELECT id, title, COALESCE(slug, id::text) as slug, category, prompt_content FROM prompts ORDER BY id DESC LIMIT ${perPage}`
+        prompts = await sql`SELECT id, title, COALESCE(NULLIF(TRIM(slug),''), id::text) as slug, category, prompt_content FROM prompts ORDER BY id DESC LIMIT ${perPage}`
         const r = await sql`SELECT COUNT(*) as total FROM prompts`
         count = safeCount(r)
       }
